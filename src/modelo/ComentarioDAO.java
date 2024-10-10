@@ -1,4 +1,4 @@
-package dao;
+package modelo;
 
 import modelo.MiConexion;
 import java.sql.Connection;
@@ -22,7 +22,7 @@ public class ComentarioDAO {
     
     // Create
     public int agregar(Comentario bean, int numeroEvaluacion) {
-        String sql = "INSERT INTO comentario (fecha_hora, contenido, numero_evaluacion, codigo_cliente) VALUES (?,?,?,?)";
+        String sql = "{CALL AgregarComentario(?,?,?,?)}";
         
         try {
             // Conectar
@@ -44,7 +44,7 @@ public class ComentarioDAO {
     
     // Update
     public int actualizar(Comentario bean) {
-        String sql = "UPDATE comentario SET fecha_hora = ?, contenido = ? WHERE id_comentario = ?";
+        String sql = "{CALL actualizarComentario(?, ?, ?)}";
         
         try {
             // Conectar
@@ -65,13 +65,14 @@ public class ComentarioDAO {
     
     // Delete
     public void eliminar(int id) {
-        String sql = "DELETE FROM comentario WHERE id_comentario = " + id;
+        String sql = "{CALL eliminarComentario(?)}";
         
         try {
             // Conectar
             con = conectar.obtenerConexion();
             // Forma la sentencia delete con la PK brindada
             ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
             // Ejecuta el delete
             ps.executeUpdate();
         }
@@ -83,7 +84,7 @@ public class ComentarioDAO {
     // Reads
     public List listarPorCliente(int codigoCliente) {
         List<Comentario> lista = new ArrayList<>();
-        String sql = "SELECT * FROM comentario WHERE codigo_cliente = ?";
+        String sql = "{CALL listarComentariosPorCliente(?)}";
         
         try {
             // Conecta y prepara la consulta
@@ -114,7 +115,7 @@ public class ComentarioDAO {
     
     public List listarPorEvaluacion(int numeroEvaluacion) {
         List<Comentario> lista = new ArrayList<>();
-        String sql = "SELECT * FROM comentario WHERE numero_evaluacion = ?";
+        String sql = "{CALL listarComentariosPorEvaluacion(?)}";
         
         try {
             // Conecta y prepara la consulta
@@ -145,9 +146,7 @@ public class ComentarioDAO {
     
     public List listarPorSolicitud(int idSolicitud) {
         List<Comentario> lista = new ArrayList<>();
-        String sql = "SELECT * FROM comentario c "
-                + "INNER JOIN evaluacion ev ON c.numero_evaluacion = ev.numero_evaluacion "
-                + "WHERE ev.id_solicitud = ?";
+        String sql = "{CALL listarComentariosPorSolicitud(?)}";
         
         try {
             // Conecta y prepara la consulta
@@ -180,7 +179,7 @@ public class ComentarioDAO {
         // Si no se encuentra ninguna coincidencia, devuelve un objeto de id = -1
         Comentario bean = new Comentario();
         bean.setIdComentario(-1);
-        String sql = "SELECT * FROM comentario WHERE id_comentario = ?";
+        String sql = "{CALL buscarComentarioPorId(?)}";
         
         try {
             // Conecta y prepara la consulta

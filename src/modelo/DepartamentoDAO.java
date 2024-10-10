@@ -1,5 +1,5 @@
 
-package dao;
+package modelo;
 
 import modelo.MiConexion;
 import java.sql.Connection;
@@ -18,7 +18,7 @@ public class DepartamentoDAO {
     
     // Create
     public int agregar(Departamento bean) {
-        String sql = "INSERT INTO departamento (nombre, email, telefono) VALUES (?,?,?)";
+        String sql = "{CALL agregarDepartamento(?,?,?)}";
         
         try {
             // Conectar
@@ -39,7 +39,7 @@ public class DepartamentoDAO {
     
     // Update
     public int actualizar(Departamento bean) {
-        String sql = "UPDATE departamento SET nombre = ?, email = ?, telefono = ? WHERE codigo_departamento = ?";
+        String sql = "{CALL actualizarDepartamento(?,?,?,?)}";
         
         try {
             // Conectar
@@ -62,13 +62,14 @@ public class DepartamentoDAO {
     
     // Delete
     public void eliminar(int id) {
-        String sql = "DELETE FROM departamento WHERE codigo_departamento = " + id;
+        String sql = "{CALL eliminarDepartamento(?)}";
         
         try {
             // Conectar
             con = conectar.obtenerConexion();
             // Forma la sentencia delete con la PK brindada
             ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
             // Ejecuta el delete
             ps.executeUpdate();
         }
@@ -80,7 +81,7 @@ public class DepartamentoDAO {
     // Reads
     public List listarTodos() {
         List<Departamento> lista = new ArrayList<>();
-        String sql = "SELECT * FROM departamento";
+        String sql = "{CALL listarDepartamentos()}";
         
         try {
             // Conecta y ejecuta consulta
@@ -109,10 +110,7 @@ public class DepartamentoDAO {
         // Si no se encuentra ninguna coincidencia, devuelve un objeto de id = -1
         Departamento bean = new Departamento();
         bean.setCodigoDepartamento(-1);
-        String sql = "SELECT d.codigo_departamento, d.nombre, d.email, d.telefono "
-                + "FROM departamento d "
-                + "INNER JOIN empleado e ON d.codigo_departamento = e.codigo_departamento "
-                + "WHERE e.codigo_empleado = ?;";
+        String sql = "{CALL buscarDepartamentoPorEmpleado(?)}";
         
         try {
             // Conecta y prepara la consulta
@@ -140,7 +138,7 @@ public class DepartamentoDAO {
         // Si no se encuentra ninguna coincidencia, devuelve un objeto de id = -1
         Departamento bean = new Departamento();
         bean.setCodigoDepartamento(-1);
-        String sql = "SELECT * FROM departamento WHERE codigo_departamento = ?";
+        String sql = "{CALL buscarDepartamentoPorCodigo(?)}";
         
         try {
             // Conecta y prepara la consulta

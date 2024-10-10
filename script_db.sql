@@ -1,8 +1,8 @@
 -- DDL
 -- DROP DATABASE ProyectoTambo;
 -- Crear la base de datos
-CREATE DATABASE ProyectoTambo;
-USE ProyectoTambo;
+CREATE DATABASE ProyectoTamboaaa;
+USE ProyectoTamboaaa;
 
 -- --------------------------------------------------------------
 -- Crear tabla Cliente
@@ -269,3 +269,938 @@ VALUES
 ('2024-05-07 14:19:00', 1, 'Enviado por el cliente', 9, null),
 ('2024-05-08 11:00:00', 2, 'Solicitud aceptada. Enviada al área de Calidad', 9, 1),
 ('2024-05-14 13:32:00', 1, 'Enviado por el cliente', 10, null);
+
+------------------------------------------------------------------------------
+-- PROCEDIMIENTOS ALMECENADOS
+
+
+-- PROCEDIMIENTOS ALMACENADOS - DAOcliente
+DELIMITER //
+CREATE PROCEDURE agregar_cliente(
+    IN p_nombres VARCHAR(100),
+    IN p_apellidos VARCHAR(100),
+    IN p_email VARCHAR(100),
+    IN p_telefono VARCHAR(15),
+    IN p_usuario VARCHAR(50),
+    IN p_clave VARCHAR(255),
+    IN p_direccion VARCHAR(255)
+)
+BEGIN
+    INSERT INTO cliente (nombres, apellidos, email, telefono, usuario, clave, direccion)
+    VALUES (p_nombres, p_apellidos, p_email, p_telefono, p_usuario, p_clave, p_direccion);
+END //
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE ActualizarCliente(
+    IN p_codigo_cliente INT,
+    IN p_nombres VARCHAR(30),
+    IN p_apellidos VARCHAR(30),
+    IN p_email VARCHAR(80),
+    IN p_telefono VARCHAR(10),
+    IN p_usuario VARCHAR(80),
+    IN p_clave VARCHAR(30),
+    IN p_direccion VARCHAR(80)
+)
+BEGIN
+    UPDATE Cliente 
+    SET nombres = p_nombres,
+        apellidos = p_apellidos,
+        email = p_email,
+        telefono = p_telefono,
+        usuario = p_usuario,
+        clave = p_clave,
+        direccion = p_direccion
+    WHERE codigo_cliente = p_codigo_cliente;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE EliminarCliente(
+    IN p_codigo_cliente INT
+)
+BEGIN
+    DELETE FROM Cliente WHERE codigo_cliente = p_codigo_cliente;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE listar_todos_clientes()
+BEGIN
+    SELECT * FROM Cliente;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE listar_clientes_por_usuario(IN p_usuario VARCHAR(50))
+BEGIN
+    SELECT * FROM cliente WHERE usuario LIKE CONCAT(p_usuario, '%');
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE buscar_cliente_por_credenciales(IN p_usuario VARCHAR(50), IN p_clave VARCHAR(50))
+BEGIN
+    SELECT * FROM cliente WHERE usuario = p_usuario AND clave = p_clave;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE buscar_cliente_por_codigo(IN p_codigo_cliente INT)
+BEGIN
+    SELECT * FROM cliente WHERE codigo_cliente = p_codigo_cliente;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE buscar_cliente_por_solicitud(IN p_id_solicitud INT)
+BEGIN
+    SELECT c.* FROM cliente c
+    INNER JOIN solicitud s ON c.codigo_cliente = s.codigo_cliente
+    WHERE s.id_solicitud = p_id_solicitud;
+END //
+
+DELIMITER ;
+-- FINNNNNN PROCEDIMIENTOS ALMACENADOS - DAOcliente
+
+-- PROCEDIMIENTOS ALMACENADOS - DAOarticulos
+DELIMITER //
+CREATE PROCEDURE agregar_articulo(
+    IN p_nombre VARCHAR(100),
+    IN p_categoria VARCHAR(100),
+    IN p_precio DECIMAL(10,2),
+    IN p_stock INT
+)
+BEGIN
+    INSERT INTO articulo (nombre, categoria, precio, stock)
+    VALUES (p_nombre, p_categoria, p_precio, p_stock);
+END //
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE actualizar_articulo(
+    IN p_nombre VARCHAR(255),
+    IN p_categoria VARCHAR(255),
+    IN p_precio DOUBLE,
+    IN p_stock INT,
+    IN p_codigo_producto INT
+)
+BEGIN
+    UPDATE articulo 
+    SET nombre = p_nombre, 
+        categoria = p_categoria, 
+        precio = p_precio, 
+        stock = p_stock 
+    WHERE codigo_producto = p_codigo_producto;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE eliminar_articulo(
+    IN p_codigo_producto INT
+)
+BEGIN
+    DELETE FROM articulo WHERE codigo_producto = p_codigo_producto;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE ListarArticulos()
+BEGIN
+    SELECT * FROM articulo;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE BuscarArticuloPorCodigo(IN codigo INT)
+BEGIN
+    SELECT * FROM articulo WHERE codigo_producto = codigo;
+END //
+
+DELIMITER ;
+
+-- FINNNNNN PROCEDIMIENTOS ALMACENADOS - DAOarticulos
+
+
+-- PROCEDIMIENTOS ALM - DAO
+DELIMITER //
+
+CREATE PROCEDURE AgregarComentario(
+    IN p_fecha_hora DATETIME,
+    IN p_contenido TEXT,
+    IN p_numero_evaluacion INT,
+    IN p_codigo_cliente INT
+)
+BEGIN
+    INSERT INTO comentario (fecha_hora, contenido, numero_evaluacion, codigo_cliente)
+    VALUES (p_fecha_hora, p_contenido, p_numero_evaluacion, p_codigo_cliente);
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE actualizarComentario(
+    IN p_fecha_hora DATETIME,
+    IN p_contenido TEXT,
+    IN p_id_comentario INT
+)
+BEGIN
+    UPDATE comentario
+    SET fecha_hora = p_fecha_hora,
+        contenido = p_contenido
+    WHERE id_comentario = p_id_comentario;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE eliminarComentario(
+    IN p_id_comentario INT
+)
+BEGIN
+    DELETE FROM comentario WHERE id_comentario = p_id_comentario;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarComentariosPorCliente(
+    IN p_codigo_cliente INT
+)
+BEGIN
+    SELECT * FROM comentario WHERE codigo_cliente = p_codigo_cliente;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarComentariosPorEvaluacion(
+    IN p_numero_evaluacion INT
+)
+BEGIN
+    SELECT * FROM comentario WHERE numero_evaluacion = p_numero_evaluacion;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarComentariosPorSolicitud(
+    IN p_id_solicitud INT
+)
+BEGIN
+    SELECT c.* 
+    FROM comentario c 
+    INNER JOIN evaluacion ev ON c.numero_evaluacion = ev.numero_evaluacion 
+    WHERE ev.id_solicitud = p_id_solicitud;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE buscarComentarioPorId(
+    IN p_id_comentario INT
+)
+BEGIN
+    SELECT * FROM comentario WHERE id_comentario = p_id_comentario;
+END //
+
+DELIMITER ;
+ 
+-- FIN PROC ALM - DAOComentario
+
+
+
+-- PROD ALM - DAOCompra
+DELIMITER //
+
+CREATE PROCEDURE agregar_compra_reclamada(
+    IN p_canal_compra VARCHAR(255),
+    IN p_fecha_compra DATETIME,
+    IN p_direccion VARCHAR(255),
+    IN p_monto_reclamado DECIMAL(10, 2),
+    IN p_nombre_servicio VARCHAR(255),
+    IN p_codigo_producto INT,
+    IN p_id_solicitud INT
+)
+BEGIN    
+    INSERT INTO comprareclamada (canal_compra, fecha_compra, direccion, monto_reclamado, nombre_servicio, codigo_producto, id_solicitud)
+    VALUES (p_canal_compra, p_fecha_compra, p_direccion, p_monto_reclamado, p_nombre_servicio, p_codigo_producto, p_id_solicitud);
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE actualizar_compra_reclamada(
+    IN p_numero_compra INT,
+    IN p_canal_compra VARCHAR(255),
+    IN p_fecha_compra DATETIME,
+    IN p_direccion VARCHAR(255),
+    IN p_monto_reclamado DECIMAL(10, 2),
+    IN p_nombre_servicio VARCHAR(255),
+    IN p_codigo_producto INT
+)
+BEGIN
+    UPDATE comprareclamada 
+    SET canal_compra = p_canal_compra,
+        fecha_compra = p_fecha_compra,
+        direccion = p_direccion,
+        monto_reclamado = p_monto_reclamado,
+        nombre_servicio = p_nombre_servicio,
+        codigo_producto = p_codigo_producto
+    WHERE numero_compra = p_numero_compra;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE eliminar_compra_reclamada(IN p_numero_compra INT)
+BEGIN
+    DELETE FROM comprareclamada WHERE numero_compra = p_numero_compra;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE buscarCompraReclamadaID(IN p_numero_compra INT)
+BEGIN
+    SELECT * FROM comprareclamada WHERE numero_compra = p_numero_compra;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE buscarCompraReclamadaPorSolicitud(IN p_id_solicitud INT)
+BEGIN
+    SELECT * FROM comprareclamada WHERE id_solicitud = p_id_solicitud;
+END //
+
+DELIMITER ;
+
+-- FIN PROC ALM - DAOCompra
+
+
+
+
+-- PROC ALM - DAOdepartamentos
+DELIMITER //
+
+CREATE PROCEDURE agregarDepartamento(
+    IN p_nombre VARCHAR(255),
+    IN p_email VARCHAR(255),
+    IN p_telefono VARCHAR(15)
+)
+BEGIN
+    INSERT INTO departamento (nombre, email, telefono) VALUES (p_nombre, p_email, p_telefono);
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE actualizarDepartamento(
+    IN p_nombre VARCHAR(255),
+    IN p_email VARCHAR(255),
+    IN p_telefono VARCHAR(15),
+    IN p_codigo_departamento INT
+)
+BEGIN
+    UPDATE departamento 
+    SET nombre = p_nombre, 
+        email = p_email, 
+        telefono = p_telefono 
+    WHERE codigo_departamento = p_codigo_departamento;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE eliminarDepartamento(
+    IN p_codigo_departamento INT
+)
+BEGIN
+    DELETE FROM departamento WHERE codigo_departamento = p_codigo_departamento;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarDepartamentos()
+BEGIN
+    SELECT * FROM departamento;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE buscarDepartamentoPorEmpleado(IN codigoEmpleado INT)
+BEGIN
+    SELECT d.codigo_departamento, d.nombre, d.email, d.telefono
+    FROM departamento d
+    INNER JOIN empleado e ON d.codigo_departamento = e.codigo_departamento
+    WHERE e.codigo_empleado = codigoEmpleado;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE buscarDepartamentoPorCodigo(IN codigoDepartamento INT)
+BEGIN
+    SELECT * FROM departamento WHERE codigo_departamento = codigoDepartamento;
+END //
+
+DELIMITER ;
+
+-- FIN PROC ALM - DAOdepartamento
+
+
+-- PROC ALM - DAOEmpleados
+DELIMITER //
+
+CREATE PROCEDURE agregarEmpleado(
+    IN nombres VARCHAR(50),
+    IN apellidos VARCHAR(50),
+    IN email VARCHAR(100),
+    IN telefono VARCHAR(15),
+    IN usuario VARCHAR(30),
+    IN clave VARCHAR(30),
+    IN codigoDepartamento INT
+)
+BEGIN
+    INSERT INTO empleado (nombres, apellidos, email, telefono, usuario, clave, codigo_departamento)
+    VALUES (nombres, apellidos, email, telefono, usuario, clave, codigoDepartamento);
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE actualizarEmpleado(
+    IN nombres VARCHAR(50),
+    IN apellidos VARCHAR(50),
+    IN email VARCHAR(100),
+    IN telefono VARCHAR(15),
+    IN usuario VARCHAR(30),
+    IN clave VARCHAR(30),
+    IN codigoDepartamento INT,
+    IN codigoEmpleado INT
+)
+BEGIN
+    UPDATE empleado
+    SET nombres = nombres,
+        apellidos = apellidos,
+        email = email,
+        telefono = telefono,
+        usuario = usuario,
+        clave = clave,
+        codigo_departamento = codigoDepartamento
+    WHERE codigo_empleado = codigoEmpleado;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE eliminarEmpleado(IN codigoEmpleado INT)
+BEGIN
+    DELETE FROM empleado WHERE codigo_empleado = codigoEmpleado;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarEmpleados()
+BEGIN
+    SELECT * FROM empleado;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarEmpleadosPorUsuario(IN p_usuario VARCHAR(255))
+BEGIN
+    SELECT * FROM empleado WHERE usuario LIKE CONCAT(p_usuario, '%');
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarEmpleadosPorDepartamento(IN p_codigoDepartamento INT)
+BEGIN
+    SELECT * FROM empleado WHERE codigo_departamento = p_codigoDepartamento;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarEmpleadosPorUsuarioYDepartamento(IN p_usuario VARCHAR(255), IN p_codigoDepartamento INT)
+BEGIN
+    SELECT * FROM empleado WHERE usuario LIKE CONCAT(p_usuario, '%') AND codigo_departamento = p_codigoDepartamento;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE buscarEmpleadoPorCredenciales(IN p_usuario VARCHAR(255), IN p_clave VARCHAR(255))
+BEGIN
+    SELECT * FROM empleado WHERE usuario = p_usuario AND clave = p_clave;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE buscarEmpleadoPorCodigo(IN p_codigo_empleado INT)
+BEGIN
+    SELECT * FROM empleado WHERE codigo_empleado = p_codigo_empleado;
+END //
+
+DELIMITER ;
+-- FIN PROC ALM - DAOEmpleados
+
+
+
+-- PROC ALM - DAOEvaluacion
+DELIMITER //
+
+CREATE PROCEDURE agregarEvaluacion(
+    IN p_fecha_hora DATETIME,
+    IN p_estado INT,
+    IN p_descripcion VARCHAR(255),
+    IN p_id_solicitud INT,
+    IN p_codigo_empleado INT
+)
+BEGIN
+    INSERT INTO evaluacion (fecha_hora, estado, descripcion, id_solicitud, codigo_empleado)
+    VALUES (p_fecha_hora, p_estado, p_descripcion, p_id_solicitud, p_codigo_empleado);
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE actualizarEvaluacion(
+    IN p_numero_evaluacion INT,
+    IN p_fecha_hora DATETIME,
+    IN p_estado INT,
+    IN p_descripcion VARCHAR(255)
+)
+BEGIN
+    UPDATE evaluacion
+    SET fecha_hora = p_fecha_hora,
+        estado = p_estado,
+        descripcion = p_descripcion
+    WHERE numero_evaluacion = p_numero_evaluacion;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE eliminarEvaluacion(IN p_numero_evaluacion INT)
+BEGIN
+    DELETE FROM evaluacion WHERE numero_evaluacion = p_numero_evaluacion;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarEvaluacionesPorSolicitud(IN p_id_solicitud INT)
+BEGIN
+    SELECT * FROM evaluacion WHERE id_solicitud = p_id_solicitud;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarEvaluacionesPorEmpleado(IN p_codigo_empleado INT)
+BEGIN
+    SELECT * FROM evaluacion WHERE codigo_empleado = p_codigo_empleado;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE buscarEvaluacionPorId(IN p_numero_evaluacion INT)
+BEGIN
+    SELECT * FROM evaluacion WHERE numero_evaluacion = p_numero_evaluacion;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE buscarUltimaEvaluacionDeSolicitud(IN p_id_solicitud INT)
+BEGIN
+    SELECT * FROM evaluacion 
+    WHERE id_solicitud = p_id_solicitud 
+    ORDER BY fecha_hora DESC 
+    LIMIT 1;
+END //
+
+DELIMITER ;
+
+-- FIN PROC ALM - DAOEvaluaciones
+
+
+
+
+-- PROC ALM - DAOSolicitud
+DELIMITER //
+CREATE PROCEDURE agregarSolicitud(
+    IN p_tipo_solicitud VARCHAR(255),
+    IN p_fecha_ingreso DATE,
+    IN p_estado_actual INT,
+    IN p_codigo_cliente INT,
+    IN p_codigo_departamento INT,
+    OUT p_id_solicitud INT
+)
+BEGIN
+    INSERT INTO solicitud (tipo_solicitud, fecha_ingreso, estado_actual, codigo_cliente, codigo_departamento_evaluador)
+    VALUES (p_tipo_solicitud, p_fecha_ingreso, p_estado_actual, p_codigo_cliente, p_codigo_departamento);
+    
+    SET p_id_solicitud = LAST_INSERT_ID();
+END //
+DELIMITER;
+
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE agregarMotivo(
+    IN p_categoria VARCHAR(255),
+    IN p_descripcion VARCHAR(255),
+    IN p_id_solicitud INT
+)
+BEGIN
+    INSERT INTO motivo (categoria, descripcion, id_solicitud) 
+    VALUES (p_categoria, p_descripcion, p_id_solicitud);
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE actualizarSolicitud(
+    IN p_estado_actual INT,
+    IN p_codigo_departamento_evaluador INT,
+    IN p_id_solicitud INT
+)
+BEGIN
+    -- Actualiza el registro en la tabla solicitud
+    UPDATE solicitud 
+    SET estado_actual = p_estado_actual, 
+        codigo_departamento_evaluador = p_codigo_departamento_evaluador 
+    WHERE id_solicitud = p_id_solicitud;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE eliminarSolicitud(
+    IN p_id_solicitud INT
+)
+BEGIN
+    DELETE FROM solicitud 
+    WHERE id_solicitud = p_id_solicitud;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarTodasSolicitudes()
+BEGIN
+    SELECT 
+        s.id_solicitud,
+        s.tipo_solicitud,
+        s.fecha_ingreso,
+        s.estado_actual,
+        s.codigo_cliente,
+        s.codigo_departamento_evaluador,
+        m.categoria,
+        m.descripcion
+    FROM 
+        solicitud s
+    INNER JOIN 
+        motivo m ON s.id_solicitud = m.id_solicitud;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarSolicitudesPorCliente(IN codigoCliente INT)
+BEGIN
+    SELECT 
+        s.id_solicitud,
+        s.tipo_solicitud,
+        s.fecha_ingreso,
+        s.estado_actual,
+        s.codigo_cliente,
+        s.codigo_departamento_evaluador,
+        m.categoria,
+        m.descripcion
+    FROM 
+        solicitud s
+    INNER JOIN 
+        motivo m ON s.id_solicitud = m.id_solicitud
+    WHERE 
+        s.codigo_cliente = codigoCliente;
+END //
+
+DELIMITER ;
+
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarSolicitudesPorDepartamento(IN codigoDepartamento INT)
+BEGIN
+    SELECT 
+        s.id_solicitud,
+        s.tipo_solicitud,
+        s.fecha_ingreso,
+        s.estado_actual,
+        s.codigo_cliente,
+        s.codigo_departamento_evaluador,
+        m.categoria,
+        m.descripcion
+    FROM 
+        solicitud s
+    INNER JOIN 
+        motivo m ON s.id_solicitud = m.id_solicitud
+    WHERE 
+        s.codigo_departamento_evaluador = codigoDepartamento;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE listarSolicitudesPorFecha(IN fechaInicio DATE, IN fechaFin DATE)
+BEGIN
+    SELECT 
+        s.id_solicitud,
+        s.tipo_solicitud,
+        s.fecha_ingreso,
+        s.estado_actual,
+        s.codigo_cliente,
+        s.codigo_departamento_evaluador,
+        m.categoria,
+        m.descripcion
+    FROM 
+        solicitud s
+    INNER JOIN 
+        motivo m ON s.id_solicitud = m.id_solicitud
+    WHERE 
+        s.fecha_ingreso BETWEEN fechaInicio AND fechaFin;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarSolicitudesPorEstadoYFecha(IN estado INT, IN fechaInicio DATE, IN fechaFin DATE)
+BEGIN
+    SELECT 
+        s.id_solicitud,
+        s.tipo_solicitud,
+        s.fecha_ingreso,
+        s.estado_actual,
+        s.codigo_cliente,
+        s.codigo_departamento_evaluador,
+        m.categoria,
+        m.descripcion
+    FROM 
+        solicitud s
+    INNER JOIN 
+        motivo m ON s.id_solicitud = m.id_solicitud
+    WHERE 
+        s.estado_actual = estado AND
+        s.fecha_ingreso BETWEEN fechaInicio AND fechaFin;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarSolicitudesPorEstadoYCliente(IN estado INT, IN codigoCliente INT)
+BEGIN
+    SELECT 
+        s.id_solicitud,
+        s.tipo_solicitud,
+        s.fecha_ingreso,
+        s.estado_actual,
+        s.codigo_cliente,
+        s.codigo_departamento_evaluador,
+        m.categoria,
+        m.descripcion
+    FROM 
+        solicitud s
+    INNER JOIN 
+        motivo m ON s.id_solicitud = m.id_solicitud
+    WHERE 
+        s.estado_actual = estado AND
+        s.codigo_cliente = codigoCliente;
+END //
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarSolicitudesPorEstadoYDepartamento(IN estado INT, IN codigoDepartamento INT)
+BEGIN
+    SELECT 
+        s.id_solicitud,
+        s.tipo_solicitud,
+        s.fecha_ingreso,
+        s.estado_actual,
+        s.codigo_cliente,
+        s.codigo_departamento_evaluador,
+        m.categoria,
+        m.descripcion
+    FROM 
+        solicitud s
+    INNER JOIN 
+        motivo m ON s.id_solicitud = m.id_solicitud
+    WHERE 
+        s.estado_actual = estado AND
+        s.codigo_departamento_evaluador = codigoDepartamento;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE buscarSolicitudPorId(IN idSolicitud INT)
+BEGIN
+    SELECT 
+        s.id_solicitud,
+        s.tipo_solicitud,
+        s.fecha_ingreso,
+        s.estado_actual,
+        s.codigo_cliente,
+        s.codigo_departamento_evaluador,
+        m.categoria,
+        m.descripcion
+    FROM 
+        solicitud s
+    INNER JOIN 
+        motivo m ON s.id_solicitud = m.id_solicitud
+    WHERE 
+        s.id_solicitud = idSolicitud;
+END //
+
+DELIMITER ;
+-- FIN PROC ALM - DAOSolicitud

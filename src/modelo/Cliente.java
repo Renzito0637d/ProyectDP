@@ -1,6 +1,5 @@
 package modelo;
 
-import dao.SolicitudDAO;
 import java.util.ArrayList;
 
 public class Cliente extends Persona {

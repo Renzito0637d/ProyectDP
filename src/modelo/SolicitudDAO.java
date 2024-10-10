@@ -1,5 +1,6 @@
-package dao;
+package modelo;
 
+import com.mysql.cj.jdbc.CallableStatement;
 import modelo.MiConexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,59 +26,58 @@ public class SolicitudDAO {
     
     // Create
     public int agregar(Solicitud bean, int codigoCliente) {
-        String sql = "INSERT INTO solicitud (tipo_solicitud, fecha_ingreso, estado_actual, "
-                + "codigo_cliente, codigo_departamento_evaluador) VALUES (?,?,?,?,?)";
+    String sql = "{CALL agregarSolicitud(?, ?, ?, ?, ?, ?)}";
+
+    try {
+        // Conectar
+        con = conectar.obtenerConexion();
+        // Se prepara la sentencia como CallableStatement
+        CallableStatement cs = (CallableStatement) con.prepareCall(sql);
         
-        try {
-            // Conectar
-            con = conectar.obtenerConexion();
-            // Se prepara la sentencia con la capacidad de recuperar la PK creada en la inserción
-            ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-            ResultSet generatedKeys;
-            // Convierte el objeto en una sentencia SQL de insert            
-            ps.setString(1, bean.getTipoSolicitud());
-            ps.setString(2, bean.getFechaIngreso().format(fmtSQL));
-            ps.setInt(3, bean.getEstadoActual());
-            ps.setInt(4, codigoCliente);
-            // Por defecto, todas las solicitudes recién creadas están a cargo 
-            // del departamento de Atención al Cliente (codigoDepartamento = 1)
-            ps.setInt(5, 1); 
-            
-            // Ejecuta el insert y devuelve el número de filas alteradas (debería ser 1) 
-            int res = ps.executeUpdate(); // 1
-            // Recuperar la PK de la fila insertada
-            generatedKeys = ps.getGeneratedKeys();
-            if (generatedKeys.next()) {
-                int idSolicitud = generatedKeys.getInt(1);
-                
-                // Insertar fila en la tabla Motivo
-                agregarMotivo(bean, idSolicitud);
-                
-                // Insertar fila en la tabla CompraReclamada
-                compraDAO = new CompraDAO();
-                res *= compraDAO.agregar(bean.getCompra(), idSolicitud);
-                
-                
-                // Insertar 1 fila en la tabla Evaluacion
-                // Por defecto, la primera evaluacion se crea con la fecha-hora actual, estado en espera,
-                // una descripcion predeterminada, y código de empleado null
-                Evaluacion eval = new Evaluacion();
-                eval.setFechaHoraActual();
-                eval.setEstado(Evaluacion.EN_ESPERA);
-                eval.setDescripcion("Enviado por el cliente");
-                eval.setEmpleado(null);
-                evaluacionDAO = new EvaluacionDAO();
-                res *= evaluacionDAO.agregar(eval, idSolicitud);
-            }
-            return res; // 1
-        }
-        catch (SQLException e) {
-            return e.getErrorCode();
-        }
+        // Establecer parámetros de entrada
+        cs.setString(1, bean.getTipoSolicitud());
+        cs.setString(2, bean.getFechaIngreso().format(fmtSQL));
+        cs.setInt(3, bean.getEstadoActual());
+        cs.setInt(4, codigoCliente);
+        cs.setInt(5, 1); // Código de departamento por defecto
+
+        // Registrar parámetro de salida
+        cs.registerOutParameter(6, java.sql.Types.INTEGER);
+
+        // Ejecutar el procedimiento
+        cs.execute();
+
+        // Recuperar la clave primaria generada
+        int idSolicitud = cs.getInt(6);
+
+        // Insertar fila en la tabla Motivo
+        agregarMotivo(bean, idSolicitud);
+        
+        // Insertar fila en la tabla CompraReclamada
+        compraDAO = new CompraDAO();
+        int resCompra = compraDAO.agregar(bean.getCompra(), idSolicitud);
+        
+        // Insertar 1 fila en la tabla Evaluacion
+        Evaluacion eval = new Evaluacion();
+        eval.setFechaHoraActual();
+        eval.setEstado(Evaluacion.EN_ESPERA);
+        eval.setDescripcion("Enviado por el cliente");
+        eval.setEmpleado(null);
+        evaluacionDAO = new EvaluacionDAO();
+        int resEvaluacion = evaluacionDAO.agregar(eval, idSolicitud);
+
+        // Retornar la suma de las inserciones (si lo deseas)
+        return 1; // O cualquier otra lógica que necesites
+
+    } catch (SQLException e) {
+        return e.getErrorCode();
     }
+}
+
+
     
     public int agregarMotivo(Solicitud bean, int idSolicitud) {
-        String sqlM = "INSERT INTO motivo (categoria, descripcion, id_solicitud) VALUES (?,?,?)";
+        String sqlM = "{CALL agregarMotivo(?,?,?)}";
         
         try {
             // Conectar
@@ -99,8 +99,7 @@ public class SolicitudDAO {
     
     // Update
     public int actualizar(Solicitud bean) {
-        String sql = "UPDATE solicitud SET estado_actual = ?, codigo_departamento_evaluador = ? "
-                + "WHERE id_solicitud = ?";
+        String sql = "{CALL actualizarSolicitud(?,?,?)}";
         
         try {
             // Conectar
@@ -121,13 +120,14 @@ public class SolicitudDAO {
     
     // Delete
     public void eliminar(int id) {
-        String sql = "DELETE FROM solicitud WHERE id_solicitud = " + id;
+        String sql = "{CALL eliminarSolicitud(?)}";
         
         try {
             // Conectar
             con = conectar.obtenerConexion();
             // Forma la sentencia delete con la PK brindada
             ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
             // Ejecuta el delete
             ps.executeUpdate();
         }
@@ -139,8 +139,7 @@ public class SolicitudDAO {
     // Reads
     public List listarTodos() {
         List<Solicitud> lista = new ArrayList<>();
-        String sql = "SELECT * FROM solicitud s "
-                + "INNER JOIN motivo m ON s.id_solicitud = m.id_solicitud ";
+        String sql = "{CALL listarTodasSolicitudes()}";
         
         try {
             // Conecta y prepara la consulta
@@ -162,7 +161,7 @@ public class SolicitudDAO {
                 // Recuperar CompraReclamada
                 bean.setCompra(compraDAO.buscarPorSolicitud(bean.getIdSolicitud()));
                 // Recuperar DepartamentoEvaluador
-                int codigoDepartamento = rs.getInt(6);
+                int codigoDepartamento = rs.getInt(5);
                 bean.setDepartamentoEvaluador(departamentoDAO.buscarPorCodigo(codigoDepartamento));
                 // Agrega el objeto formado a la lista
                 lista.add(bean);
@@ -178,14 +177,12 @@ public class SolicitudDAO {
     
     public List listarPorCliente(int codigoCliente) {
         List<Solicitud> lista = new ArrayList<>();
-        String sql = "SELECT * FROM solicitud s "
-                + "INNER JOIN motivo m ON s.id_solicitud = m.id_solicitud "
-                + "WHERE s.codigo_cliente = ?";
+        String sql = "{CALL listarSolicitudesPorCliente(?)}";
         
         try {
             // Conecta y prepara la consulta
             con = conectar.obtenerConexion();
-            ps = con.prepareStatement(sql);
+            ps = con.prepareCall(sql);
             ps.setInt(1, codigoCliente);
             // Ejecuta la consulta
             rs = ps.executeQuery();
@@ -198,12 +195,12 @@ public class SolicitudDAO {
                 bean.setTipoSolicitud(rs.getString(2));
                 bean.setFechaIngreso(LocalDate.parse(rs.getString(3), fmtSQL));
                 bean.setEstadoActual(rs.getInt(4));
-                bean.setCategoriaMotivo(rs.getString(8));
-                bean.setDescripcion(rs.getString(9));                
+                bean.setCategoriaMotivo(rs.getString(7));
+                bean.setDescripcion(rs.getString(8));                
                 // Recuperar CompraReclamada
                 bean.setCompra(compraDAO.buscarPorSolicitud(bean.getIdSolicitud()));
                 // Recuperar DepartamentoEvaluador
-                int codigoDepartamento = rs.getInt(6);
+                int codigoDepartamento = rs.getInt(5);
                 bean.setDepartamentoEvaluador(departamentoDAO.buscarPorCodigo(codigoDepartamento));
                 // Agrega el objeto formado a la lista
                 lista.add(bean);
@@ -218,9 +215,7 @@ public class SolicitudDAO {
     
     public List listarPorDepartamento(int codigoDepartamento) {
         List<Solicitud> lista = new ArrayList<>();
-        String sql = "SELECT * FROM solicitud s "
-                + "INNER JOIN motivo m ON s.id_solicitud = m.id_solicitud "
-                + "WHERE s.codigo_departamento_evaluador = ?";
+        String sql = "{CALL listarSolicitudesPorDepartamento(?)}";
         
         try {
             // Conecta y prepara la consulta
@@ -238,8 +233,8 @@ public class SolicitudDAO {
                 bean.setTipoSolicitud(rs.getString(2));
                 bean.setFechaIngreso(LocalDate.parse(rs.getString(3), fmtSQL));
                 bean.setEstadoActual(rs.getInt(4));
-                bean.setCategoriaMotivo(rs.getString(8));
-                bean.setDescripcion(rs.getString(9));                
+                bean.setCategoriaMotivo(rs.getString(7));
+                bean.setDescripcion(rs.getString(8));                
                 // Recuperar CompraReclamada
                 bean.setCompra(compraDAO.buscarPorSolicitud(bean.getIdSolicitud()));
                 // Recuperar DepartamentoEvaluador
@@ -258,10 +253,7 @@ public class SolicitudDAO {
     
     public List listarPorFecha(LocalDate fechaInicio, LocalDate fechaFin) {
         List<Solicitud> lista = new ArrayList<>();
-        String sql = "SELECT * FROM solicitud s "
-                + "INNER JOIN motivo m ON s.id_solicitud = m.id_solicitud "
-                + "WHERE s.fecha_ingreso BETWEEN ? AND ?";
-        
+        String sql = "{CALL listarSolicitudesPorFecha(?, ?)}";        
         try {
             // Conecta y prepara la consulta
             con = conectar.obtenerConexion();
@@ -299,9 +291,7 @@ public class SolicitudDAO {
     
     public List listarPorEstadoyFecha(int estado, LocalDate fechaInicio, LocalDate fechaFin) {
         List<Solicitud> lista = new ArrayList<>();
-        String sql = "SELECT * FROM solicitud s "
-                + "INNER JOIN motivo m ON s.id_solicitud = m.id_solicitud "
-                + "WHERE s.estado_actual = ? AND s.fecha_ingreso BETWEEN ? AND ?";
+        String sql = "{CALL listarSolicitudesPorEstadoYFecha(?, ? ,?)}";
         
         try {
             // Conecta y prepara la consulta
@@ -341,9 +331,7 @@ public class SolicitudDAO {
     
     public List listarPorEstadoyCliente(int estado, int codigoCliente) {
         List<Solicitud> lista = new ArrayList<>();
-        String sql = "SELECT * FROM solicitud s "
-                + "INNER JOIN motivo m ON s.id_solicitud = m.id_solicitud "
-                + "WHERE s.estado_actual = ? AND s.codigo_cliente = ?";
+        String sql = "{CALL listarSolicitudesPorEstadoYCliente(?, ?)}";
         
         try {
             // Conecta y prepara la consulta
@@ -362,8 +350,8 @@ public class SolicitudDAO {
                 bean.setTipoSolicitud(rs.getString(2));
                 bean.setFechaIngreso(LocalDate.parse(rs.getString(3), fmtSQL));
                 bean.setEstadoActual(rs.getInt(4));
-                bean.setCategoriaMotivo(rs.getString(8));
-                bean.setDescripcion(rs.getString(9));                
+                bean.setCategoriaMotivo(rs.getString(7));
+                bean.setDescripcion(rs.getString(8));                
                 // Recuperar CompraReclamada
                 bean.setCompra(compraDAO.buscarPorSolicitud(bean.getIdSolicitud()));
                 // Recuperar DepartamentoEvaluador
@@ -382,9 +370,7 @@ public class SolicitudDAO {
     
     public List listarPorEstadoyDepartamento(int estado, int codigoDepartamento) {
         List<Solicitud> lista = new ArrayList<>();
-        String sql = "SELECT * FROM solicitud s "
-                + "INNER JOIN motivo m ON s.id_solicitud = m.id_solicitud "
-                + "WHERE s.estado_actual = ? AND s.codigo_departamento_evaluador = ?";
+        String sql = "{CALL listarSolicitudesPorEstadoYDepartamento(?, ?)}";
         
         try {
             // Conecta y prepara la consulta
@@ -403,8 +389,8 @@ public class SolicitudDAO {
                 bean.setTipoSolicitud(rs.getString(2));
                 bean.setFechaIngreso(LocalDate.parse(rs.getString(3), fmtSQL));
                 bean.setEstadoActual(rs.getInt(4));
-                bean.setCategoriaMotivo(rs.getString(8));
-                bean.setDescripcion(rs.getString(9));                
+                bean.setCategoriaMotivo(rs.getString(7));
+                bean.setDescripcion(rs.getString(8));                
                 // Recuperar CompraReclamada
                 bean.setCompra(compraDAO.buscarPorSolicitud(bean.getIdSolicitud()));
                 // Recuperar DepartamentoEvaluador
@@ -421,55 +407,11 @@ public class SolicitudDAO {
         return lista;
     }
     
-    public List listarPorEncuestayCliente(int estado, int codigoCliente) {
-        List<Solicitud> lista = new ArrayList<>();
-        String sql = "SELECT * FROM solicitud s \n"
-                + "INNER JOIN motivo m ON s.id_solicitud = m.id_solicitud \n"
-                + "INNER JOIN encuesta e ON s.id_solicitud = e.id_solicitud\n"
-                + "WHERE e.estado = ? AND s.codigo_cliente = ?";
-        
-        try {
-            // Conecta y prepara la consulta
-            con = conectar.obtenerConexion();
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, estado);
-            ps.setInt(2, codigoCliente);
-            // Ejecuta la consulta
-            rs = ps.executeQuery();
-            compraDAO = new CompraDAO();
-            departamentoDAO = new DepartamentoDAO();
-            while (rs.next()) { 
-                // Convierte el resultado de la consulta en un objeto
-                Solicitud bean = new Solicitud();
-                bean.setIdSolicitud(rs.getInt(1));
-                bean.setTipoSolicitud(rs.getString(2));
-                bean.setFechaIngreso(LocalDate.parse(rs.getString(3), fmtSQL));
-                bean.setEstadoActual(rs.getInt(4));
-                bean.setCategoriaMotivo(rs.getString(8));
-                bean.setDescripcion(rs.getString(9));                
-                // Recuperar CompraReclamada
-                bean.setCompra(compraDAO.buscarPorSolicitud(bean.getIdSolicitud()));
-                // Recuperar DepartamentoEvaluador
-                int codigoDepartamento = rs.getInt(6);
-                bean.setDepartamentoEvaluador(departamentoDAO.buscarPorCodigo(codigoDepartamento));
-                // Agrega el objeto formado a la lista
-                lista.add(bean);
-            }
-            con.close();
-        }
-        catch (SQLException e) {
-            System.err.println(e.getMessage());
-        }        
-        return lista;
-    }
-    
     public Solicitud buscarPorId(int id) {
         // Si no se encuentra ninguna coincidencia, devuelve un objeto de id = -1
         Solicitud bean = new Solicitud();
         bean.setIdSolicitud(-1);
-        String sql = "SELECT * FROM solicitud s "
-                + "INNER JOIN motivo m ON s.id_solicitud = m.id_solicitud "
-                + "WHERE s.id_solicitud = ?";
+        String sql = "{CALL buscarSolicitudPorId(?)}";
         
         try {
             // Conecta y prepara la consulta
@@ -486,8 +428,8 @@ public class SolicitudDAO {
                 bean.setTipoSolicitud(rs.getString(2));
                 bean.setFechaIngreso(LocalDate.parse(rs.getString(3), fmtSQL));
                 bean.setEstadoActual(rs.getInt(4));
-                bean.setCategoriaMotivo(rs.getString(8));
-                bean.setDescripcion(rs.getString(9));                
+                bean.setCategoriaMotivo(rs.getString(7));
+                bean.setDescripcion(rs.getString(8));                
                 // Recuperar CompraReclamada
                 bean.setCompra(compraDAO.buscarPorSolicitud(id));
                 // Recuperar DepartamentoEvaluador

@@ -1,6 +1,5 @@
 package modelo;
 
-import dao.EmpleadoDAO;
 import java.util.ArrayList;
 
 public class Departamento {

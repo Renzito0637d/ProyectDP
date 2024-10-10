@@ -1,4 +1,4 @@
-package dao;
+package modelo;
 
 import modelo.MiConexion;
 import java.sql.Connection;
@@ -24,7 +24,7 @@ public class CompraDAO {
     
     // Create
     public int agregar(CompraReclamada bean, int idSolicitud) {
-        String sql = "INSERT INTO comprareclamada (canal_compra, fecha_compra, direccion, monto_reclamado, nombre_servicio, codigo_producto, id_solicitud) VALUES (?,?,?,?,?,?,?)";
+        String sql = "{CALL agregar_compra_reclamada(?, ?, ?, ?, ?, ?, ?)}";
         
         try {
             // Conectar
@@ -57,7 +57,7 @@ public class CompraDAO {
     
     // Update
     public int actualizar(CompraReclamada bean) {
-        String sql = "UPDATE comprareclamada SET canal_compra = ?, fecha_compra = ?, direccion = ?, monto_reclamado = ?, nombre_servicio = ?, codigo_producto = ? WHERE numero_compra = ?";
+        String sql = "{CALL actualizar_compra_reclamada(?, ?, ?, ?, ?, ?, ?)}";
         
         try {
             // Conectar
@@ -89,13 +89,14 @@ public class CompraDAO {
     
     // Delete
     public void eliminar(int id) {
-        String sql = "DELETE FROM comprareclamada WHERE numero_compra = " + id;
+        String sql = "{CALL eliminar_compra_reclamada(?)}";
         
         try {
             // Conectar
             con = conectar.obtenerConexion();
             // Forma la sentencia delete con la PK brindada
             ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
             // Ejecuta el delete
             ps.executeUpdate();
         }
@@ -108,7 +109,7 @@ public class CompraDAO {
     public CompraReclamada buscarPorId(int id) {
         // Si no se encuentra ninguna coincidencia, devuelve null
         CompraReclamada bean;
-        String sql = "SELECT * FROM comprareclamada WHERE numero_compra = ?";
+        String sql = "{CALL buscarCompraReclamadaID(?)}";
         
         try {
             // Conecta y prepara la consulta
@@ -148,7 +149,7 @@ public class CompraDAO {
     public CompraReclamada buscarPorSolicitud(int idSolicitud) {
         // Si no se encuentra ninguna coincidencia, devuelve null
         CompraReclamada bean;
-        String sql = "SELECT * FROM comprareclamada WHERE id_solicitud = ?";
+        String sql = "{CALL buscarCompraReclamadaPorSolicitud(?)}";
         
         try {
             // Conecta y prepara la consulta

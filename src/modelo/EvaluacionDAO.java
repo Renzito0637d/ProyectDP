@@ -1,4 +1,4 @@
-package dao;
+package modelo;
 
 import modelo.MiConexion;
 import java.sql.Connection;
@@ -24,7 +24,7 @@ public class EvaluacionDAO {
     
     // Create
     public int agregar(Evaluacion bean, int idSolicitud) {
-        String sql = "INSERT INTO evaluacion (fecha_hora, estado, descripcion, id_solicitud, codigo_empleado) VALUES (?,?,?,?,?)";
+        String sql = "{CALL agregarEvaluacion(?, ?, ?, ?, ?)}";
         
         try {
             // Conectar
@@ -52,7 +52,7 @@ public class EvaluacionDAO {
     
     // Update
     public int actualizar(Evaluacion bean) {
-        String sql = "UPDATE evaluacion SET fecha_hora = ?, estado = ?, descripcion = ? WHERE numero_evaluacion = ?";
+        String sql = "{CALL actualizarEvaluacion(?, ?, ?, ?)}";
         
         try {
             // Conectar
@@ -73,13 +73,14 @@ public class EvaluacionDAO {
     
     // Delete
     public void eliminar(int id) {
-        String sql = "DELETE FROM evaluacion WHERE numero_evaluacion = " + id;
+        String sql = "{CALL eliminarEvaluacion(?)}";
         
         try {
             // Conectar
             con = conectar.obtenerConexion();
             // Forma la sentencia delete con la PK brindada
             ps = con.prepareStatement(sql);
+            ps.setInt(1, id); //se asgina el parametro
             // Ejecuta el delete
             ps.executeUpdate();
         }
@@ -91,7 +92,7 @@ public class EvaluacionDAO {
     // Reads    
     public List listarPorSolicitud(int idSolicitud) {
         List<Evaluacion> lista = new ArrayList<>();
-        String sql = "SELECT * FROM evaluacion WHERE id_solicitud = ?";
+        String sql = "{CALL listarEvaluacionesPorSolicitud(?)}";
         
         try {
             // Conecta y prepara la consulta
@@ -129,7 +130,7 @@ public class EvaluacionDAO {
     
     public List listarPorEmpleado(int codigoEmpleado) {
         List<Evaluacion> lista = new ArrayList<>();
-        String sql = "SELECT * FROM evaluacion WHERE codigo_empleado = ?";
+        String sql = "{CALL listarEvaluacionesPorEmpleado(?)}";
         
         try {
             // Conecta y prepara la consulta
@@ -169,7 +170,7 @@ public class EvaluacionDAO {
         // Si no se encuentra ninguna coincidencia, devuelve un objeto de id = -1
         Evaluacion bean = new Evaluacion();
         bean.setNumeroEvaluacion(-1);
-        String sql = "SELECT * FROM evaluacion WHERE numero_evaluacion = ?";
+        String sql = "{CALL buscarEvaluacionPorId(?)}";
         
         try {
             // Conecta y prepara la consulta
@@ -205,7 +206,7 @@ public class EvaluacionDAO {
         // Si no se encuentra ninguna coincidencia, devuelve un objeto de id = -1
         Evaluacion bean = new Evaluacion();
         bean.setNumeroEvaluacion(-1);
-        String sql = "SELECT * FROM evaluacion WHERE id_solicitud = ? ORDER BY fecha_hora DESC LIMIT 1";
+        String sql = "{CALL buscarUltimaEvaluacionDeSolicitud(?)}";
         
         try {
             // Conecta y prepara la consulta

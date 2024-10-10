@@ -1,7 +1,5 @@
 package modelo;
 
-import dao.DepartamentoDAO;
-
 public class Empleado extends Persona
                       implements Administrador {
     // Atributos

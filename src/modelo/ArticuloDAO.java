@@ -1,5 +1,4 @@
-
-package dao;
+package modelo;
 
 import modelo.MiConexion;
 import java.sql.Connection;
@@ -19,29 +18,30 @@ public class ArticuloDAO {
     
     // Create
     public int agregar(Articulo bean) {
-        String sql = "INSERT INTO articulo (nombre, categoria, precio, stock) VALUES (?,?,?,?)";
-        
+        String sql = "{CALL agregar_articulo(?,?,?,?)}";
+    
         try {
             // Conectar
             con = conectar.obtenerConexion();
-            // Convierte el objeto en una sentencia SQL de insert
+            // Convierte el objeto en una sentencia SQL de procedimiento almacenado
             ps = con.prepareStatement(sql);
             ps.setString(1, bean.getNombre());
             ps.setString(2, bean.getCategoria());
             ps.setDouble(3, bean.getPrecio());
             ps.setInt(4, bean.getStock());
-            
-            // Ejecuta el insert y devuelve el número de filas alteradas (debería ser 1) 
-            return ps.executeUpdate(); // 1
+        
+            // Ejecuta el procedimiento almacenado
+            return ps.executeUpdate(); // 1 si fue exitoso
         }
         catch (SQLException e) {            
             return -1;
         }        
     }
+
     
     // Update
     public int actualizar(Articulo bean) {
-        String sql = "UPDATE articulo SET nombre = ?, categoria = ?, precio = ?, stock = ? WHERE codigo_producto = ?";
+        String sql = "{CALL actualizar_articulo(?, ?, ?, ?, ?)}";
         
         try {
             // Conectar
@@ -65,13 +65,14 @@ public class ArticuloDAO {
     
     // Delete
     public void eliminar(int id) {
-        String sql = "DELETE FROM articulo WHERE codigo_producto = " + id;
+        String sql = "{CALL eliminar_articulo(?)}";
         
         try {
             // Conectar
             con = conectar.obtenerConexion();
             // Forma la sentencia delete con la PK brindada
             ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
             // Ejecuta el delete
             ps.executeUpdate();
         }
@@ -83,7 +84,7 @@ public class ArticuloDAO {
     // Reads
     public List listarTodos() {
         List<Articulo> lista = new ArrayList<>();
-        String sql = "SELECT * FROM articulo";
+        String sql = "{CALL ListarArticulos()}";
         
         try {
             // Conecta y ejecuta consulta
@@ -116,7 +117,7 @@ public class ArticuloDAO {
         // Si no se encuentra ninguna coincidencia, devuelve un objeto de id = -1
         Articulo bean = new Articulo();
         bean.setCodigoProducto(-1);
-        String sql = "SELECT * FROM articulo WHERE codigo_producto = ?";
+        String sql = "{CALL BuscarArticuloPorCodigo(?)}";
         
         try {
             // Conecta y prepara la consulta
