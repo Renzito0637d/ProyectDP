@@ -38,7 +38,31 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         TestClientes pr = new TestClientes();
         
+        do{
         
+                
+        System.out.println("OPCION [1]: mostrar todos los clientes");
+        System.out.println("OPCION [2]: ELIMINAR UN CLIENTE");
+        System.out.println("OPCION [3]: para actualizar un cliente"); 
+        System.out.println("");
+        System.out.print("OPRCION ESCOQUIDA:");
+        opcion=sc.nextInt();
+        
+            switch (opcion) {
+            case 1:
+                pr.verTodosClientes();
+                break;
+            case 2:
+                pr.borrarCliente();
+                break;
+            case 3:
+                //pr.actualizarUnCliente();
+                break;      
+            default:
+                    System.out.println("Opción no válida. Intente de nuevo.");
+                break;
+        }
+        }while(opcion!=4);
         
         
     }    
