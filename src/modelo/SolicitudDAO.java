@@ -13,7 +13,7 @@ import java.util.List;
 import modelo.Evaluacion;
 import modelo.Solicitud;
 
-public class SolicitudDAO {
+public class SolicitudDAO implements ISolicitudDAO{
     MiConexion conectar = MiConexion.getInstance();
     Connection con;
     PreparedStatement ps;
@@ -25,6 +25,7 @@ public class SolicitudDAO {
     DateTimeFormatter fmtSQL = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     
     // Create
+    @Override
     public int agregar(Solicitud bean, int codigoCliente) {
     String sql = "{CALL agregarSolicitud(?, ?, ?, ?, ?, ?)}";
 
@@ -175,6 +176,7 @@ public class SolicitudDAO {
         return lista;
     }
     
+    @Override
     public List listarPorCliente(int codigoCliente) {
         List<Solicitud> lista = new ArrayList<>();
         String sql = "{CALL listarSolicitudesPorCliente(?)}";
