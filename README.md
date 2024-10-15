@@ -16,3 +16,5 @@ PROYECTO java:
   - Singleton
   - Factory
   - Facade
+  - Decorator:
+    -Registra la solicitud a la base de datos y genera un pdf.
