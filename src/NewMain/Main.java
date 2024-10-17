@@ -42,8 +42,7 @@ public class Main {
         
                 
         System.out.println("OPCION [1]: mostrar todos los clientes");
-        System.out.println("OPCION [2]: ELIMINAR UN CLIENTE");
-        System.out.println("OPCION [3]: para actualizar un cliente"); 
+        System.out.println("OPCION [2]: ELIMINAR UN CLIENTE"); 
         System.out.println("");
         System.out.print("OPRCION ESCOQUIDA:");
         opcion=sc.nextInt();
@@ -54,10 +53,7 @@ public class Main {
                 break;
             case 2:
                 pr.borrarCliente();
-                break;
-            case 3:
-                //pr.actualizarUnCliente();
-                break;      
+                break;    
             default:
                     System.out.println("Opción no válida. Intente de nuevo.");
                 break;

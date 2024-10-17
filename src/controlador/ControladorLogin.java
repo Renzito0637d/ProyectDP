@@ -79,11 +79,11 @@ public class ControladorLogin implements ActionListener {
                     
                     //System.out.println("ID: " + cliente.getCodigoCliente() +
                     //               " \nNombres: " + cliente.getNombres() +
-                    //               " \nApellidos: " + cliente.getApellidos() +
+                   // " \nApellidos: " + cliente.getApellidos() +
                     //               " \nEmail: " + cliente.getEmail() +
-                    //               " \nTelefono: " + cliente.getTelefono() +
-                    //               " \nUsuario: " + cliente.getUsuario() +
-                    //               " \nDireccion: " + cliente.getDireccion());
+                     //              " \nTelefono: " + cliente.getTelefono() +
+                      //             " \nUsuario: " + cliente.getUsuario() +
+                      //             " \nDireccion: " + cliente.getDireccion());
                     
                     
                     
@@ -105,13 +105,13 @@ public class ControladorLogin implements ActionListener {
                     
                     //System.out.println("INGRESO COMO EMEPLADO");
                     //List<Empleado> datos= empleadoDAO.listarPorUsuario(usuario);
-                    //
+                    
                     // System.out.println("ID: " + empleado.getCodigoEmpleado() +
                     //               " \nNombres: " + empleado.getNombres() +
                     //               " \nApellidos: " + empleado.getApellidos() +
                     //               " \nEmail: " + empleado.getEmail() +
-                    //               " \nTelefono: " + empleado.getTelefono() +
-                    //               " \nUsuario: " + empleado.getUsuario());
+                     //              " \nTelefono: " + empleado.getTelefono() +
+                       //            " \nUsuario: " + empleado.getUsuario());
                     
                     
                     // Cerrar la ventana actual

@@ -100,28 +100,6 @@ public class TestClientes {
         }
     }
     
-    public void actualizarUnCliente(){
-        ClienteDAO clienteDAO = new ClienteDAO();
-        //Crear instancia de Scanner
-        Cliente clienteActualizado = new Cliente();
-        clienteActualizado.setCodigoCliente(6); // PORQUE ES 6? es por q el codigo del cliente q queremos actu es 6
-        clienteActualizado.setNombres("Juan Actualizado");
-        clienteActualizado.setApellidos("Pérez Actualizado");
-        clienteActualizado.setEmail("juan.perez.actualizado@example.com");
-        clienteActualizado.setTelefono("987654321");
-        clienteActualizado.setUsuario("juanperezactualizado");
-        clienteActualizado.setClave("nuevaClaveSegura");
-        clienteActualizado.setDireccion("Calle Verdadera 456");
-
-        //Llamar al método actualizar
-        int resultado = clienteDAO.actualizar(clienteActualizado);
-
-        // Verificar el resultado
-        if (resultado == 1) {
-            System.out.println("Cliente actualizado exitosamente.");
-        } else {
-            System.out.println("Error al actualizar el cliente.");
-        }
-    }
+    
     
 }
