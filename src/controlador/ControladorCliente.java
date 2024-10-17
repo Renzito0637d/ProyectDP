@@ -64,7 +64,6 @@ public class ControladorCliente implements ActionListener, MouseListener {
         vista.setLocationRelativeTo(null);
         vista.setSize(800, 600);
         limpiarTodo();
-        configurarTablas();
         vista.setVisible(true);
     }
     
@@ -90,8 +89,7 @@ public class ControladorCliente implements ActionListener, MouseListener {
         
         // EVENTOS - TAB VER MIS SOLICITUDES
         if (e.getSource() == vista.btnActualizarListaSol) {
-            limpiarTabla(vista.tbSolicitudes);
-            listarSolicitudes();
+            
         }
         
 
@@ -99,29 +97,7 @@ public class ControladorCliente implements ActionListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        // EVENTOS - TAB VER MIS SOLICITUDES
-        if (e.getSource() == vista.tbSolicitudes) {
-            // Vaciar la tabla de Evaluaciones
-            limpiarTabla(vista.tbEvaluaciones);
-            // Seleccionar una fila en la tabla de Solicitudes
-            int fila = vista.tbSolicitudes.getSelectedRow();
-            if (fila != -1) {
-                int idSolicitud = Integer.parseInt(vista.tbSolicitudes.getValueAt(fila, 0).toString());
-                // Llenar la información de la solicitud
-                llenarDetallesSolicitud(idSolicitud);
-                // Llenar la tabla de Evaluaciones
-                listarEvaluaciones(idSolicitud);
-            }
-        }        
-        if (e.getSource() == vista.tbEvaluaciones) {
-            // Seleccionar una fila en la tabla de Evaluaciones
-            int fila = vista.tbEvaluaciones.getSelectedRow();
-            if (fila != -1) {
-                int numeroEvaluacion = Integer.parseInt(vista.tbEvaluaciones.getValueAt(fila, 0).toString());
-                // Llenar la información de la evaluación
-                llenarDetallesEvaluacion(numeroEvaluacion);
-            }
-        }
+
 
     }
     @Override
@@ -164,76 +140,7 @@ public class ControladorCliente implements ActionListener, MouseListener {
         }
         vista.cbxNombreProducto.setSelectedIndex(0);
     }
-    
-    // LIMPIEZA Y ACTUALIZACIÓN DE CONTENIDO
-    public void configurarTablas() {
-        // Tabla solicitudes
-        modeloSol = new DefaultTableModel();
-        modeloSol.addColumn("ID");
-        modeloSol.addColumn("Tipo de Solicitud");
-        modeloSol.addColumn("Cliente");
-        modeloSol.addColumn("Fecha Ingreso");
-        modeloSol.addColumn("Estado Actual");
-        modeloSol.addColumn("Departamento Evaluador");
-        vista.tbSolicitudes.setModel(modeloSol);
-        vista.tbSolicitudes.setDefaultEditor(Object.class, null);
-        
-        // Tabla evaluaciones
-        modeloEva = new DefaultTableModel();
-        modeloEva.addColumn("Número Evaluación");
-        modeloEva.addColumn("Fecha");
-        modeloEva.addColumn("Hora");
-        modeloEva.addColumn("Estado");
-        modeloEva.addColumn("Empleado Evaluador");
-        vista.tbEvaluaciones.setModel(modeloEva);
-        vista.tbEvaluaciones.setDefaultEditor(Object.class, null);
-        
-    }
-    
-    public void listarSolicitudes() {
-        modeloSol = (DefaultTableModel)vista.tbSolicitudes.getModel();
-        // Consultar la BD
-        solicitudDAO = new SolicitudDAO();
-        List<Solicitud> lista;
-        // Según la selección del combobox
-        lista = switch (vista.cbxFiltrarEstadoSol.getSelectedIndex()) {
-            case 1 -> solicitudDAO.listarPorEstadoyCliente(Solicitud.EN_ESPERA, cliente.getCodigoCliente());
-            case 2 -> solicitudDAO.listarPorEstadoyCliente(Solicitud.EN_TRAMITE, cliente.getCodigoCliente());
-            case 3 -> solicitudDAO.listarPorEstadoyCliente(Solicitud.FINALIZADO, cliente.getCodigoCliente());
-            default -> solicitudDAO.listarPorCliente(cliente.getCodigoCliente());
-        };
-        // Llenar modelo y configurar tabla
-        Object[] fila;
-        for (int i = 0; i < lista.size(); i++) {
-            fila = lista.get(i).mostrarRegistroTabla();            
-            modeloSol.addRow(fila);
-        }        
-        vista.tbSolicitudes.setModel(modeloSol);
-    }
-    
-    public void listarEvaluaciones(int idSolicitud) {
-        modeloEva = (DefaultTableModel)vista.tbEvaluaciones.getModel();
-        // Consultar la BD
-        evaluacionDAO = new EvaluacionDAO();
-        List<Evaluacion> lista = evaluacionDAO.listarPorSolicitud(idSolicitud);
-        
-        // Llenar modelo y configurar tabla
-        Object[] fila;
-        for (int i = 0; i < lista.size(); i++) {
-            fila = lista.get(i).mostrarRegistroTabla();            
-            modeloEva.addRow(fila);
-        }        
-        vista.tbEvaluaciones.setModel(modeloEva);
-    }
-    
-    
-    public void limpiarTabla(JTable table) {
-        DefaultTableModel modelo = (DefaultTableModel) table.getModel();
-        for (int i = 0; i < table.getRowCount(); i++) {
-            modelo.removeRow(i);
-            i--;        
-        }
-    }    
+     
     
     public void limpiarFormularioCrearSolicitud() {
         // Limpiar cajas de texto
@@ -256,8 +163,6 @@ public class ControladorCliente implements ActionListener, MouseListener {
         vista.txaDetalleEvaluacion.setText("");
     }
     public void limpiarTodo() {
-        limpiarTabla(vista.tbSolicitudes);
-        limpiarTabla(vista.tbEvaluaciones);
         limpiarFormularioCrearSolicitud();
         limpiarDetallesEvaluacion();
     }
