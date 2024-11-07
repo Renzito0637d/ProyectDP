@@ -36,6 +36,9 @@ public class VistaClientes extends javax.swing.JFrame {
         btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        PanelCambio.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout PanelCambioLayout = new javax.swing.GroupLayout(PanelCambio);
         PanelCambio.setLayout(PanelCambioLayout);
@@ -48,16 +51,24 @@ public class VistaClientes extends javax.swing.JFrame {
             .addGap(0, 395, Short.MAX_VALUE)
         );
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logo de Tambo.png"))); // NOI18N
 
+        btnCuenta.setBackground(new java.awt.Color(255, 255, 255));
         btnCuenta.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         btnCuenta.setText("Mi cuenta");
+        btnCuenta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        btnSolicitudes.setBackground(new java.awt.Color(255, 255, 255));
         btnSolicitudes.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         btnSolicitudes.setText("Solicitudes");
+        btnSolicitudes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        btnEncuestas.setBackground(new java.awt.Color(255, 255, 255));
         btnEncuestas.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
         btnEncuestas.setText("Encuestas");
+        btnEncuestas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         jLabel2.setText("Usted ingreso como cliente");

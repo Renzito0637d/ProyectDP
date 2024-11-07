@@ -61,7 +61,14 @@ public class ControladorClientes implements ActionListener{
         if(e.getSource()==vista.btnCuenta){
             VistaClienteCuenta cuenta=new VistaClienteCuenta();
             CambiarPanel(cuenta);
+            new ControladorClienteCuenta(cuenta);
             resetButtons();
+        }
+        if(e.getSource()==vista.btnSolicitudes){
+            VistaClienteSolicitudes soli=new VistaClienteSolicitudes();
+            new ControladorClienteSolicitudes(soli);
+            CambiarPanel(soli);
+            
         }
         if(e.getSource()==vista.btnSalir){
             salir();

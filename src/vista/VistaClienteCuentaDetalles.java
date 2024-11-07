@@ -20,7 +20,7 @@ public class VistaClienteCuentaDetalles extends javax.swing.JPanel {
      */
     public VistaClienteCuentaDetalles() {
         initComponents();
-        SetImageLabel(jLabel1, "src/Imagenes/UserIcon.png");
+        
     }
 
     /**
@@ -100,13 +100,7 @@ public class VistaClienteCuentaDetalles extends javax.swing.JPanel {
                 .addContainerGap(114, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-    private void SetImageLabel(JLabel labelname, String root){
-	ImageIcon image=new ImageIcon(root);
-	Icon icon =new ImageIcon(
-		image.getImage().getScaledInstance(labelname.getWidth(),labelname.getHeight(),Image.SCALE_DEFAULT)
-	);
 
-}
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
