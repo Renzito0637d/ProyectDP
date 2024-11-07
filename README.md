@@ -1,4 +1,5 @@
 Proyecto de Diseño de patrones...
+aun por mejorar
 
 **SCRIPT MySQL**:
 - Creacion de tablas con sus respectivas llaves foraneas
