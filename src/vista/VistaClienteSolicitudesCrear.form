@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="btngrpCategoriaBien">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="btngrpTipoSolicitud">
+    </Component>
+  </NonVisualComponents>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -16,7 +22,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" pref="705" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="656" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -378,8 +387,14 @@
                                     </Component>
                                     <Component class="javax.swing.JRadioButton" name="rbtnProducto">
                                       <Properties>
+                                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                                          <ComponentRef name="btngrpCategoriaBien"/>
+                                        </Property>
                                         <Property name="text" type="java.lang.String" value="Producto"/>
                                       </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbtnProductoActionPerformed"/>
+                                      </Events>
                                       <AuxValues>
                                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                                       </AuxValues>
@@ -402,6 +417,9 @@
                                     </Component>
                                     <Component class="javax.swing.JRadioButton" name="rbtnServicio">
                                       <Properties>
+                                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                                          <ComponentRef name="btngrpCategoriaBien"/>
+                                        </Property>
                                         <Property name="selected" type="boolean" value="true"/>
                                         <Property name="text" type="java.lang.String" value="Servicio"/>
                                       </Properties>
@@ -586,6 +604,9 @@
                                     </Component>
                                     <Component class="javax.swing.JRadioButton" name="rbtnQueja">
                                       <Properties>
+                                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                                          <ComponentRef name="btngrpTipoSolicitud"/>
+                                        </Property>
                                         <Property name="text" type="java.lang.String" value="QUEJA"/>
                                       </Properties>
                                       <AuxValues>
@@ -610,6 +631,9 @@
                                     </Component>
                                     <Component class="javax.swing.JRadioButton" name="rbtnReclamo">
                                       <Properties>
+                                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                                          <ComponentRef name="btngrpTipoSolicitud"/>
+                                        </Property>
                                         <Property name="text" type="java.lang.String" value="RECLAMO"/>
                                       </Properties>
                                       <AuxValues>
@@ -765,14 +789,6 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarSolicitudActionPerformed"/>
                   </Events>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JButton" name="btnSalirCrearSolicitud">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Salir"/>
-                  </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>

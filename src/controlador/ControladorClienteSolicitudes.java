@@ -24,6 +24,7 @@ public class ControladorClienteSolicitudes implements ActionListener{
         
         crea= new VistaClienteSolicitudesCrear();
         CambiarPanel(crea);
+        new ControladorClienteSolicitudesCrear(crea);
         vista.btnCrear.setSelected(true);
     }
     public void CambiarPanel(JPanel box) {
@@ -45,6 +46,7 @@ public class ControladorClienteSolicitudes implements ActionListener{
         if(e.getSource()==vista.btnCrear){
             VistaClienteSolicitudesCrear crea=new VistaClienteSolicitudesCrear();
             CambiarPanel(crea);
+            new ControladorClienteSolicitudesCrear(crea);
             resetButtons();            
         }
         if(e.getSource()==vista.btnHistorial){

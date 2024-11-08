@@ -62,6 +62,8 @@ public class VistaClienteSolicitudesHistorial extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         txaDetalleEvaluacion = new javax.swing.JTextArea();
 
+        jScrollPane1.setBorder(null);
+
         jpVerSolicitud.setPreferredSize(new java.awt.Dimension(400, 900));
         jpVerSolicitud.setLayout(new java.awt.BorderLayout(5, 5));
 
@@ -270,7 +272,9 @@ public class VistaClienteSolicitudesHistorial extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 699, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

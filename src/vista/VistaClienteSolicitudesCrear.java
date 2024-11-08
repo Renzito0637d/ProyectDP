@@ -28,6 +28,8 @@ public class VistaClienteSolicitudesCrear extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btngrpCategoriaBien = new javax.swing.ButtonGroup();
+        btngrpTipoSolicitud = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jpCrearSolicitud = new javax.swing.JPanel();
         labTituloCliente = new javax.swing.JLabel();
@@ -88,7 +90,6 @@ public class VistaClienteSolicitudesCrear extends javax.swing.JPanel {
         pnlBotonesSol = new javax.swing.JPanel();
         btnCrearSolicitud = new javax.swing.JButton();
         btnLimpiarSolicitud = new javax.swing.JButton();
-        btnSalirCrearSolicitud = new javax.swing.JButton();
 
         jScrollPane1.setBorder(null);
 
@@ -191,10 +192,17 @@ public class VistaClienteSolicitudesCrear extends javax.swing.JPanel {
         pnlCategoria.add(labCategoriaBien);
         pnlCategoria.add(filler1);
 
+        btngrpCategoriaBien.add(rbtnProducto);
         rbtnProducto.setText("Producto");
+        rbtnProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnProductoActionPerformed(evt);
+            }
+        });
         pnlCategoria.add(rbtnProducto);
         pnlCategoria.add(filler2);
 
+        btngrpCategoriaBien.add(rbtnServicio);
         rbtnServicio.setSelected(true);
         rbtnServicio.setText("Servicio");
         pnlCategoria.add(rbtnServicio);
@@ -251,10 +259,12 @@ public class VistaClienteSolicitudesCrear extends javax.swing.JPanel {
         pnlTipo.add(labTipoSolicitud);
         pnlTipo.add(filler3);
 
+        btngrpTipoSolicitud.add(rbtnQueja);
         rbtnQueja.setText("QUEJA");
         pnlTipo.add(rbtnQueja);
         pnlTipo.add(filler5);
 
+        btngrpTipoSolicitud.add(rbtnReclamo);
         rbtnReclamo.setText("RECLAMO");
         pnlTipo.add(rbtnReclamo);
 
@@ -316,9 +326,6 @@ public class VistaClienteSolicitudesCrear extends javax.swing.JPanel {
         });
         pnlBotonesSol.add(btnLimpiarSolicitud);
 
-        btnSalirCrearSolicitud.setText("Salir");
-        pnlBotonesSol.add(btnSalirCrearSolicitud);
-
         jpCrearSolicitud.add(pnlBotonesSol, java.awt.BorderLayout.PAGE_END);
 
         jScrollPane1.setViewportView(jpCrearSolicitud);
@@ -327,7 +334,9 @@ public class VistaClienteSolicitudesCrear extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,11 +352,16 @@ public class VistaClienteSolicitudesCrear extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLimpiarSolicitudActionPerformed
 
+    private void rbtnProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtnProductoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnCrearSolicitud;
     public javax.swing.JButton btnLimpiarSolicitud;
-    public javax.swing.JButton btnSalirCrearSolicitud;
+    private javax.swing.ButtonGroup btngrpCategoriaBien;
+    private javax.swing.ButtonGroup btngrpTipoSolicitud;
     public javax.swing.JComboBox<String> cbxCanalCompra;
     public javax.swing.JComboBox<String> cbxMotivoSolicitud;
     public javax.swing.JComboBox<Articulo> cbxNombreProducto;

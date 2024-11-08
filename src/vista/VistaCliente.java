@@ -235,6 +235,11 @@ public class VistaCliente extends javax.swing.JFrame {
 
         btngrpCategoriaBien.add(rbtnProducto);
         rbtnProducto.setText("Producto");
+        rbtnProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnProductoActionPerformed(evt);
+            }
+        });
         pnlCategoria.add(rbtnProducto);
         pnlCategoria.add(filler2);
 
@@ -599,6 +604,10 @@ public class VistaCliente extends javax.swing.JFrame {
     private void cbxNombreProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxNombreProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxNombreProductoActionPerformed
+
+    private void rbtnProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtnProductoActionPerformed
 
     /**
      * @param args the command line arguments

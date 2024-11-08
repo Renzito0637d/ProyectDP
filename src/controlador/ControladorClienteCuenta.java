@@ -14,11 +14,17 @@ import vista.VistaClienteCuentaDetalles;
  */
 public class ControladorClienteCuenta implements ActionListener{
     VistaClienteCuenta vista;
+    VistaClienteCuentaDetalles deta;
+    
 
     public ControladorClienteCuenta(VistaClienteCuenta vista) {
         this.vista=vista;
         vista.btnDetalles.addActionListener(this);
         vista.btnEliminar.addActionListener(this);
+        
+        deta=new VistaClienteCuentaDetalles();
+        CambiarPanel(deta);
+        vista.btnDetalles.setSelected(true);
     }
 
     public void CambiarPanel(JPanel box) {
