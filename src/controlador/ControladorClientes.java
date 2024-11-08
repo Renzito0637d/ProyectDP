@@ -45,6 +45,7 @@ public class ControladorClientes implements ActionListener{
         vista.setVisible(true);
         soli=new VistaClienteSolicitudes();
         CambiarPanel(soli);
+        new ControladorClienteSolicitudes(soli);
         vista.btnSolicitudes.setSelected(true);
     }
     private void resetButtons() {
