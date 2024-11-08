@@ -13,7 +13,8 @@ import vista.*;
  *
  * @author Renzo
  */
-public class ControladorClientes implements ActionListener{    
+public class ControladorClientes implements ActionListener{   
+    VistaClienteSolicitudes soli=null;
     // La vista correspondiente a este controlador
     VistaClientes vista;
     // El controlador desde donde se ha ingresado a esta vista
@@ -42,6 +43,9 @@ public class ControladorClientes implements ActionListener{
         vista.setTitle("Tiendas Tambo - Quejas y Reclamos");
         vista.setLocationRelativeTo(null);          
         vista.setVisible(true);
+        soli=new VistaClienteSolicitudes();
+        CambiarPanel(soli);
+        vista.btnSolicitudes.setSelected(true);
     }
     private void resetButtons() {
         vista.btnCuenta.setSelected(false);

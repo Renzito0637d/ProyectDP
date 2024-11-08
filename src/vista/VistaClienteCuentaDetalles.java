@@ -21,8 +21,10 @@ public class VistaClienteCuentaDetalles extends javax.swing.JPanel {
     public VistaClienteCuentaDetalles() {
         initComponents();
         
+        
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,6 +41,9 @@ public class VistaClienteCuentaDetalles extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UserIcon.png"))); // NOI18N
+        jLabel1.setName(""); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("userTxt");

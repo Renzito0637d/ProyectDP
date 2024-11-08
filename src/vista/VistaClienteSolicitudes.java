@@ -44,17 +44,22 @@ public class VistaClienteSolicitudes extends javax.swing.JPanel {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(153, 0, 153));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
-        btnCrear.setBackground(new java.awt.Color(255, 255, 255));
-        btnCrear.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnCrear.setBackground(new java.awt.Color(153, 0, 153));
+        btnCrear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCrear.setForeground(new java.awt.Color(255, 255, 255));
         btnCrear.setText("Crear solicitud");
-        btnCrear.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnCrear.setBorder(null);
+        btnCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        btnHistorial.setBackground(new java.awt.Color(255, 255, 255));
-        btnHistorial.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnHistorial.setBackground(new java.awt.Color(153, 0, 153));
+        btnHistorial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnHistorial.setForeground(new java.awt.Color(255, 255, 255));
         btnHistorial.setText("Ver mis solicitudes");
-        btnHistorial.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnHistorial.setBorder(null);
+        btnHistorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

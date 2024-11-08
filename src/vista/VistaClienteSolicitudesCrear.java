@@ -90,6 +90,8 @@ public class VistaClienteSolicitudesCrear extends javax.swing.JPanel {
         btnLimpiarSolicitud = new javax.swing.JButton();
         btnSalirCrearSolicitud = new javax.swing.JButton();
 
+        jScrollPane1.setBorder(null);
+
         jpCrearSolicitud.setMaximumSize(new java.awt.Dimension(2147483647, 800));
         jpCrearSolicitud.setMinimumSize(new java.awt.Dimension(736, 100));
         jpCrearSolicitud.setPreferredSize(new java.awt.Dimension(736, 750));

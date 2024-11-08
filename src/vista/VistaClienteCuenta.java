@@ -44,18 +44,22 @@ public class VistaClienteCuenta extends javax.swing.JPanel {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(153, 0, 153));
         jPanel2.setPreferredSize(new java.awt.Dimension(191, 420));
 
-        btnDetalles.setBackground(new java.awt.Color(255, 255, 255));
-        btnDetalles.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnDetalles.setBackground(new java.awt.Color(153, 0, 153));
+        btnDetalles.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDetalles.setForeground(new java.awt.Color(255, 255, 255));
         btnDetalles.setText("Detalles de mi cuenta");
-        btnDetalles.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnDetalles.setBorder(null);
+        btnDetalles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        btnEliminar.setBackground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnEliminar.setBackground(new java.awt.Color(153, 0, 153));
+        btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Elminar mi cuenta");
-        btnEliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnEliminar.setBorder(null);
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

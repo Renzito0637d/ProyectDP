@@ -14,12 +14,17 @@ import vista.VistaClienteSolicitudesHistorial;
  * @author Renzo
  */
 public class ControladorClienteSolicitudes implements ActionListener{
+    VistaClienteSolicitudesCrear crea;
     VistaClienteSolicitudes vista;
 
     public ControladorClienteSolicitudes(VistaClienteSolicitudes vista) {
         this.vista=vista;
         vista.btnCrear.addActionListener(this);
         vista.btnHistorial.addActionListener(this);
+        
+        crea= new VistaClienteSolicitudesCrear();
+        CambiarPanel(crea);
+        vista.btnCrear.setSelected(true);
     }
     public void CambiarPanel(JPanel box) {
         box.setPreferredSize(new Dimension(1000, 500)); // Tamaño inicial
