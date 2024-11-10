@@ -67,7 +67,8 @@ public class ControladorEmpleados implements ActionListener{
     public void actionPerformed(ActionEvent e) {      
         if(e.getSource()==vista.btnSolicitudes){
             VistaEmpleadoSolicitudes soli=new VistaEmpleadoSolicitudes();
-            CambiarPanel(soli);            
+            CambiarPanel(soli);    
+            new ControladorEmpleadoSolicitudes(soli);
         }
         if(e.getSource()==vista.btnClientes){
             VistaEmpleadoClientes cli=new VistaEmpleadoClientes();
