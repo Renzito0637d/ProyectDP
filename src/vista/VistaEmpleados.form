@@ -83,11 +83,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-                          <Component id="btnCuenta" min="-2" pref="137" max="-2" attributes="0"/>
+                          <Component id="btnSolicitudes" min="-2" pref="137" max="-2" attributes="0"/>
                           <EmptySpace pref="92" max="32767" attributes="0"/>
-                          <Component id="btnSolicitudes" min="-2" pref="135" max="-2" attributes="0"/>
+                          <Component id="btnClientes" min="-2" pref="135" max="-2" attributes="0"/>
                           <EmptySpace pref="92" max="32767" attributes="0"/>
-                          <Component id="btnEncuestas" min="-2" pref="136" max="-2" attributes="0"/>
+                          <Component id="btnEmpleados" min="-2" pref="136" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -108,9 +108,9 @@
                           <Component id="jLabel2" min="-2" pref="45" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnClientes" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="btnEmpleados" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                               <Component id="btnSolicitudes" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="btnEncuestas" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="btnCuenta" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       </Group>
@@ -132,7 +132,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="btnCuenta">
+        <Component class="javax.swing.JButton" name="btnSolicitudes">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="0" red="99" type="rgb"/>
@@ -155,7 +155,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="btnSolicitudes">
+        <Component class="javax.swing.JButton" name="btnClientes">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="0" red="99" type="rgb"/>
@@ -178,7 +178,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="btnEncuestas">
+        <Component class="javax.swing.JButton" name="btnEmpleados">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="0" red="99" type="rgb"/>
@@ -199,7 +199,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEncuestasActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEmpleadosActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

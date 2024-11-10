@@ -35,9 +35,9 @@ public class VistaEmpleados extends javax.swing.JFrame {
         PanelCambio = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnCuenta = new javax.swing.JButton();
         btnSolicitudes = new javax.swing.JButton();
-        btnEncuestas = new javax.swing.JButton();
+        btnClientes = new javax.swing.JButton();
+        btnEmpleados = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
@@ -62,30 +62,30 @@ public class VistaEmpleados extends javax.swing.JFrame {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        btnCuenta.setBackground(new java.awt.Color(153, 0, 153));
-        btnCuenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCuenta.setForeground(new java.awt.Color(255, 255, 255));
-        btnCuenta.setText("Solicitudes");
-        btnCuenta.setBorder(null);
-        btnCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         btnSolicitudes.setBackground(new java.awt.Color(153, 0, 153));
         btnSolicitudes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSolicitudes.setForeground(new java.awt.Color(255, 255, 255));
-        btnSolicitudes.setText("Clientes");
+        btnSolicitudes.setText("Solicitudes");
         btnSolicitudes.setBorder(null);
         btnSolicitudes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        btnEncuestas.setBackground(new java.awt.Color(153, 0, 153));
-        btnEncuestas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnEncuestas.setForeground(new java.awt.Color(255, 255, 255));
-        btnEncuestas.setText("Empleados");
-        btnEncuestas.setBorder(null);
-        btnEncuestas.setBorderPainted(false);
-        btnEncuestas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEncuestas.addActionListener(new java.awt.event.ActionListener() {
+        btnClientes.setBackground(new java.awt.Color(153, 0, 153));
+        btnClientes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnClientes.setForeground(new java.awt.Color(255, 255, 255));
+        btnClientes.setText("Clientes");
+        btnClientes.setBorder(null);
+        btnClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        btnEmpleados.setBackground(new java.awt.Color(153, 0, 153));
+        btnEmpleados.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEmpleados.setForeground(new java.awt.Color(255, 255, 255));
+        btnEmpleados.setText("Empleados");
+        btnEmpleados.setBorder(null);
+        btnEmpleados.setBorderPainted(false);
+        btnEmpleados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEmpleados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEncuestasActionPerformed(evt);
+                btnEmpleadosActionPerformed(evt);
             }
         });
 
@@ -103,11 +103,11 @@ public class VistaEmpleados extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(101, 101, 101)
-                        .addComponent(btnCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSolicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                        .addComponent(btnSolicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                        .addComponent(btnEncuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(104, 104, 104))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -123,9 +123,9 @@ public class VistaEmpleados extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSolicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEncuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSolicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(5, 5, 5))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,9 +188,9 @@ public class VistaEmpleados extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void btnEncuestasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncuestasActionPerformed
+    private void btnEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmpleadosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEncuestasActionPerformed
+    }//GEN-LAST:event_btnEmpleadosActionPerformed
     private void SetImageLabel(JLabel labelname, String root){
 	ImageIcon image=new ImageIcon(root);
 	Icon icon =new ImageIcon(
@@ -237,8 +237,8 @@ public class VistaEmpleados extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel PanelCambio;
-    public javax.swing.JButton btnCuenta;
-    public javax.swing.JButton btnEncuestas;
+    public javax.swing.JButton btnClientes;
+    public javax.swing.JButton btnEmpleados;
     public javax.swing.JButton btnSalir;
     public javax.swing.JButton btnSolicitudes;
     public javax.swing.JLabel jLabel1;
