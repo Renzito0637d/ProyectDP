@@ -26,49 +26,43 @@ public class VistaEmpleadoSolicitudesSeguimiento extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        scrlTablaSolicitudes2 = new javax.swing.JScrollPane();
-        tbSolicitudes = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        labInfo1 = new javax.swing.JLabel();
+        labInfo2 = new javax.swing.JLabel();
         pnlFiltroEstado = new javax.swing.JPanel();
         labFiltroEstado = new javax.swing.JLabel();
         filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 32767));
         cbxFiltrarEstadoSol = new javax.swing.JComboBox<>();
         filler9 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(100, 0), new java.awt.Dimension(15, 32767));
         btnActualizarListaSol = new javax.swing.JButton();
-        labTitulo = new javax.swing.JLabel();
-        labSubTitulo2 = new javax.swing.JLabel();
         scrlTablaEvaluaciones = new javax.swing.JScrollPane();
         tbEvaluaciones = new javax.swing.JTable();
-        labInfo2 = new javax.swing.JLabel();
-        labInfo1 = new javax.swing.JLabel();
+        scrlTablaSolicitudes2 = new javax.swing.JScrollPane();
+        tbSolicitudes = new javax.swing.JTable();
+        labSubTitulo2 = new javax.swing.JLabel();
+        labTitulo = new javax.swing.JLabel();
+        labSubTitulo5 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txaDetalleEvaluacion = new javax.swing.JTextArea();
 
-        scrlTablaSolicitudes2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrlTablaSolicitudes2.setMaximumSize(new java.awt.Dimension(32767, 200));
-        scrlTablaSolicitudes2.setPreferredSize(new java.awt.Dimension(452, 150));
+        setAutoscrolls(true);
 
-        tbSolicitudes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"123", "QUEJA", "Luis Gonzales", "12-05-2020", "FINALIZADO", "Gerencia"}
-            },
-            new String [] {
-                "ID", "Tipo de Solicitud", "Cliente", "Fecha Ingreso", "Estado actual", "Departamento Evaluador"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
+        jScrollPane1.setBorder(null);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbSolicitudes.setMaximumSize(new java.awt.Dimension(450, 200));
-        tbSolicitudes.setPreferredSize(new java.awt.Dimension(450, 200));
-        tbSolicitudes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbSolicitudesMouseClicked(evt);
-            }
-        });
-        scrlTablaSolicitudes2.setViewportView(tbSolicitudes);
+        labInfo1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        labInfo1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labInfo1.setText("Seleccione una fila para mostrar el seguimiento");
+        labInfo1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        labInfo1.setMaximumSize(new java.awt.Dimension(411, 20));
+        labInfo1.setPreferredSize(new java.awt.Dimension(411, 20));
+
+        labInfo2.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        labInfo2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        labInfo2.setText("Seleccione una fila para mostrar los detalles y comentarios de la Evaluación correspondiente.");
+        labInfo2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        labInfo2.setMaximumSize(new java.awt.Dimension(411, 20));
+        labInfo2.setPreferredSize(new java.awt.Dimension(411, 20));
 
         pnlFiltroEstado.setPreferredSize(new java.awt.Dimension(200, 40));
         pnlFiltroEstado.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 5));
@@ -85,13 +79,6 @@ public class VistaEmpleadoSolicitudesSeguimiento extends javax.swing.JPanel {
 
         btnActualizarListaSol.setText("Actualizar Lista de Solicitudes");
         pnlFiltroEstado.add(btnActualizarListaSol);
-
-        labTitulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        labTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labTitulo.setText("Listado de seguimiento");
-
-        labSubTitulo2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labSubTitulo2.setText("Seguimiento de la Solicitud seleccionada");
 
         scrlTablaEvaluaciones.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrlTablaEvaluaciones.setMaximumSize(new java.awt.Dimension(32767, 100));
@@ -122,75 +109,116 @@ public class VistaEmpleadoSolicitudesSeguimiento extends javax.swing.JPanel {
         });
         scrlTablaEvaluaciones.setViewportView(tbEvaluaciones);
 
-        labInfo2.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        labInfo2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labInfo2.setText("Seleccione una fila para mostrar los detalles y comentarios de la Evaluación correspondiente.");
-        labInfo2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        labInfo2.setMaximumSize(new java.awt.Dimension(411, 20));
-        labInfo2.setPreferredSize(new java.awt.Dimension(411, 20));
+        scrlTablaSolicitudes2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrlTablaSolicitudes2.setMaximumSize(new java.awt.Dimension(32767, 200));
+        scrlTablaSolicitudes2.setPreferredSize(new java.awt.Dimension(452, 150));
 
-        labInfo1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        labInfo1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labInfo1.setText("Seleccione una fila para mostrar el seguimiento");
-        labInfo1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        labInfo1.setMaximumSize(new java.awt.Dimension(411, 20));
-        labInfo1.setPreferredSize(new java.awt.Dimension(411, 20));
+        tbSolicitudes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"123", "QUEJA", "Luis Gonzales", "12-05-2020", "FINALIZADO", "Gerencia"}
+            },
+            new String [] {
+                "ID", "Tipo de Solicitud", "Cliente", "Fecha Ingreso", "Estado actual", "Departamento Evaluador"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbSolicitudes.setMaximumSize(new java.awt.Dimension(450, 200));
+        tbSolicitudes.setPreferredSize(new java.awt.Dimension(450, 200));
+        tbSolicitudes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbSolicitudesMouseClicked(evt);
+            }
+        });
+        scrlTablaSolicitudes2.setViewportView(tbSolicitudes);
+
+        labSubTitulo2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        labSubTitulo2.setText("Informacion");
+
+        labTitulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labTitulo.setText("Listado de seguimiento");
+
+        labSubTitulo5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        labSubTitulo5.setText("Seguimiento de la Solicitud seleccionada");
+
+        txaDetalleEvaluacion.setColumns(20);
+        txaDetalleEvaluacion.setRows(5);
+        txaDetalleEvaluacion.setFocusable(false);
+        jScrollPane2.setViewportView(txaDetalleEvaluacion);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pnlFiltroEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(labSubTitulo5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labInfo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labInfo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labSubTitulo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addComponent(scrlTablaSolicitudes2, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+            .addComponent(scrlTablaEvaluaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane2)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlFiltroEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrlTablaSolicitudes2, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(labInfo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labSubTitulo5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrlTablaEvaluaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(labInfo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(labSubTitulo2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jScrollPane1.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrlTablaSolicitudes2, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
-                    .addComponent(pnlFiltroEstado, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(labTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(labSubTitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(scrlTablaEvaluaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(labInfo2, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(labInfo1, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(labTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlFiltroEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrlTablaSolicitudes2, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
-                .addComponent(labInfo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addComponent(labSubTitulo2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrlTablaEvaluaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labInfo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addComponent(jScrollPane1)
+                .addGap(6, 6, 6))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tbSolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSolicitudesMouseClicked
-
-    }//GEN-LAST:event_tbSolicitudesMouseClicked
 
     private void tbEvaluacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEvaluacionesMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tbEvaluacionesMouseClicked
+
+    private void tbSolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSolicitudesMouseClicked
+
+    }//GEN-LAST:event_tbSolicitudesMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -198,17 +226,20 @@ public class VistaEmpleadoSolicitudesSeguimiento extends javax.swing.JPanel {
     public javax.swing.JComboBox<String> cbxFiltrarEstadoSol;
     private javax.swing.Box.Filler filler4;
     private javax.swing.Box.Filler filler9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel labFiltroEstado;
     private javax.swing.JLabel labInfo1;
     private javax.swing.JLabel labInfo2;
     private javax.swing.JLabel labSubTitulo2;
+    private javax.swing.JLabel labSubTitulo5;
     private javax.swing.JLabel labTitulo;
     private javax.swing.JPanel pnlFiltroEstado;
     private javax.swing.JScrollPane scrlTablaEvaluaciones;
-    private javax.swing.JScrollPane scrlTablaSolicitudes;
-    private javax.swing.JScrollPane scrlTablaSolicitudes1;
     private javax.swing.JScrollPane scrlTablaSolicitudes2;
     public javax.swing.JTable tbEvaluaciones;
     public javax.swing.JTable tbSolicitudes;
+    public javax.swing.JTextArea txaDetalleEvaluacion;
     // End of variables declaration//GEN-END:variables
 }

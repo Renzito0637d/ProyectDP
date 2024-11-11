@@ -6,7 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import vista.VistaEmpleadoSolicitudes;
+import vista.VistaEmpleadoSolicitudesEvaluar;
 import vista.VistaEmpleadoSolicitudesLista;
+import vista.VistaEmpleadoSolicitudesSeguimiento;
 
 /**
  *
@@ -38,12 +40,18 @@ public class ControladorEmpleadoSolicitudes implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnLista){
-            VistaEmpleadoSolicitudesLista soli=new VistaEmpleadoSolicitudesLista();
+            VistaEmpleadoSolicitudesLista lista=new VistaEmpleadoSolicitudesLista();
+            CambiarPanel(lista);
+        }
+        if(e.getSource()==vista.btnSeguimiento){
+            VistaEmpleadoSolicitudesSeguimiento soli=new VistaEmpleadoSolicitudesSeguimiento();
             CambiarPanel(soli);
         }
         if(e.getSource()==vista.btnEvaluar){
-            
+            VistaEmpleadoSolicitudesEvaluar eva=new VistaEmpleadoSolicitudesEvaluar();
+            CambiarPanel(eva);
         }
+        
     }
     
 }

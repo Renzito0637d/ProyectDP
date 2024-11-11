@@ -833,14 +833,6 @@ public class VistaEmpleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tbSolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSolicitudesMouseClicked
-
-    }//GEN-LAST:event_tbSolicitudesMouseClicked
-
-    private void tbEvaluacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEvaluacionesMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbEvaluacionesMouseClicked
-
     private void tbClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbClientesMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tbClientesMouseClicked
@@ -864,6 +856,14 @@ public class VistaEmpleado extends javax.swing.JFrame {
             txtClaveRepetidaRE.setEchoChar('\u2022');
         }
     }//GEN-LAST:event_chkVerClaveRepetidaREActionPerformed
+
+    private void tbEvaluacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEvaluacionesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbEvaluacionesMouseClicked
+
+    private void tbSolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSolicitudesMouseClicked
+
+    }//GEN-LAST:event_tbSolicitudesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -901,23 +901,23 @@ public class VistaEmpleado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnActualizarListaSol;
+    private javax.swing.JButton btnActualizarListaSol;
     public javax.swing.JButton btnAutoGenerarUsuario;
     public javax.swing.JButton btnBuscarCliente;
     public javax.swing.JButton btnBuscarEmpleado;
-    public javax.swing.JButton btnEvaluarSol;
+    private javax.swing.JButton btnEvaluarSol;
     public javax.swing.JButton btnLimpiarRE;
-    public javax.swing.JButton btnLimpiarSol;
+    private javax.swing.JButton btnLimpiarSol;
     public javax.swing.JButton btnRegistrarRE;
     public javax.swing.JButton btnSalirCliente;
     public javax.swing.JButton btnSalirEmpleado;
     public javax.swing.JButton btnSalirRE;
-    public javax.swing.JButton btnSalirSol;
+    private javax.swing.JButton btnSalirSol;
     private javax.swing.ButtonGroup btngrpEstado;
     public javax.swing.JComboBox<String> cbxBuscarDepartamento;
     public javax.swing.JComboBox<String> cbxDepartamentoRE;
-    public javax.swing.JComboBox<String> cbxDepartamentoSol;
-    public javax.swing.JComboBox<String> cbxFiltrarEstadoSol;
+    private javax.swing.JComboBox<String> cbxDepartamentoSol;
+    private javax.swing.JComboBox<String> cbxFiltrarEstadoSol;
     public javax.swing.JCheckBox chkVerClaveRE;
     public javax.swing.JCheckBox chkVerClaveRepetidaRE;
     private javax.swing.Box.Filler filler1;
@@ -1017,8 +1017,8 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JPanel pnlTablaEmpleado;
     private javax.swing.JPanel pnlTablaS;
     private javax.swing.JPanel pnlUsuario;
-    public javax.swing.JRadioButton rbtnFinalizado;
-    public javax.swing.JRadioButton rbtnTramite;
+    private javax.swing.JRadioButton rbtnFinalizado;
+    private javax.swing.JRadioButton rbtnTramite;
     public javax.swing.JScrollPane scrlListaClientes;
     public javax.swing.JScrollPane scrlListaEmpleados;
     public javax.swing.JScrollPane scrlRegistroEmpleados;
@@ -1029,11 +1029,11 @@ public class VistaEmpleado extends javax.swing.JFrame {
     private javax.swing.JScrollPane scrlTablaSolicitudes;
     public javax.swing.JTable tbClientes;
     public javax.swing.JTable tbEmpleados;
-    public javax.swing.JTable tbEvaluaciones;
-    public javax.swing.JTable tbSolicitudes;
-    public javax.swing.JTextArea txaDescripcionEvaluacion;
-    public javax.swing.JTextArea txaDetalleEvaluacion;
-    public javax.swing.JTextArea txaDetalleSolicitud;
+    private javax.swing.JTable tbEvaluaciones;
+    private javax.swing.JTable tbSolicitudes;
+    private javax.swing.JTextArea txaDescripcionEvaluacion;
+    private javax.swing.JTextArea txaDetalleEvaluacion;
+    private javax.swing.JTextArea txaDetalleSolicitud;
     public javax.swing.JTextField txtApellidoRE;
     public javax.swing.JTextField txtBuscarUsuarioCliente;
     public javax.swing.JTextField txtBuscarUsuarioEmpleado;
