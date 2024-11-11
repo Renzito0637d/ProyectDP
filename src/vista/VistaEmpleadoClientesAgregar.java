@@ -26,19 +26,272 @@ public class VistaEmpleadoClientesAgregar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jpRegistroClientes = new javax.swing.JPanel();
+        labTitulo = new javax.swing.JLabel();
+        pnlBody = new javax.swing.JPanel();
+        pnlDatosPersonales = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        labSubTitulo5 = new javax.swing.JLabel();
+        jPanel13 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        pnlGrid = new javax.swing.JPanel();
+        labNombre = new javax.swing.JLabel();
+        labApellido = new javax.swing.JLabel();
+        txtNombreRC = new javax.swing.JTextField();
+        txtApellidoRC = new javax.swing.JTextField();
+        labEmail = new javax.swing.JLabel();
+        labTelefono = new javax.swing.JLabel();
+        txtEmailRC = new javax.swing.JTextField();
+        txtTelefonoRC = new javax.swing.JTextField();
+        pnlDepartamento = new javax.swing.JPanel();
+        labDireccion = new javax.swing.JLabel();
+        txtDireccionRC = new javax.swing.JTextField();
+        pnlDatosCuenta = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        labSubTitulo6 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        pnlUsuario = new javax.swing.JPanel();
+        labUsuario = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
+        txtUsuarioRC = new javax.swing.JTextField();
+        filler8 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 32767));
+        btnAutoGenerarUsuario = new javax.swing.JButton();
+        pnlGrid1 = new javax.swing.JPanel();
+        labClave = new javax.swing.JLabel();
+        labClaveRepetida = new javax.swing.JLabel();
+        txtClaveRC = new javax.swing.JPasswordField();
+        txtClaveRepetidaRC = new javax.swing.JPasswordField();
+        chkVerClaveRC = new javax.swing.JCheckBox();
+        chkVerClaveRepetidaRC = new javax.swing.JCheckBox();
+        pnlBotonesRC = new javax.swing.JPanel();
+        btnRegistrarRC = new javax.swing.JButton();
+        btnLimpiarRC = new javax.swing.JButton();
+
+        jpRegistroClientes.setMaximumSize(new java.awt.Dimension(2147483647, 400));
+        jpRegistroClientes.setLayout(new java.awt.BorderLayout());
+
+        labTitulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        labTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labTitulo.setText("Registro de Cliente");
+        labTitulo.setPreferredSize(new java.awt.Dimension(168, 30));
+        jpRegistroClientes.add(labTitulo, java.awt.BorderLayout.PAGE_START);
+
+        pnlBody.setLayout(new java.awt.BorderLayout(0, 20));
+
+        pnlDatosPersonales.setLayout(new java.awt.CardLayout());
+
+        jPanel8.setLayout(new java.awt.BorderLayout());
+
+        labSubTitulo5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        labSubTitulo5.setText("Datos Personales");
+        labSubTitulo5.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        labSubTitulo5.setMaximumSize(new java.awt.Dimension(198, 20));
+        labSubTitulo5.setMinimumSize(new java.awt.Dimension(198, 20));
+        labSubTitulo5.setPreferredSize(new java.awt.Dimension(198, 20));
+        jPanel8.add(labSubTitulo5, java.awt.BorderLayout.PAGE_START);
+
+        jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel13.setLayout(new java.awt.CardLayout(5, 5));
+
+        jPanel9.setLayout(new java.awt.BorderLayout());
+
+        pnlGrid.setLayout(new java.awt.GridLayout(4, 2, 10, 3));
+
+        labNombre.setText("Nombres");
+        pnlGrid.add(labNombre);
+
+        labApellido.setText("Apellidos");
+        pnlGrid.add(labApellido);
+        pnlGrid.add(txtNombreRC);
+        pnlGrid.add(txtApellidoRC);
+
+        labEmail.setText("E-mail de contacto (opcional)");
+        pnlGrid.add(labEmail);
+
+        labTelefono.setText("Teléfono móvil (opcional)");
+        pnlGrid.add(labTelefono);
+        pnlGrid.add(txtEmailRC);
+        pnlGrid.add(txtTelefonoRC);
+
+        jPanel9.add(pnlGrid, java.awt.BorderLayout.PAGE_START);
+
+        pnlDepartamento.setLayout(new java.awt.BorderLayout(0, 5));
+
+        labDireccion.setText("Dirección física (opcional)");
+        pnlDepartamento.add(labDireccion, java.awt.BorderLayout.PAGE_START);
+        pnlDepartamento.add(txtDireccionRC, java.awt.BorderLayout.PAGE_END);
+
+        jPanel9.add(pnlDepartamento, java.awt.BorderLayout.CENTER);
+
+        jPanel13.add(jPanel9, "card2");
+
+        jPanel8.add(jPanel13, java.awt.BorderLayout.CENTER);
+
+        pnlDatosPersonales.add(jPanel8, "card2");
+
+        pnlBody.add(pnlDatosPersonales, java.awt.BorderLayout.PAGE_START);
+
+        pnlDatosCuenta.setPreferredSize(new java.awt.Dimension(393, 200));
+        pnlDatosCuenta.setLayout(new java.awt.CardLayout());
+
+        jPanel10.setLayout(new java.awt.BorderLayout());
+
+        labSubTitulo6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        labSubTitulo6.setText("Datos de la cuenta");
+        labSubTitulo6.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        labSubTitulo6.setMaximumSize(new java.awt.Dimension(198, 20));
+        labSubTitulo6.setMinimumSize(new java.awt.Dimension(198, 20));
+        labSubTitulo6.setPreferredSize(new java.awt.Dimension(198, 20));
+        jPanel10.add(labSubTitulo6, java.awt.BorderLayout.PAGE_START);
+
+        jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel14.setPreferredSize(new java.awt.Dimension(383, 200));
+        jPanel14.setLayout(new java.awt.CardLayout(5, 5));
+
+        jPanel11.setLayout(new java.awt.BorderLayout());
+
+        pnlUsuario.setLayout(new java.awt.BorderLayout(0, 5));
+
+        labUsuario.setText("Nombre de Usuario");
+        pnlUsuario.add(labUsuario, java.awt.BorderLayout.PAGE_START);
+
+        jPanel12.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 5));
+
+        txtUsuarioRC.setMinimumSize(new java.awt.Dimension(64, 30));
+        txtUsuarioRC.setPreferredSize(new java.awt.Dimension(300, 30));
+        jPanel12.add(txtUsuarioRC);
+        jPanel12.add(filler8);
+
+        btnAutoGenerarUsuario.setText("Autogenerar");
+        jPanel12.add(btnAutoGenerarUsuario);
+
+        pnlUsuario.add(jPanel12, java.awt.BorderLayout.CENTER);
+
+        jPanel11.add(pnlUsuario, java.awt.BorderLayout.PAGE_START);
+
+        pnlGrid1.setLayout(new java.awt.GridLayout(3, 2, 10, 3));
+
+        labClave.setText("Contraseña");
+        pnlGrid1.add(labClave);
+
+        labClaveRepetida.setText("Repetir Contraseña");
+        pnlGrid1.add(labClaveRepetida);
+        pnlGrid1.add(txtClaveRC);
+        pnlGrid1.add(txtClaveRepetidaRC);
+
+        chkVerClaveRC.setText("Ver");
+        chkVerClaveRC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkVerClaveRCActionPerformed(evt);
+            }
+        });
+        pnlGrid1.add(chkVerClaveRC);
+
+        chkVerClaveRepetidaRC.setText("Ver");
+        chkVerClaveRepetidaRC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkVerClaveRepetidaRCActionPerformed(evt);
+            }
+        });
+        pnlGrid1.add(chkVerClaveRepetidaRC);
+
+        jPanel11.add(pnlGrid1, java.awt.BorderLayout.CENTER);
+
+        jPanel14.add(jPanel11, "card2");
+
+        jPanel10.add(jPanel14, java.awt.BorderLayout.CENTER);
+
+        pnlDatosCuenta.add(jPanel10, "card2");
+
+        pnlBody.add(pnlDatosCuenta, java.awt.BorderLayout.CENTER);
+
+        jpRegistroClientes.add(pnlBody, java.awt.BorderLayout.CENTER);
+
+        pnlBotonesRC.setPreferredSize(new java.awt.Dimension(82, 200));
+
+        btnRegistrarRC.setText("Registrar");
+        pnlBotonesRC.add(btnRegistrarRC);
+
+        btnLimpiarRC.setText("Limpiar");
+        pnlBotonesRC.add(btnLimpiarRC);
+
+        jpRegistroClientes.add(pnlBotonesRC, java.awt.BorderLayout.PAGE_END);
+
+        jScrollPane1.setViewportView(jpRegistroClientes);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 662, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 465, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void chkVerClaveRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkVerClaveRCActionPerformed
+        if (chkVerClaveRC.isSelected()) {
+            txtClaveRC.setEchoChar((char) 0);
+        } else {
+            txtClaveRC.setEchoChar('\u2022');
+        }
+    }//GEN-LAST:event_chkVerClaveRCActionPerformed
+
+    private void chkVerClaveRepetidaRCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkVerClaveRepetidaRCActionPerformed
+        if (chkVerClaveRepetidaRC.isSelected()) {
+            txtClaveRepetidaRC.setEchoChar((char) 0);
+        } else {
+            txtClaveRepetidaRC.setEchoChar('\u2022');
+        }
+    }//GEN-LAST:event_chkVerClaveRepetidaRCActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnAutoGenerarUsuario;
+    public javax.swing.JButton btnLimpiarRC;
+    public javax.swing.JButton btnRegistrarRC;
+    public javax.swing.JCheckBox chkVerClaveRC;
+    public javax.swing.JCheckBox chkVerClaveRepetidaRC;
+    private javax.swing.Box.Filler filler8;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jpRegistroClientes;
+    private javax.swing.JLabel labApellido;
+    private javax.swing.JLabel labClave;
+    private javax.swing.JLabel labClaveRepetida;
+    private javax.swing.JLabel labDireccion;
+    private javax.swing.JLabel labEmail;
+    private javax.swing.JLabel labNombre;
+    private javax.swing.JLabel labSubTitulo5;
+    private javax.swing.JLabel labSubTitulo6;
+    private javax.swing.JLabel labTelefono;
+    private javax.swing.JLabel labTitulo;
+    private javax.swing.JLabel labUsuario;
+    private javax.swing.JPanel pnlBody;
+    private javax.swing.JPanel pnlBotonesRC;
+    private javax.swing.JPanel pnlDatosCuenta;
+    private javax.swing.JPanel pnlDatosPersonales;
+    private javax.swing.JPanel pnlDepartamento;
+    private javax.swing.JPanel pnlGrid;
+    private javax.swing.JPanel pnlGrid1;
+    private javax.swing.JPanel pnlUsuario;
+    public javax.swing.JTextField txtApellidoRC;
+    public javax.swing.JPasswordField txtClaveRC;
+    public javax.swing.JPasswordField txtClaveRepetidaRC;
+    public javax.swing.JTextField txtDireccionRC;
+    public javax.swing.JTextField txtEmailRC;
+    public javax.swing.JTextField txtNombreRC;
+    public javax.swing.JTextField txtTelefonoRC;
+    public javax.swing.JTextField txtUsuarioRC;
     // End of variables declaration//GEN-END:variables
 }

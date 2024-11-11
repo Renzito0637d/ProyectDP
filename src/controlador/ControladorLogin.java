@@ -101,7 +101,7 @@ public class ControladorLogin implements ActionListener {
                 if (persona instanceof Empleado empleado && empleado.getCodigoEmpleado() != -1) {
                     // Abrir la ventana Empleado, pasando el objeto empleado como argumento
                     VistaEmpleados vistaE = new VistaEmpleados();
-                    ControladorEmpleados ctrl = new ControladorEmpleados(vistaE, this, empleado);
+                    ControladorEmpleado ctrl = new ControladorEmpleado(vistaE, this, empleado);
                     ctrl.iniciar();
                     
                     //PRUEBAS en el terminal

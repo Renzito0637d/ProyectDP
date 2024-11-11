@@ -42,10 +42,12 @@ public class ControladorEmpleadoSolicitudes implements ActionListener{
         if(e.getSource()==vista.btnLista){
             VistaEmpleadoSolicitudesLista lista=new VistaEmpleadoSolicitudesLista();
             CambiarPanel(lista);
+            resetButtons();
         }
         if(e.getSource()==vista.btnSeguimiento){
             VistaEmpleadoSolicitudesSeguimiento soli=new VistaEmpleadoSolicitudesSeguimiento();
             CambiarPanel(soli);
+            resetButtons();
         }
         if(e.getSource()==vista.btnEvaluar){
             VistaEmpleadoSolicitudesEvaluar eva=new VistaEmpleadoSolicitudesEvaluar();

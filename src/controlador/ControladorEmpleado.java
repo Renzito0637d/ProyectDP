@@ -1,137 +1,60 @@
 package controlador;
 
-import modelo.ClienteDAO;
-import modelo.DepartamentoDAO;
-import modelo.EmpleadoDAO;
-import modelo.EvaluacionDAO;
-import modelo.SolicitudDAO;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.UUID;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.JPanel;
 import modelo.Empleado;
-import modelo.Cliente;
-import modelo.Departamento;
+import vista.VistaClienteSolicitudes;
+import vista.VistaEmpleadoClientes;
+import vista.VistaEmpleadoEmpleados;
+import vista.VistaEmpleadoSolicitudes;
+import vista.VistaEmpleados;
 
-import modelo.Evaluacion;
-import modelo.Solicitud;
-import vista.VistaEmpleado;
-
-public class ControladorEmpleado implements ActionListener, MouseListener {
+/**
+ *
+ * @author Renzo
+ */
+public class ControladorEmpleado implements ActionListener{
     // La vista correspondiente a este controlador
-    VistaEmpleado vista;
+    VistaEmpleados vista;
     // El controlador desde donde se ha ingresado a esta vista
     ControladorLogin controladorPrevio;
     // El usuario del empleado que ha accedido a través del login
     Empleado empleado;
-    
-    
-    public ControladorEmpleado(VistaEmpleado vista, ControladorLogin controladorPrevio, Empleado empleado) {
-        this.vista =  EmpleadoFactory.crearVistaEmpleado(empleado); //Aplicando el FACTORY del empleado
+
+    public ControladorEmpleado(VistaEmpleados vista,ControladorLogin controladorPrevio, Empleado empleado) {
+        this.vista =  vista;
         this.controladorPrevio = controladorPrevio;
         this.empleado = empleado;
-        // Eventos - Tab Solicitudes
-        this.vista.btnActualizarListaSol.addActionListener(this);
-        this.vista.tbSolicitudes.addMouseListener(this);
-        this.vista.tbEvaluaciones.addMouseListener(this);
-        this.vista.rbtnTramite.addActionListener(this);
-        this.vista.rbtnFinalizado.addActionListener(this);
-        this.vista.btnEvaluarSol.addActionListener(this);
-        this.vista.btnLimpiarSol.addActionListener(this);
-        this.vista.btnSalirSol.addActionListener(this);
-        // Eventos - Tab Lista Clientes
-        this.vista.btnBuscarCliente.addActionListener(this);
-        this.vista.tbClientes.addMouseListener(this);
-        this.vista.btnSalirCliente.addActionListener(this);
-        // Eventos - Tab Lista Empleados
-        this.vista.btnBuscarEmpleado.addActionListener(this);
-        this.vista.tbEmpleados.addMouseListener(this);
-        this.vista.btnSalirEmpleado.addActionListener(this);
-        // Eventos - Tab Registrar Empleado
-        this.vista.btnAutoGenerarUsuario.addActionListener(this);
-        this.vista.btnRegistrarRE.addActionListener(this);
-        this.vista.btnLimpiarRE.addActionListener(this);
-        this.vista.btnSalirRE.addActionListener(this);
-        
+        vista.btnSolicitudes.addActionListener(this);
+        vista.btnClientes.addActionListener(this);
+        vista.btnEmpleados.addActionListener(this);
+        vista.btnSalir.addActionListener(this);
     }
     
+    public void CambiarPanel(JPanel box) {
+        box.setPreferredSize(new Dimension(1000, 500)); // Tamaño inicial
+
+        vista.PanelCambio.removeAll();
+        vista.PanelCambio.setLayout(new BorderLayout());
+        vista.PanelCambio.add(box, BorderLayout.CENTER);
+        vista.PanelCambio.revalidate();
+        vista.PanelCambio.repaint();
+    }
     public void iniciar() {
         vista.setTitle("Tiendas Tambo - Quejas y Reclamos");
-        vista.setLocationRelativeTo(null);
-        vista.setSize(800, 600);
+        vista.setLocationRelativeTo(null);          
         vista.setVisible(true);
+        
     }
-    
-    // Eventos
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // EVENTOS - TAB SOLICITUDES
-        if (e.getSource() == vista.btnActualizarListaSol) {
-        
-        }
-        if (e.getSource() == vista.rbtnFinalizado) {
-        }
-        if (e.getSource() == vista.rbtnTramite) {
-        }        
-        if (e.getSource() == vista.btnEvaluarSol) {
-        }
-        if (e.getSource() == vista.btnLimpiarSol) {
-        }
-        if (e.getSource() == vista.btnSalirSol) {
-            salir();
-        }
-        
-        
-        // EVENTOS - TAB LISTA CLIENTES
-        if (e.getSource() == vista.btnBuscarCliente) {
-        }
-        if (e.getSource() == vista.btnSalirCliente) {
-            salir();
-        }
-        
-        // EVENTOS - TAB LISTA EMPLEADOS
-        if (e.getSource() == vista.btnBuscarEmpleado) {
-        }
-        if (e.getSource() == vista.btnSalirEmpleado) {
-            salir();
-        }
-        
-        // EVENTOS - TAB REGISTRO EMPLEADOS
-        if (e.getSource() == vista.btnRegistrarRE) {
-        }
-        if (e.getSource() == vista.btnAutoGenerarUsuario) {            
-        } 
-        if (e.getSource() == vista.btnLimpiarRE) {
-        
-        }        
-        if (e.getSource() == vista.btnSalirRE) {
-            salir();
-        }
+    private void resetButtons() {
+        vista.btnClientes.setSelected(false);
+        vista.btnEmpleados.setSelected(false);
+        vista.btnSalir.setSelected(false);
+        vista.btnSolicitudes.setSelected(false);
     }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {    }
-    @Override
-    public void mousePressed(MouseEvent e) {    }
-    @Override
-    public void mouseReleased(MouseEvent e) {    }
-    @Override
-    public void mouseEntered(MouseEvent e) {    }
-    @Override
-    public void mouseExited(MouseEvent e) {    }
-    
-    // MÉTODOS PROPIOS por agregar
-
-    
     // PASAR A OTRA PANTALLA
     public void salir() {
         // Regresar a la ventana Login
@@ -140,4 +63,25 @@ public class ControladorEmpleado implements ActionListener, MouseListener {
         vista.dispose();
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {      
+        if(e.getSource()==vista.btnSolicitudes){
+            VistaEmpleadoSolicitudes soli=new VistaEmpleadoSolicitudes();
+            CambiarPanel(soli);    
+            new ControladorEmpleadoSolicitudes(soli);
+            resetButtons();
+        }
+        if(e.getSource()==vista.btnClientes){
+            VistaEmpleadoClientes cli=new VistaEmpleadoClientes();
+            CambiarPanel(cli);
+            new ControladorEmpleadoClientes(cli);
+            resetButtons();
+        }
+        if(e.getSource()==vista.btnEmpleados){
+            VistaEmpleadoEmpleados emp=new VistaEmpleadoEmpleados();
+            CambiarPanel(emp);
+            new ControladorEmpleadoEmpleados(emp);
+            resetButtons();
+        }
+    }
 }
