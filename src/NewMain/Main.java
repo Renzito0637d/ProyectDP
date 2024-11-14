@@ -1,11 +1,15 @@
 package NewMain;
 
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 import controlador.ControladorCliente;
 import controlador.ControladorLogin;
 import modelo.MiConexion;
 import vista.VistaLogin;
 import java.sql.Connection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import modelo.Cliente;
 import modelo.ClienteDAO;
@@ -15,6 +19,11 @@ import modelo.SolicitudDAO;
 public class Main {
 
     public static void main(String[] args) {
+        Map<String, String> extraDefaults = new HashMap<>();
+        extraDefaults.put("@accentColor", "#fffc33");         
+            
+        FlatLaf.setGlobalExtraDefaults(extraDefaults);
+        FlatLightLaf.setup();
         VistaLogin vista = new VistaLogin();
         ControladorLogin ctrl = new ControladorLogin(vista);
         ctrl.iniciar();
