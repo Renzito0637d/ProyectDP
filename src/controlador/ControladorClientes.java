@@ -70,10 +70,16 @@ public class ControladorClientes implements ActionListener{
             resetButtons();
         }
         if(e.getSource()==vista.btnSolicitudes){
-            VistaClienteSolicitudes soli=new VistaClienteSolicitudes();
-            new ControladorClienteSolicitudes(soli);
+            VistaClienteSolicitudes soli=new VistaClienteSolicitudes();            
             CambiarPanel(soli);
-            
+            new ControladorClienteSolicitudes(soli);
+            resetButtons();
+        }
+        if(e.getSource()==vista.btnEncuestas){
+            VistaClienteEncuestas encu=new VistaClienteEncuestas();
+            CambiarPanel(encu);
+            new ControladorClienteEncuestas(encu);
+            resetButtons();            
         }
         if(e.getSource()==vista.btnSalir){
             salir();
