@@ -52,21 +52,26 @@ public class VistaClienteEncuestas extends javax.swing.JPanel {
         btnLista.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLista.setForeground(new java.awt.Color(255, 255, 255));
         btnLista.setText("Lista de encuestas");
-        btnLista.setBorder(null);
+        btnLista.setBorderPainted(false);
         btnLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnCompletar.setBackground(new java.awt.Color(153, 0, 153));
         btnCompletar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCompletar.setForeground(new java.awt.Color(255, 255, 255));
         btnCompletar.setText("Completar encuestas");
-        btnCompletar.setBorder(null);
+        btnCompletar.setBorderPainted(false);
         btnCompletar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCompletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompletarActionPerformed(evt);
+            }
+        });
 
         btnOtros.setBackground(new java.awt.Color(153, 0, 153));
         btnOtros.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnOtros.setForeground(new java.awt.Color(255, 255, 255));
         btnOtros.setText("Otras encuestas");
-        btnOtros.setBorder(null);
+        btnOtros.setBorderPainted(false);
         btnOtros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -108,6 +113,10 @@ public class VistaClienteEncuestas extends javax.swing.JPanel {
             .addComponent(PanelCambio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCompletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCompletarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

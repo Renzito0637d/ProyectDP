@@ -52,21 +52,21 @@ public class VistaClienteCuenta extends javax.swing.JPanel {
         btnDetalles.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnDetalles.setForeground(new java.awt.Color(255, 255, 255));
         btnDetalles.setText("Detalles de mi cuenta");
-        btnDetalles.setBorder(null);
+        btnDetalles.setBorderPainted(false);
         btnDetalles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnActualizar.setBackground(new java.awt.Color(153, 0, 153));
         btnActualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("Actualizar cuenta");
-        btnActualizar.setBorder(null);
+        btnActualizar.setBorderPainted(false);
         btnActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnEliminar.setBackground(new java.awt.Color(153, 0, 153));
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Elminar mi cuenta");
-        btnEliminar.setBorder(null);
+        btnEliminar.setBorderPainted(false);
         btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

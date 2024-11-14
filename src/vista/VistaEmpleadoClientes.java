@@ -51,23 +51,33 @@ public class VistaEmpleadoClientes extends javax.swing.JPanel {
         btnLista.setBackground(new java.awt.Color(153, 0, 153));
         btnLista.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLista.setForeground(new java.awt.Color(255, 255, 255));
-        btnLista.setText("Lista");
-        btnLista.setBorder(null);
+        btnLista.setText("Lista de clientes");
+        btnLista.setBorderPainted(false);
         btnLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnAgregar.setBackground(new java.awt.Color(153, 0, 153));
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregar.setText("Agregar");
-        btnAgregar.setBorder(null);
+        btnAgregar.setText("Agregar cliente");
+        btnAgregar.setBorderPainted(false);
         btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setBackground(new java.awt.Color(153, 0, 153));
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setText("Eliminar");
-        btnEliminar.setBorder(null);
+        btnEliminar.setText("Eliminar cliente");
+        btnEliminar.setBorderPainted(false);
         btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -108,6 +118,14 @@ public class VistaEmpleadoClientes extends javax.swing.JPanel {
             .addComponent(PanelCambio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

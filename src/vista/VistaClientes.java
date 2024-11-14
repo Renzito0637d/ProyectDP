@@ -66,21 +66,20 @@ public class VistaClientes extends javax.swing.JFrame {
         btnCuenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCuenta.setForeground(new java.awt.Color(255, 255, 255));
         btnCuenta.setText("Mi cuenta");
-        btnCuenta.setBorder(null);
+        btnCuenta.setBorderPainted(false);
         btnCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnSolicitudes.setBackground(new java.awt.Color(153, 0, 153));
         btnSolicitudes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSolicitudes.setForeground(new java.awt.Color(255, 255, 255));
         btnSolicitudes.setText("Solicitudes");
-        btnSolicitudes.setBorder(null);
+        btnSolicitudes.setBorderPainted(false);
         btnSolicitudes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnEncuestas.setBackground(new java.awt.Color(153, 0, 153));
         btnEncuestas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEncuestas.setForeground(new java.awt.Color(255, 255, 255));
         btnEncuestas.setText("Encuestas");
-        btnEncuestas.setBorder(null);
         btnEncuestas.setBorderPainted(false);
         btnEncuestas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 

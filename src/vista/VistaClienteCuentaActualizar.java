@@ -79,7 +79,7 @@ public class VistaClienteCuentaActualizar extends javax.swing.JPanel {
         btnActualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("Actualizar");
-        btnActualizar.setBorder(null);
+        btnActualizar.setBorderPainted(false);
         btnActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -52,7 +52,7 @@ public class VistaClienteCuentaEliminar extends javax.swing.JPanel {
         btnDetalles.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnDetalles.setForeground(new java.awt.Color(255, 255, 255));
         btnDetalles.setText("Eliminar");
-        btnDetalles.setBorder(null);
+        btnDetalles.setBorderPainted(false);
         btnDetalles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N

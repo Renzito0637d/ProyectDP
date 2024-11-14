@@ -52,21 +52,21 @@ public class VistaEmpleadoSolicitudes extends javax.swing.JPanel {
         btnLista.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLista.setForeground(new java.awt.Color(255, 255, 255));
         btnLista.setText("Lista");
-        btnLista.setBorder(null);
+        btnLista.setBorderPainted(false);
         btnLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnSeguimiento.setBackground(new java.awt.Color(153, 0, 153));
         btnSeguimiento.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSeguimiento.setForeground(new java.awt.Color(255, 255, 255));
         btnSeguimiento.setText("Seguimiento");
-        btnSeguimiento.setBorder(null);
+        btnSeguimiento.setBorderPainted(false);
         btnSeguimiento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnEvaluar.setBackground(new java.awt.Color(153, 0, 153));
         btnEvaluar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEvaluar.setForeground(new java.awt.Color(255, 255, 255));
         btnEvaluar.setText("Evaluar");
-        btnEvaluar.setBorder(null);
+        btnEvaluar.setBorderPainted(false);
         btnEvaluar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

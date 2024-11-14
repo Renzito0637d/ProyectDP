@@ -51,14 +51,14 @@ public class VistaClienteSolicitudes extends javax.swing.JPanel {
         btnCrear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCrear.setForeground(new java.awt.Color(255, 255, 255));
         btnCrear.setText("Crear solicitud");
-        btnCrear.setBorder(null);
+        btnCrear.setBorderPainted(false);
         btnCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnHistorial.setBackground(new java.awt.Color(153, 0, 153));
         btnHistorial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnHistorial.setForeground(new java.awt.Color(255, 255, 255));
         btnHistorial.setText("Ver mis solicitudes");
-        btnHistorial.setBorder(null);
+        btnHistorial.setBorderPainted(false);
         btnHistorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

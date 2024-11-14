@@ -51,22 +51,27 @@ public class VistaEmpleadoEmpleados extends javax.swing.JPanel {
         btnLista.setBackground(new java.awt.Color(153, 0, 153));
         btnLista.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnLista.setForeground(new java.awt.Color(255, 255, 255));
-        btnLista.setText("Lista");
-        btnLista.setBorder(null);
+        btnLista.setText("Lista de Empleados");
+        btnLista.setBorderPainted(false);
         btnLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnAgregar.setBackground(new java.awt.Color(153, 0, 153));
         btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
-        btnAgregar.setText("Agregar");
-        btnAgregar.setBorder(null);
+        btnAgregar.setText("Agregar empleado");
+        btnAgregar.setBorderPainted(false);
         btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setBackground(new java.awt.Color(153, 0, 153));
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setText("Eliminar");
-        btnEliminar.setBorder(null);
+        btnEliminar.setText("Eliminar empleado");
+        btnEliminar.setBorderPainted(false);
         btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -108,6 +113,10 @@ public class VistaEmpleadoEmpleados extends javax.swing.JPanel {
             .addComponent(PanelCambio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -66,21 +66,20 @@ public class VistaEmpleados extends javax.swing.JFrame {
         btnSolicitudes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSolicitudes.setForeground(new java.awt.Color(255, 255, 255));
         btnSolicitudes.setText("Solicitudes");
-        btnSolicitudes.setBorder(null);
+        btnSolicitudes.setBorderPainted(false);
         btnSolicitudes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnClientes.setBackground(new java.awt.Color(153, 0, 153));
         btnClientes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnClientes.setForeground(new java.awt.Color(255, 255, 255));
         btnClientes.setText("Clientes");
-        btnClientes.setBorder(null);
+        btnClientes.setBorderPainted(false);
         btnClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btnEmpleados.setBackground(new java.awt.Color(153, 0, 153));
         btnEmpleados.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEmpleados.setForeground(new java.awt.Color(255, 255, 255));
         btnEmpleados.setText("Empleados");
-        btnEmpleados.setBorder(null);
         btnEmpleados.setBorderPainted(false);
         btnEmpleados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEmpleados.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +90,7 @@ public class VistaEmpleados extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(235, 207, 34));
-        jLabel2.setText("Usted ingreso como cliente");
+        jLabel2.setText("Usted ingreso como empleado");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -111,7 +110,7 @@ public class VistaEmpleados extends javax.swing.JFrame {
                         .addGap(104, 104, 104))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
