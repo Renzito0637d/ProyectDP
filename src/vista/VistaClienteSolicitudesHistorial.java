@@ -185,7 +185,6 @@ public class VistaClienteSolicitudesHistorial extends javax.swing.JPanel {
         pnlSeguimiento.setPreferredSize(new java.awt.Dimension(411, 500));
         pnlSeguimiento.setLayout(new java.awt.CardLayout(3, 5));
 
-        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setPreferredSize(new java.awt.Dimension(405, 400));
         jPanel2.setLayout(new java.awt.BorderLayout());
 

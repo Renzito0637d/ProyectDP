@@ -29,6 +29,7 @@ public class VistaClienteCuenta extends javax.swing.JPanel {
         PanelCambio = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btnDetalles = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
 
         PanelCambio.setBackground(new java.awt.Color(255, 255, 255));
@@ -54,6 +55,13 @@ public class VistaClienteCuenta extends javax.swing.JPanel {
         btnDetalles.setBorder(null);
         btnDetalles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        btnActualizar.setBackground(new java.awt.Color(153, 0, 153));
+        btnActualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizar.setText("Actualizar cuenta");
+        btnActualizar.setBorder(null);
+        btnActualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         btnEliminar.setBackground(new java.awt.Color(153, 0, 153));
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
@@ -69,6 +77,7 @@ public class VistaClienteCuenta extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnDetalles, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -78,8 +87,10 @@ public class VistaClienteCuenta extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(btnDetalles, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -98,9 +109,14 @@ public class VistaClienteCuenta extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnEliminar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminar1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel PanelCambio;
+    public javax.swing.JButton btnActualizar;
     public javax.swing.JButton btnDetalles;
     public javax.swing.JButton btnEliminar;
     private javax.swing.JPanel jPanel2;
