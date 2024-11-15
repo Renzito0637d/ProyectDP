@@ -86,9 +86,11 @@ public class VistaLogin extends javax.swing.JFrame {
         rbtnCliente.setText("Cliente");
         bg.add(rbtnCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 98, -1));
 
+        txtClaveLogin.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         txtClaveLogin.setBorder(null);
-        bg.add(txtClaveLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 252, -1));
+        bg.add(txtClaveLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 252, 20));
 
+        txtUsuarioLogin.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         txtUsuarioLogin.setForeground(new java.awt.Color(0, 0, 0));
         txtUsuarioLogin.setBorder(null);
         txtUsuarioLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +98,7 @@ public class VistaLogin extends javax.swing.JFrame {
                 txtUsuarioLoginActionPerformed(evt);
             }
         });
-        bg.add(txtUsuarioLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 299, -1));
+        bg.add(txtUsuarioLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 299, 20));
 
         jLabel4.setFont(new java.awt.Font("Roboto Light", 1, 14)); // NOI18N
         jLabel4.setText("Contraseña");

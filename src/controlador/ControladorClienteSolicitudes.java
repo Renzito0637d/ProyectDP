@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import modelo.Cliente;
 import vista.VistaClienteSolicitudes;
 import vista.VistaClienteSolicitudesCrear;
 import vista.VistaClienteSolicitudesHistorial;
@@ -16,15 +17,17 @@ import vista.VistaClienteSolicitudesHistorial;
 public class ControladorClienteSolicitudes implements ActionListener{
     VistaClienteSolicitudesCrear crea;
     VistaClienteSolicitudes vista;
+    Cliente cliente;
 
-    public ControladorClienteSolicitudes(VistaClienteSolicitudes vista) {
+    public ControladorClienteSolicitudes(VistaClienteSolicitudes vista,Cliente cliente) {
         this.vista=vista;
+        this.cliente=cliente;
         vista.btnCrear.addActionListener(this);
         vista.btnHistorial.addActionListener(this);
         
         crea= new VistaClienteSolicitudesCrear();
         CambiarPanel(crea);
-        new ControladorClienteSolicitudesCrear(crea);
+        new ControladorClienteSolicitudesCrear(crea, cliente);
         vista.btnCrear.setSelected(true);
     }
     public void CambiarPanel(JPanel box) {
@@ -46,8 +49,7 @@ public class ControladorClienteSolicitudes implements ActionListener{
         if(e.getSource()==vista.btnCrear){
             VistaClienteSolicitudesCrear crea=new VistaClienteSolicitudesCrear();
             CambiarPanel(crea);
-            new ControladorClienteSolicitudesCrear(crea);
-            resetButtons();            
+            new ControladorClienteSolicitudesCrear(crea, cliente);
         }
         if(e.getSource()==vista.btnHistorial){
             VistaClienteSolicitudesHistorial histo=new VistaClienteSolicitudesHistorial();

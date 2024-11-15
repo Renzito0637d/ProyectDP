@@ -45,7 +45,7 @@ public class ControladorClientes implements ActionListener{
         vista.setVisible(true);
         soli=new VistaClienteSolicitudes();
         CambiarPanel(soli);
-        new ControladorClienteSolicitudes(soli);
+        new ControladorClienteSolicitudes(soli, cliente);
         vista.btnSolicitudes.setSelected(true);
     }
     private void resetButtons() {
@@ -72,7 +72,7 @@ public class ControladorClientes implements ActionListener{
         if(e.getSource()==vista.btnSolicitudes){
             VistaClienteSolicitudes soli=new VistaClienteSolicitudes();            
             CambiarPanel(soli);
-            new ControladorClienteSolicitudes(soli);
+            new ControladorClienteSolicitudes(soli, cliente);
             resetButtons();
         }
         if(e.getSource()==vista.btnEncuestas){

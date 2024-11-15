@@ -1,32 +1,34 @@
 package controlador;
 
+import modelo.ArticuloDAO;
+import modelo.EvaluacionDAO;
+import modelo.SolicitudDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import javax.swing.JOptionPane;
-import modelo.Articulo;
-import modelo.ArticuloDAO;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import modelo.Cliente;
+import modelo.Articulo;
 import modelo.CompraProducto;
 import modelo.CompraReclamada;
 import modelo.CompraServicio;
 import modelo.Evaluacion;
-import modelo.EvaluacionDAO;
 import modelo.ISolicitudDAO;
 import modelo.Solicitud;
-import modelo.SolicitudDAO;
+import vista.VistaCliente;
 import vista.VistaClienteSolicitudesCrear;
+import vista.VistaClientes;
 
-/**
- *
- * @author Renzo
- */
-public class ControladorClienteSolicitudesCrear implements ActionListener,MouseListener{
-    
+public class ControladorClienteSolicitudesCrear implements ActionListener, MouseListener {
+    // La vista correspondiente a este controlador
     VistaClienteSolicitudesCrear vista;
+    // El usuario que ha accedido a través del login
     Cliente cliente;
     
     // DAO
@@ -34,16 +36,61 @@ public class ControladorClienteSolicitudesCrear implements ActionListener,MouseL
     SolicitudDAO solicitudDAO;
     EvaluacionDAO evaluacionDAO;
     
-    DateTimeFormatter fmtFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    // Table models
+    DefaultTableModel modeloSol;
+    DefaultTableModel modeloEva;
 
-    public ControladorClienteSolicitudesCrear(VistaClienteSolicitudesCrear vista) {
-        this.vista=vista;
+    
+    DateTimeFormatter fmtFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    
+    public ControladorClienteSolicitudesCrear(VistaClienteSolicitudesCrear vista, Cliente cliente) {
+        this.vista = vista;
+        this.cliente = cliente;
         // Eventos - Tab Crear Solicitud
         this.vista.rbtnServicio.addActionListener(this);
         this.vista.rbtnProducto.addActionListener(this);
         this.vista.btnCrearSolicitud.addActionListener(this);
-        this.vista.btnLimpiarSolicitud.addActionListener(this);        
+        this.vista.btnLimpiarSolicitud.addActionListener(this);
+        this.vista.rbtnReclamo.addActionListener(this);
+        // Eventos - Tab Ver Mis Solicitudes
+        this.vista.rbtnQueja.addActionListener(this);
+        cargarListaServicios();
     }
+
+    // Eventos
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // EVENTOS - TAB CREAR SOLICITUD
+        if (e.getSource() == vista.rbtnServicio) {
+            cargarListaServicios();
+        }
+        if (e.getSource() == vista.rbtnProducto) {
+            cargarListaProductos();
+        }
+        if (e.getSource() == vista.btnLimpiarSolicitud) {
+            limpiarFormularioCrearSolicitud();
+        }  
+        if (e.getSource() == vista.btnCrearSolicitud) {
+            crearSolicitud();
+        }       
+
+
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+
+    }
+    @Override
+    public void mousePressed(MouseEvent e) {    }
+    @Override
+    public void mouseReleased(MouseEvent e) {    }
+    @Override
+    public void mouseEntered(MouseEvent e) {    }
+    @Override
+    public void mouseExited(MouseEvent e) {    }
+    
     // MÉTODOS PROPIOS
     
     // ACTIVACION Y LLENADO DE COMBOBOX
@@ -75,6 +122,8 @@ public class ControladorClienteSolicitudesCrear implements ActionListener,MouseL
         }
         vista.cbxNombreProducto.setSelectedIndex(0);
     }
+     
+    
     public void limpiarFormularioCrearSolicitud() {
         // Limpiar cajas de texto
         vista.txtFechaCompra.setText("");
@@ -94,7 +143,11 @@ public class ControladorClienteSolicitudesCrear implements ActionListener,MouseL
     
     public void limpiarTodo() {
         limpiarFormularioCrearSolicitud();
+        
     }
+    
+    
+    
     
 
     // OPERACIONES DE INSERCION-ACTUALIZACION-DELECION
@@ -216,47 +269,6 @@ public class ControladorClienteSolicitudesCrear implements ActionListener,MouseL
         }
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // EVENTOS - TAB CREAR SOLICITUD
-        if (e.getSource() == vista.rbtnServicio) {
-            cargarListaServicios();
-        }
-        if (e.getSource() == vista.rbtnProducto) {
-            cargarListaProductos();
-        }
-        if (e.getSource() == vista.btnLimpiarSolicitud) {
-            limpiarFormularioCrearSolicitud();
-        }  
-        if (e.getSource() == vista.btnCrearSolicitud) {
-            crearSolicitud();
-        }
-        
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        
-    }
+    
     
 }
