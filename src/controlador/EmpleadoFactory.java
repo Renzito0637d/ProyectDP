@@ -1,24 +1,21 @@
 package controlador;
 
 import modelo.Empleado;
-import vista.VistaEmpleado;
+import vista.VistaEmpleados;
 public class EmpleadoFactory {
     
-    public static VistaEmpleado crearVistaEmpleado(Empleado empleado) {
-        VistaEmpleado vistaEmpleado = new VistaEmpleado();
+    public static VistaEmpleados crearVistaEmpleado(Empleado empleado) {
+        VistaEmpleados vistaEmpleado = new VistaEmpleados();
         
         // Mostrar u ocultar pestañas según los permisos del empleado
         if (!empleado.verTabListaClientes()) {
-            vistaEmpleado.jtppVistaEmpleado.remove(vistaEmpleado.scrlListaClientes);
+            vistaEmpleado.btnClientes.setEnabled(false);
         }
         if (!empleado.verTabListaEmpleados()) {
-            vistaEmpleado.jtppVistaEmpleado.remove(vistaEmpleado.scrlListaEmpleados);
-        }
-        if (!empleado.verTabRegistroEmpleados()) {
-            vistaEmpleado.jtppVistaEmpleado.remove(vistaEmpleado.scrlRegistroEmpleados);
+            vistaEmpleado.btnEmpleados.setEnabled(false);
         }
         
         return vistaEmpleado;  // Retorna la vista configurada
     }
-    
+            
 }

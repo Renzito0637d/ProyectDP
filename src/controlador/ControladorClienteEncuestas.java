@@ -35,10 +35,16 @@ public class ControladorClienteEncuestas implements ActionListener{
         vista.PanelCambio.revalidate();
         vista.PanelCambio.repaint();
     }
-    private void resetButtons() {
-        vista.btnLista.setSelected(false);
-        vista.btnCompletar.setSelected(false);
-        vista.btnOtros.setSelected(false);
+    private void setSelectedButton(javax.swing.JButton selectedButton) {
+        javax.swing.JButton[] botones = {
+            vista.btnLista, 
+            vista.btnCompletar, 
+            vista.btnOtros
+        };
+    
+        for (javax.swing.JButton boton : botones) {
+            boton.setSelected(boton == selectedButton);
+        }
     }
 
     @Override
@@ -46,15 +52,15 @@ public class ControladorClienteEncuestas implements ActionListener{
         if(e.getSource()==vista.btnLista){
             VistaClienteEncuestasLista lis=new VistaClienteEncuestasLista();
             CambiarPanel(lis);
-            resetButtons();
+            setSelectedButton(vista.btnLista);
         }
         if(e.getSource()==vista.btnCompletar){
             VistaClienteEncuestasCompletar com=new VistaClienteEncuestasCompletar();
             CambiarPanel(com);
-            resetButtons();
+            setSelectedButton(vista.btnCompletar);
         }
         if(e.getSource()==vista.btnOtros){
-            
+            setSelectedButton(vista.btnOtros);
         }
     }
     

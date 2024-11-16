@@ -1,6 +1,7 @@
 package controlador;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +14,7 @@ import vista.*;
  *
  * @author Renzo
  */
-public class ControladorClientes implements ActionListener{   
+public class ControladorCliente implements ActionListener{   
     VistaClienteSolicitudes soli=null;
     // La vista correspondiente a este controlador
     VistaClientes vista;
@@ -21,7 +22,7 @@ public class ControladorClientes implements ActionListener{
     ControladorLogin controladorPrevio;
     // El usuario que ha accedido a través del login
     Cliente cliente;
-    public ControladorClientes(VistaClientes vista,ControladorLogin controladorPrevio, Cliente cliente) {
+    public ControladorCliente(VistaClientes vista,ControladorLogin controladorPrevio, Cliente cliente) {
         this.vista=vista;
         this.controladorPrevio = controladorPrevio;
         this.cliente = cliente;
@@ -40,6 +41,8 @@ public class ControladorClientes implements ActionListener{
         vista.PanelCambio.repaint();
     }
     public void iniciar() {
+        vista.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
+        vista.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(153,0,153));
         vista.setTitle("Tiendas Tambo - Quejas y Reclamos");
         vista.setLocationRelativeTo(null);          
         vista.setVisible(true);
@@ -48,12 +51,20 @@ public class ControladorClientes implements ActionListener{
         new ControladorClienteSolicitudes(soli, cliente);
         vista.btnSolicitudes.setSelected(true);
     }
-    private void resetButtons() {
-        vista.btnCuenta.setSelected(false);
-        vista.btnEncuestas.setSelected(false);
-        vista.btnSalir.setSelected(false);
-        vista.btnSolicitudes.setSelected(false);
+    
+    private void setSelectedButton(javax.swing.JButton selectedButton) {
+        javax.swing.JButton[] botones = {
+            vista.btnCuenta, 
+            vista.btnEncuestas, 
+            vista.btnSalir, 
+            vista.btnSolicitudes
+        };
+    
+        for (javax.swing.JButton boton : botones) {
+            boton.setSelected(boton == selectedButton);
+        }
     }
+
     // PASAR A OTRA PANTALLA
     public void salir() {
         // Regresar a la ventana Login
@@ -63,23 +74,23 @@ public class ControladorClientes implements ActionListener{
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==vista.btnCuenta){
+        if(e.getSource()==vista.btnCuenta){            
             VistaClienteCuenta cuenta=new VistaClienteCuenta();
             CambiarPanel(cuenta);
             new ControladorClienteCuenta(cuenta);
-            resetButtons();
+            setSelectedButton(vista.btnCuenta);
         }
-        if(e.getSource()==vista.btnSolicitudes){
+        if(e.getSource()==vista.btnSolicitudes){            
             VistaClienteSolicitudes soli=new VistaClienteSolicitudes();            
             CambiarPanel(soli);
             new ControladorClienteSolicitudes(soli, cliente);
-            resetButtons();
+            setSelectedButton(vista.btnSolicitudes);
         }
-        if(e.getSource()==vista.btnEncuestas){
+        if(e.getSource()==vista.btnEncuestas){            
             VistaClienteEncuestas encu=new VistaClienteEncuestas();
             CambiarPanel(encu);
             new ControladorClienteEncuestas(encu);
-            resetButtons();            
+            setSelectedButton(vista.btnEncuestas);
         }
         if(e.getSource()==vista.btnSalir){
             salir();

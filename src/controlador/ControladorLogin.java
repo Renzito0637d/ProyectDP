@@ -72,7 +72,7 @@ public class ControladorLogin implements ActionListener {
                 if (persona instanceof Cliente cliente && cliente.getCodigoCliente() != -1) {
                     // Abrir la ventana Cliente, pasando el objeto cliente como argumento
                     VistaClientes vistaC = new VistaClientes();
-                    ControladorClientes ctrl=new ControladorClientes(vistaC, this, cliente);
+                    ControladorCliente ctrl=new ControladorCliente(vistaC, this, cliente);
                     
                     ctrl.iniciar();
                     
@@ -99,9 +99,8 @@ public class ControladorLogin implements ActionListener {
                 persona = empleadoDAO.buscarPorCredenciales(usuario, clave);
                 // Evaluar que la busqueda haya sido exitosa
                 if (persona instanceof Empleado empleado && empleado.getCodigoEmpleado() != -1) {
-                    // Abrir la ventana Empleado, pasando el objeto empleado como argumento
-                    VistaEmpleados vistaE = new VistaEmpleados();
-                    ControladorEmpleado ctrl = new ControladorEmpleado(vistaE, this, empleado);
+                    // Abrir la ventana Empleado, pasando el objeto empleado como argumento                    
+                    ControladorEmpleado ctrl = new ControladorEmpleado(this, empleado);
                     ctrl.iniciar();
                     
                     //PRUEBAS en el terminal

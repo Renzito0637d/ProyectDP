@@ -33,27 +33,33 @@ public class ControladorEmpleadoEmpleados implements ActionListener{
         vista.PanelCambio.revalidate();
         vista.PanelCambio.repaint();
     }
-    private void resetButtons() {
-        vista.btnAgregar.setSelected(false);
-        vista.btnLista.setSelected(false);
-        vista.btnEliminar.setSelected(false);
+    private void setSelectedButton(javax.swing.JButton selectedButton) {
+        javax.swing.JButton[] botones = {
+            vista.btnLista, 
+            vista.btnAgregar, 
+            vista.btnEliminar
+        };
+    
+        for (javax.swing.JButton boton : botones) {
+            boton.setSelected(boton == selectedButton);
+        }
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnLista){
             VistaEmpleadoEmpleadosLista lis=new VistaEmpleadoEmpleadosLista();
             CambiarPanel(lis);
-            resetButtons();
+            setSelectedButton(vista.btnLista);
         }
         if(e.getSource()==vista.btnAgregar){
             VistaEmpleadoEmpleadosAgregar agre=new VistaEmpleadoEmpleadosAgregar();
             CambiarPanel(agre);
-            resetButtons();
+            setSelectedButton(vista.btnAgregar);
         }
         if(e.getSource()==vista.btnEliminar){
             VistaEmpleadoEmpleadosEliminar eli=new VistaEmpleadoEmpleadosEliminar();
             CambiarPanel(eli);
-            resetButtons();
+            setSelectedButton(vista.btnEliminar);
         }
     }
     

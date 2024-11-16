@@ -39,9 +39,15 @@ public class ControladorClienteSolicitudes implements ActionListener{
         vista.PanelCambio.revalidate();
         vista.PanelCambio.repaint();
     }
-    private void resetButtons() {
-        vista.btnCrear.setSelected(false);
-        vista.btnHistorial.setSelected(false);
+    private void setSelectedButton(javax.swing.JButton selectedButton) {
+        javax.swing.JButton[] botones = {
+            vista.btnCrear, 
+            vista.btnHistorial
+        };
+    
+        for (javax.swing.JButton boton : botones) {
+            boton.setSelected(boton == selectedButton);
+        }
     }
 
     @Override
@@ -50,13 +56,13 @@ public class ControladorClienteSolicitudes implements ActionListener{
             VistaClienteSolicitudesCrear crea=new VistaClienteSolicitudesCrear();
             CambiarPanel(crea);
             new ControladorClienteSolicitudesCrear(crea, cliente);
-            resetButtons();
+            setSelectedButton(vista.btnCrear);
         }
         if(e.getSource()==vista.btnHistorial){
             VistaClienteSolicitudesHistorial histo=new VistaClienteSolicitudesHistorial();
             CambiarPanel(histo);
             new ControladorClienteSolicitudesVer(histo, cliente);
-            resetButtons();
+            setSelectedButton(vista.btnHistorial);
         }
     }
     

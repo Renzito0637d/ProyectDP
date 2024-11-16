@@ -39,26 +39,33 @@ public class ControladorClienteCuenta implements ActionListener{
         vista.PanelCambio.revalidate();
         vista.PanelCambio.repaint();
     }
-    private void resetButtons() {
-        vista.btnDetalles.setSelected(false);
-        vista.btnActualizar.setSelected(false);
+    private void setSelectedButton(javax.swing.JButton selectedButton) {
+        javax.swing.JButton[] botones = {
+            vista.btnDetalles, 
+            vista.btnActualizar, 
+            vista.btnEliminar
+        };
+    
+        for (javax.swing.JButton boton : botones) {
+            boton.setSelected(boton == selectedButton);
+        }
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnDetalles){
             VistaClienteCuentaDetalles deta=new VistaClienteCuentaDetalles();
             CambiarPanel(deta);
-            resetButtons();
+            setSelectedButton(vista.btnDetalles);
         }
         if(e.getSource()==vista.btnActualizar){
             VistaClienteCuentaActualizar actu=new VistaClienteCuentaActualizar();
             CambiarPanel(actu);
-            resetButtons();
+            setSelectedButton(vista.btnActualizar);
         }
         if(e.getSource()==vista.btnEliminar){
             VistaClienteCuentaEliminar eli=new VistaClienteCuentaEliminar();
             CambiarPanel(eli);
-            resetButtons();
+            setSelectedButton(vista.btnEliminar);
         }
     }
     

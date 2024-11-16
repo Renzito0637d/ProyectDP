@@ -1,6 +1,7 @@
 package controlador;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,15 +25,19 @@ public class ControladorEmpleado implements ActionListener{
     // El usuario del empleado que ha accedido a través del login
     Empleado empleado;
 
-    public ControladorEmpleado(VistaEmpleados vista,ControladorLogin controladorPrevio, Empleado empleado) {
-        this.vista =  vista;
-        this.controladorPrevio = controladorPrevio;
-        this.empleado = empleado;
-        vista.btnSolicitudes.addActionListener(this);
-        vista.btnClientes.addActionListener(this);
-        vista.btnEmpleados.addActionListener(this);
-        vista.btnSalir.addActionListener(this);
-    }
+    public ControladorEmpleado(ControladorLogin controladorPrevio, Empleado empleado) {
+    // Crear la vista configurada con la fábrica
+    this.vista = EmpleadoFactory.crearVistaEmpleado(empleado);
+    this.controladorPrevio = controladorPrevio;
+    this.empleado = empleado;
+
+    // Asignar los action listeners a los botones de la vista
+    vista.btnSolicitudes.addActionListener(this);
+    vista.btnClientes.addActionListener(this);
+    vista.btnEmpleados.addActionListener(this);
+    vista.btnSalir.addActionListener(this);
+}
+
     
     public void CambiarPanel(JPanel box) {
         box.setPreferredSize(new Dimension(1000, 500)); // Tamaño inicial
@@ -44,6 +49,8 @@ public class ControladorEmpleado implements ActionListener{
         vista.PanelCambio.repaint();
     }
     public void iniciar() {
+        vista.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
+        vista.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(153,0,153));
         vista.setTitle("Tiendas Tambo - Quejas y Reclamos");
         vista.setLocationRelativeTo(null);          
         vista.setVisible(true);
