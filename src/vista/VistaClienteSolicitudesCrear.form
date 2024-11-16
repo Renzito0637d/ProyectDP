@@ -182,12 +182,7 @@
                                         <Property name="text" type="java.lang.String" value="Canal de Compra"/>
                                       </Properties>
                                     </Component>
-                                    <Component class="javax.swing.JFormattedTextField" name="txtFechaCompra">
-                                      <Properties>
-                                        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                                          <Format format="dd/MM/yyyy" subtype="-1" type="1"/>
-                                        </Property>
-                                      </Properties>
+                                    <Component class="vista.DatePickerCustom" name="datePickerFechaCompra">
                                       <AuxValues>
                                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                                       </AuxValues>

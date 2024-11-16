@@ -42,7 +42,7 @@ public class VistaClienteSolicitudesCrear extends javax.swing.JPanel {
         pnlGrid = new javax.swing.JPanel();
         labFecha = new javax.swing.JLabel();
         labCanal = new javax.swing.JLabel();
-        txtFechaCompra = new javax.swing.JFormattedTextField();
+        datePickerFechaCompra = new vista.DatePickerCustom();
         cbxCanalCompra = new javax.swing.JComboBox<>();
         labMonto = new javax.swing.JLabel();
         labVacio = new javax.swing.JLabel();
@@ -130,9 +130,7 @@ public class VistaClienteSolicitudesCrear extends javax.swing.JPanel {
 
         labCanal.setText("Canal de Compra");
         pnlGrid.add(labCanal);
-
-        txtFechaCompra.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        pnlGrid.add(txtFechaCompra);
+        pnlGrid.add(datePickerFechaCompra);
 
         cbxCanalCompra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Tienda Física", "Tienda Virtual (Delivery)" }));
         pnlGrid.add(cbxCanalCompra);
@@ -366,6 +364,7 @@ public class VistaClienteSolicitudesCrear extends javax.swing.JPanel {
     public javax.swing.JComboBox<String> cbxMotivoSolicitud;
     public javax.swing.JComboBox<Articulo> cbxNombreProducto;
     public javax.swing.JComboBox<String> cbxNombreServicio;
+    public vista.DatePickerCustom datePickerFechaCompra;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
@@ -418,7 +417,6 @@ public class VistaClienteSolicitudesCrear extends javax.swing.JPanel {
     public javax.swing.JRadioButton rbtnServicio;
     public javax.swing.JTextArea txaDescripcionSolicitud;
     public javax.swing.JTextField txtDireccionCompra;
-    public javax.swing.JFormattedTextField txtFechaCompra;
     public javax.swing.JTextField txtMontoCompra;
     // End of variables declaration//GEN-END:variables
 }
