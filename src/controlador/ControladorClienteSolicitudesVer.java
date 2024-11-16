@@ -36,14 +36,13 @@ public class ControladorClienteSolicitudesVer implements ActionListener, MouseLi
         this.vista.btnActualizarListaSol.addActionListener(this);
         this.vista.tbSolicitudes.addMouseListener(this);
         this.vista.tbEvaluaciones.addMouseListener(this);
+        limpiarTodo();
     }
-
-    
-    
+        
     // Table models
     DefaultTableModel modeloSol;
     DefaultTableModel modeloEva;
-    DefaultTableModel modeloEnc;
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnActualizarListaSol) {
@@ -81,40 +80,33 @@ public class ControladorClienteSolicitudesVer implements ActionListener, MouseLi
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {
-        
-    }
-
+    public void mousePressed(MouseEvent e) {            }
     @Override
-    public void mouseReleased(MouseEvent e) {
-        
-    }
-
+    public void mouseReleased(MouseEvent e) {            }
     @Override
-    public void mouseEntered(MouseEvent e) {
-        
-    }
-
+    public void mouseEntered(MouseEvent e) {            }
     @Override
-    public void mouseExited(MouseEvent e) {
-        
-    }
-    public void limpiarTabla(JTable table) {
+    public void mouseExited(MouseEvent e) {            }
+    
+    private void limpiarTabla(JTable table) {
         DefaultTableModel modelo = (DefaultTableModel) table.getModel();
         for (int i = 0; i < table.getRowCount(); i++) {
             modelo.removeRow(i);
             i--;        
         }
     }
-    public void limpiarDetallesEvaluacion() {
+    
+    private void limpiarDetallesEvaluacion() {
         vista.txaDetalleEvaluacion.setText("");        
     }
-    public void limpiarTodo() {
+    
+    private void limpiarTodo() {
         limpiarTabla(vista.tbSolicitudes);
         limpiarTabla(vista.tbEvaluaciones);       
         limpiarDetallesEvaluacion();
     }
-     public void llenarDetallesSolicitud(int idSolicitud) {
+    
+    private void llenarDetallesSolicitud(int idSolicitud) {
         // Consultar la BD
         solicitudDAO = new SolicitudDAO();
         Solicitud solicitud = solicitudDAO.buscarPorId(idSolicitud);
@@ -124,7 +116,7 @@ public class ControladorClienteSolicitudesVer implements ActionListener, MouseLi
         vista.txaDetalleSolicitud.append(solicitud.mostrarDetalleSolicitud());
     }
     
-    public void llenarDetallesEvaluacion(int numeroEvaluacion) {
+    private void llenarDetallesEvaluacion(int numeroEvaluacion) {
         // Consultar la BD
         evaluacionDAO = new EvaluacionDAO();
         Evaluacion ev = evaluacionDAO.buscarPorId(numeroEvaluacion);        
@@ -133,23 +125,8 @@ public class ControladorClienteSolicitudesVer implements ActionListener, MouseLi
         vista.txaDetalleEvaluacion.setText("");
         vista.txaDetalleEvaluacion.append(ev.mostrarInformacionCaja());
     }
-    public int leerUltimaEvaluacionDeSolicitudSeleccionada() {
-        int fila = vista.tbSolicitudes.getSelectedRow();
-        if (fila == -1) {
-            // No se ha seleccionado ninguna solicitud
-            return -1;
-        } else {
-            try {
-                int idSolicitud = Integer.parseInt(vista.tbSolicitudes.getValueAt(fila, 0).toString());
-                evaluacionDAO = new EvaluacionDAO();
-                Evaluacion ev = evaluacionDAO.buscarUltimaEvaluacionDeSolicitud(idSolicitud);
-                return ev.getNumeroEvaluacion();
-            } catch (Exception e) {
-                return -1;
-            }
-        }
-    }
-    public void listarEvaluaciones(int idSolicitud) {
+
+    private void listarEvaluaciones(int idSolicitud) {
         modeloEva = (DefaultTableModel)vista.tbEvaluaciones.getModel();
         // Consultar la BD
         evaluacionDAO = new EvaluacionDAO();
@@ -163,7 +140,8 @@ public class ControladorClienteSolicitudesVer implements ActionListener, MouseLi
         }        
         vista.tbEvaluaciones.setModel(modeloEva);
     }
-    public void listarSolicitudes() {
+    
+    private void listarSolicitudes() {
         modeloSol = (DefaultTableModel)vista.tbSolicitudes.getModel();
         // Consultar la BD
         solicitudDAO = new SolicitudDAO();
@@ -183,4 +161,5 @@ public class ControladorClienteSolicitudesVer implements ActionListener, MouseLi
         }        
         vista.tbSolicitudes.setModel(modeloSol);
     }
+    
 }
