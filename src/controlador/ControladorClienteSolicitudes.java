@@ -50,10 +50,12 @@ public class ControladorClienteSolicitudes implements ActionListener{
             VistaClienteSolicitudesCrear crea=new VistaClienteSolicitudesCrear();
             CambiarPanel(crea);
             new ControladorClienteSolicitudesCrear(crea, cliente);
+            resetButtons();
         }
         if(e.getSource()==vista.btnHistorial){
             VistaClienteSolicitudesHistorial histo=new VistaClienteSolicitudesHistorial();
             CambiarPanel(histo);
+            new ControladorClienteSolicitudesVer(histo, cliente);
             resetButtons();
         }
     }
