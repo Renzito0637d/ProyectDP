@@ -1,5 +1,6 @@
 package controlador;
 
+import java.awt.Color;
 import modelo.ClienteDAO;
 import modelo.EmpleadoDAO;
 import java.awt.event.ActionEvent;
@@ -34,6 +35,8 @@ public class ControladorLogin implements ActionListener {
     }
 
     public void iniciar() {
+        vista.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
+        vista.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(153,0,153));
         vista.setTitle("Tiendas Tambo - Quejas y Reclamos");
         vista.setLocationRelativeTo(null);
         limpiarTodo();

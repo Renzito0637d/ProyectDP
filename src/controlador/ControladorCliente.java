@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import modelo.Cliente;
 import vista.VistaCliente;
@@ -40,9 +41,15 @@ public class ControladorCliente implements ActionListener{
         vista.PanelCambio.revalidate();
         vista.PanelCambio.repaint();
     }
+    private void ponerTitulo(){
+        vista.lbTitle.setText("¡Hola, "+cliente.getNombres()+" "+cliente.getApellidos()+"! Has accedido a tu panel como cliente");        
+    }
     public void iniciar() {
         vista.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
         vista.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(153,0,153));
+        vista.setSize(800, 600);  // Establece un tamaño inicial
+        vista.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);                
+        vista.setExtendedState(JFrame.MAXIMIZED_BOTH);
         vista.setTitle("Tiendas Tambo - Quejas y Reclamos");
         vista.setLocationRelativeTo(null);          
         vista.setVisible(true);
@@ -50,6 +57,7 @@ public class ControladorCliente implements ActionListener{
         CambiarPanel(soli);
         new ControladorClienteSolicitudes(soli, cliente);
         vista.btnSolicitudes.setSelected(true);
+        ponerTitulo();
     }
     
     private void setSelectedButton(javax.swing.JButton selectedButton) {
@@ -77,7 +85,7 @@ public class ControladorCliente implements ActionListener{
         if(e.getSource()==vista.btnCuenta){            
             VistaClienteCuenta cuenta=new VistaClienteCuenta();
             CambiarPanel(cuenta);
-            new ControladorClienteCuenta(cuenta);
+            new ControladorClienteCuenta(cuenta, cliente);
             setSelectedButton(vista.btnCuenta);
         }
         if(e.getSource()==vista.btnSolicitudes){            

@@ -38,7 +38,7 @@ public class VistaClientes extends javax.swing.JFrame {
         btnCuenta = new javax.swing.JButton();
         btnSolicitudes = new javax.swing.JButton();
         btnEncuestas = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        lbTitle = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
 
@@ -83,9 +83,10 @@ public class VistaClientes extends javax.swing.JFrame {
         btnEncuestas.setBorderPainted(false);
         btnEncuestas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(235, 207, 34));
-        jLabel2.setText("Usted ingreso como cliente");
+        lbTitle.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        lbTitle.setForeground(new java.awt.Color(235, 207, 34));
+        lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbTitle.setText("Usted ingreso como cliente");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -105,7 +106,7 @@ public class VistaClientes extends javax.swing.JFrame {
                         .addGap(104, 104, 104))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -114,7 +115,7 @@ public class VistaClientes extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnSolicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -231,8 +232,8 @@ public class VistaClientes extends javax.swing.JFrame {
     public javax.swing.JButton btnSalir;
     public javax.swing.JButton btnSolicitudes;
     public javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    public javax.swing.JLabel lbTitle;
     // End of variables declaration//GEN-END:variables
 }

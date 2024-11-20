@@ -48,13 +48,16 @@ public class ControladorEmpleado implements ActionListener{
         vista.PanelCambio.revalidate();
         vista.PanelCambio.repaint();
     }
+    private void ponerTitulo(){
+        vista.lbTitle.setText("Bienvenido, "+empleado.getNombres()+" "+empleado.getApellidos()+". Estás dentro del sistema de solicitudes");        
+    }
     public void iniciar() {
         vista.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
         vista.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(153,0,153));
         vista.setTitle("Tiendas Tambo - Quejas y Reclamos");
         vista.setLocationRelativeTo(null);          
         vista.setVisible(true);
-        
+        ponerTitulo();
     }
     private void resetButtons() {
         vista.btnClientes.setSelected(false);

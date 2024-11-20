@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import modelo.Cliente;
 import vista.VistaClienteCuenta;
 import vista.VistaClienteCuentaActualizar;
 import vista.VistaClienteCuentaDetalles;
@@ -17,15 +18,18 @@ import vista.VistaClienteCuentaEliminar;
 public class ControladorClienteCuenta implements ActionListener{
     VistaClienteCuenta vista;
     VistaClienteCuentaDetalles deta;
+    Cliente cliente;
     
 
-    public ControladorClienteCuenta(VistaClienteCuenta vista) {
+    public ControladorClienteCuenta(VistaClienteCuenta vista, Cliente cliente) {
         this.vista=vista;
+        this.cliente=cliente;
         vista.btnDetalles.addActionListener(this);
         vista.btnActualizar.addActionListener(this);
         vista.btnEliminar.addActionListener(this);
         
         deta=new VistaClienteCuentaDetalles();
+        new ControladorClienteCuentaDetalles(deta, cliente);
         CambiarPanel(deta);
         vista.btnDetalles.setSelected(true);
     }
@@ -54,6 +58,7 @@ public class ControladorClienteCuenta implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnDetalles){
             VistaClienteCuentaDetalles deta=new VistaClienteCuentaDetalles();
+            new ControladorClienteCuentaDetalles(deta, cliente);
             CambiarPanel(deta);
             setSelectedButton(vista.btnDetalles);
         }
