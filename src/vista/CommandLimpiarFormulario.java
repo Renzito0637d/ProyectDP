@@ -10,6 +10,7 @@ import controlador.ControladorRegistroCliente;
  *
  * @author Renzo
  */
+//PATRON COMMAND
 public class CommandLimpiarFormulario implements Command {
     private final ControladorRegistroCliente controlador;
 

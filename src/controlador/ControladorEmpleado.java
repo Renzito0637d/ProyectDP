@@ -93,5 +93,8 @@ public class ControladorEmpleado implements ActionListener{
             new ControladorEmpleadoEmpleados(emp);
             resetButtons();
         }
+        if(e.getSource()==vista.btnSalir){
+            salir();
+        }
     }
 }

@@ -10,6 +10,7 @@ import javax.swing.JLabel;
  *
  * @author Renzo
  */
+//patron PROXY para dar la bienvida al usuario
 public class ClienteProxy implements InterfazCliente{
     private String bienvenida;
     private InterfazCliente cliente;

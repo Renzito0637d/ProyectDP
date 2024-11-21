@@ -10,6 +10,7 @@ import javax.swing.JPanel;
  *
  * @author Renzo
  */
+//PATRON BRIGDE para el intercambio de paneles en la VISTA CLIENTE
 public interface PanelInterface {
     JPanel crearPanel();  // Método para crear el panel
 }

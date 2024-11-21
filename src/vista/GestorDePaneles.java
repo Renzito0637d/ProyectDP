@@ -11,6 +11,7 @@ import javax.swing.JPanel;
  *
  * @author Renzo
  */
+//PATRON BRIGDE
 public class GestorDePaneles {
     private ControladorCliente controlador;
     private PanelInterface panelActual;  // Referencia a la implementación concreta del panel

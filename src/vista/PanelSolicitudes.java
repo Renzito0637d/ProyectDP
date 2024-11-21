@@ -12,6 +12,7 @@ import modelo.Cliente;
  *
  * @author Renzo
  */
+//PATRON BRIGDE
 public class PanelSolicitudes implements PanelInterface {
     private Cliente cliente;
 

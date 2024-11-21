@@ -8,7 +8,7 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 public class DatePickerCustom extends DatePicker {
-
+    //clase para mejorar la selecion de la fecha
     public DatePickerCustom() {
         super();
         getTextField(this);

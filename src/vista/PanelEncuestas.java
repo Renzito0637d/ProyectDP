@@ -11,6 +11,7 @@ import javax.swing.JPanel;
  *
  * @author Renzo
  */
+//PATRON BRIGDE
 public class PanelEncuestas implements PanelInterface {
     public PanelEncuestas() {
     }

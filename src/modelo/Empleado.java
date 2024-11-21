@@ -37,7 +37,7 @@ public class Empleado extends Persona
         return registro;
     }
     
-    // Implementación de métodos abstractos    
+    // Implementación de métodos abstractos   patron ISP 
 
     @Override
     public boolean verTabListaClientes() {
