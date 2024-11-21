@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import modelo.Cliente;
 import vista.*;
@@ -51,8 +52,8 @@ public class ControladorCliente implements ActionListener {
             boton.setSelected(boton == selectedButton);
         }
     }
-    private void ponerTitulo(){
-        vista.lbTitle.setText("¡Hola, "+cliente.getNombres()+" "+cliente.getApellidos()+"! Has accedido a tu panel como cliente");        
+    private void ponerTitulo(Cliente cliente,JLabel label){
+        cliente.mostrarBienv(label);
     }
     public void iniciar() {
         vista.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
@@ -63,7 +64,7 @@ public class ControladorCliente implements ActionListener {
         vista.setTitle("Tiendas Tambo - Quejas y Reclamos");
         vista.setLocationRelativeTo(null);          
         vista.setVisible(true);
-        ponerTitulo();
+        ponerTitulo(cliente,vista.lbTitle);
 
         // Iniciar con el panel de solicitudes
         gestorDePaneles.cambiarPanel();

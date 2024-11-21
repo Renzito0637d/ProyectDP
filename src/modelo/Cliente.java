@@ -1,8 +1,9 @@
 package modelo;
 
 import java.util.ArrayList;
-
-public class Cliente extends Persona {
+import javax.swing.JLabel;
+import vista.InterfazCliente;
+public class Cliente extends Persona implements InterfazCliente{
     // Atributos
     private int codigoCliente;
     private String direccion;
@@ -40,6 +41,11 @@ public class Cliente extends Persona {
             direccion
         };
         return registro;
+    }
+
+    @Override
+    public void mostrarBienv(JLabel label) {
+        label.setText("¡Hola, "+nombres+" "+apellidos+"! Has accedido a tu panel como cliente");        
     }
     
 }
