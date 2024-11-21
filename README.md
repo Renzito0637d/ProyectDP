@@ -18,3 +18,6 @@ aun por mejorar
   - **Factory**: Validacion de permisos para los empleados segun su departamento.
   - **Facade**: Para la autentificación del usuario *clientes* o *empleado*.
   - **Decorator**: Registra la solicitud a la base de datos y genera un pdf.
+  - **Proxy**: En vista cliente.
+  - **Brigde**: En vista cliente.
+  - **Command**: En vista de registro de un cliente.
