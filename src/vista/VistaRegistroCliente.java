@@ -99,7 +99,6 @@ public class VistaRegistroCliente extends javax.swing.JFrame {
         labSubTitulo5.setPreferredSize(new java.awt.Dimension(198, 20));
         jPanel8.add(labSubTitulo5, java.awt.BorderLayout.PAGE_START);
 
-        jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel13.setLayout(new java.awt.CardLayout(5, 5));
 
         jPanel9.setLayout(new java.awt.BorderLayout());
@@ -153,7 +152,6 @@ public class VistaRegistroCliente extends javax.swing.JFrame {
         labSubTitulo6.setPreferredSize(new java.awt.Dimension(198, 20));
         jPanel10.add(labSubTitulo6, java.awt.BorderLayout.PAGE_START);
 
-        jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel14.setPreferredSize(new java.awt.Dimension(383, 200));
         jPanel14.setLayout(new java.awt.CardLayout(5, 5));
 
