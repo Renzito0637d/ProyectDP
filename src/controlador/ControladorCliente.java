@@ -8,29 +8,27 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import modelo.Cliente;
-import vista.VistaCliente;
 import vista.*;
 
-/**
- *
- * @author Renzo
- */
-public class ControladorCliente implements ActionListener{   
-    VistaClienteSolicitudes soli=null;
-    // La vista correspondiente a este controlador
-    VistaClientes vista;
-    // El controlador desde donde se ha ingresado a esta vista
-    ControladorLogin controladorPrevio;
-    // El usuario que ha accedido a través del login
-    Cliente cliente;
-    public ControladorCliente(VistaClientes vista,ControladorLogin controladorPrevio, Cliente cliente) {
-        this.vista=vista;
+public class ControladorCliente implements ActionListener {
+
+    private GestorDePaneles gestorDePaneles;  // Usamos de patron BRIGDE para cambiar paneles
+    private Cliente cliente;
+    private VistaClientes vista;
+    private ControladorLogin controladorPrevio;
+
+    public ControladorCliente(VistaClientes vista, ControladorLogin controladorPrevio, Cliente cliente) {
+        this.vista = vista;
         this.controladorPrevio = controladorPrevio;
         this.cliente = cliente;
         vista.btnCuenta.addActionListener(this);
         vista.btnSolicitudes.addActionListener(this);
         vista.btnEncuestas.addActionListener(this);
         vista.btnSalir.addActionListener(this);
+
+        // Inicializar el gestor de paneles con el primer panel (por ejemplo, PanelSolicitudes)
+        PanelInterface panelInicial = new PanelSolicitudes(cliente);  // Panel por defecto
+        gestorDePaneles = new GestorDePaneles(this, panelInicial);
     }
     public void CambiarPanel(JPanel box) {
         box.setPreferredSize(new Dimension(1000, 500)); // Tamaño inicial
@@ -40,6 +38,18 @@ public class ControladorCliente implements ActionListener{
         vista.PanelCambio.add(box, BorderLayout.CENTER);
         vista.PanelCambio.revalidate();
         vista.PanelCambio.repaint();
+    }
+    private void setSelectedButton(javax.swing.JButton selectedButton) {
+        javax.swing.JButton[] botones = {
+            vista.btnCuenta, 
+            vista.btnEncuestas, 
+            vista.btnSalir, 
+            vista.btnSolicitudes
+        };
+    
+        for (javax.swing.JButton boton : botones) {
+            boton.setSelected(boton == selectedButton);
+        }
     }
     private void ponerTitulo(){
         vista.lbTitle.setText("¡Hola, "+cliente.getNombres()+" "+cliente.getApellidos()+"! Has accedido a tu panel como cliente");        
@@ -53,57 +63,42 @@ public class ControladorCliente implements ActionListener{
         vista.setTitle("Tiendas Tambo - Quejas y Reclamos");
         vista.setLocationRelativeTo(null);          
         vista.setVisible(true);
-        soli=new VistaClienteSolicitudes();
-        CambiarPanel(soli);
-        new ControladorClienteSolicitudes(soli, cliente);
-        vista.btnSolicitudes.setSelected(true);
         ponerTitulo();
-    }
-    
-    private void setSelectedButton(javax.swing.JButton selectedButton) {
-        javax.swing.JButton[] botones = {
-            vista.btnCuenta, 
-            vista.btnEncuestas, 
-            vista.btnSalir, 
-            vista.btnSolicitudes
-        };
-    
-        for (javax.swing.JButton boton : botones) {
-            boton.setSelected(boton == selectedButton);
-        }
+
+        // Iniciar con el panel de solicitudes
+        gestorDePaneles.cambiarPanel();
     }
 
-    // PASAR A OTRA PANTALLA
     public void salir() {
-        // Regresar a la ventana Login
         controladorPrevio.iniciar();
-        // Cerrar la ventana actual
         vista.dispose();
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==vista.btnCuenta){            
-            VistaClienteCuenta cuenta=new VistaClienteCuenta();
-            CambiarPanel(cuenta);
-            new ControladorClienteCuenta(cuenta, cliente);
+        if (e.getSource() == vista.btnCuenta) {
+            // Cambiar a PanelCuenta
+            PanelInterface nuevoPanel = new PanelCuenta(cliente);
+            gestorDePaneles.setPanel(nuevoPanel);
+            gestorDePaneles.cambiarPanel();
             setSelectedButton(vista.btnCuenta);
         }
-        if(e.getSource()==vista.btnSolicitudes){            
-            VistaClienteSolicitudes soli=new VistaClienteSolicitudes();            
-            CambiarPanel(soli);
-            new ControladorClienteSolicitudes(soli, cliente);
+        if (e.getSource() == vista.btnSolicitudes) {
+            // Cambiar a PanelSolicitudes
+            PanelInterface nuevoPanel = new PanelSolicitudes(cliente);
+            gestorDePaneles.setPanel(nuevoPanel);
+            gestorDePaneles.cambiarPanel();
             setSelectedButton(vista.btnSolicitudes);
         }
-        if(e.getSource()==vista.btnEncuestas){            
-            VistaClienteEncuestas encu=new VistaClienteEncuestas();
-            CambiarPanel(encu);
-            new ControladorClienteEncuestas(encu);
+        if (e.getSource() == vista.btnEncuestas) {
+            // Cambiar a PanelEncuestas
+            PanelInterface nuevoPanel = new PanelEncuestas();
+            gestorDePaneles.setPanel(nuevoPanel);
+            gestorDePaneles.cambiarPanel();
             setSelectedButton(vista.btnEncuestas);
         }
-        if(e.getSource()==vista.btnSalir){
+        if (e.getSource() == vista.btnSalir) {
             salir();
         }
     }
-    
-    
 }
