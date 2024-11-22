@@ -40,13 +40,14 @@ public class VistaEmpleadoEmpleadosEliminar extends javax.swing.JPanel {
         cbxBuscarDepartamento = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
         btnBuscarEmpleado = new javax.swing.JButton();
-        pnlTablaEmpleado = new javax.swing.JPanel();
-        scrlTablaEmpleado = new javax.swing.JScrollPane();
-        tbEmpleados = new javax.swing.JTable();
-        jPanel18 = new javax.swing.JPanel();
-        labInfo3 = new javax.swing.JLabel();
-        labInfo4 = new javax.swing.JLabel();
         pnlBotonesEmpleado = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbEmpleados = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        jScrollPane1.setBorder(null);
 
         jpListaEmpleados.setPreferredSize(new java.awt.Dimension(400, 500));
         jpListaEmpleados.setLayout(new java.awt.BorderLayout(5, 5));
@@ -91,66 +92,52 @@ public class VistaEmpleadoEmpleadosEliminar extends javax.swing.JPanel {
 
         jpListaEmpleados.add(pnlHeadEmpleado, java.awt.BorderLayout.PAGE_START);
 
-        pnlTablaEmpleado.setMaximumSize(new java.awt.Dimension(2147483647, 180));
-        pnlTablaEmpleado.setPreferredSize(new java.awt.Dimension(579, 400));
-        pnlTablaEmpleado.setRequestFocusEnabled(false);
-        pnlTablaEmpleado.setLayout(new java.awt.BorderLayout());
-
-        scrlTablaEmpleado.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrlTablaEmpleado.setMaximumSize(new java.awt.Dimension(32767, 370));
-        scrlTablaEmpleado.setPreferredSize(new java.awt.Dimension(452, 300));
+        pnlBotonesEmpleado.setPreferredSize(new java.awt.Dimension(82, 35));
+        jpListaEmpleados.add(pnlBotonesEmpleado, java.awt.BorderLayout.PAGE_END);
 
         tbEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Nombre", "Apellidos", "E-mail", "Teléfono", "Usuario", "Departamento"
+                "Código", "Nombres", "Apellidos", "E-mail", "Teléfono", "Usuario", "Dirreción"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
+        ));
+        jScrollPane2.setViewportView(tbEmpleados);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbEmpleados.setMaximumSize(new java.awt.Dimension(450, 300));
-        tbEmpleados.setPreferredSize(new java.awt.Dimension(450, 350));
-        tbEmpleados.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbEmpleadosMouseClicked(evt);
-            }
-        });
-        scrlTablaEmpleado.setViewportView(tbEmpleados);
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel1.setText("Seleccione una fila para eliminar al Empleado correspondiente.");
 
-        pnlTablaEmpleado.add(scrlTablaEmpleado, java.awt.BorderLayout.CENTER);
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel2.setText("NOTA: No puede eliminar empleados que han realizado alguna evaluación en el sistema");
 
-        jPanel18.setLayout(new java.awt.GridLayout(2, 0));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addContainerGap(181, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(0, 2, Short.MAX_VALUE))
+        );
 
-        labInfo3.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        labInfo3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labInfo3.setText("Seleccione una fila para eliminar al Empleado correspondiente.");
-        labInfo3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        labInfo3.setMaximumSize(new java.awt.Dimension(411, 20));
-        labInfo3.setPreferredSize(new java.awt.Dimension(411, 20));
-        jPanel18.add(labInfo3);
-
-        labInfo4.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        labInfo4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labInfo4.setText("NOTA: No puede eliminar empleados que han realizado alguna evaluación en el sistema");
-        labInfo4.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        labInfo4.setMaximumSize(new java.awt.Dimension(411, 20));
-        labInfo4.setPreferredSize(new java.awt.Dimension(411, 20));
-        jPanel18.add(labInfo4);
-
-        pnlTablaEmpleado.add(jPanel18, java.awt.BorderLayout.PAGE_END);
-
-        jpListaEmpleados.add(pnlTablaEmpleado, java.awt.BorderLayout.CENTER);
-
-        pnlBotonesEmpleado.setPreferredSize(new java.awt.Dimension(82, 35));
-        jpListaEmpleados.add(pnlBotonesEmpleado, java.awt.BorderLayout.PAGE_END);
+        jpListaEmpleados.add(jPanel1, java.awt.BorderLayout.CENTER);
 
         jScrollPane1.setViewportView(jpListaEmpleados);
 
@@ -166,31 +153,26 @@ public class VistaEmpleadoEmpleadosEliminar extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tbEmpleadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEmpleadosMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbEmpleadosMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBuscarEmpleado;
     public javax.swing.JComboBox<String> cbxBuscarDepartamento;
     private javax.swing.Box.Filler filler6;
     private javax.swing.Box.Filler filler7;
-    private javax.swing.JPanel jPanel18;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel jpListaEmpleados;
     private javax.swing.JLabel labBuscarDepartamento;
     private javax.swing.JLabel labBuscarUsuario2;
-    private javax.swing.JLabel labInfo3;
-    private javax.swing.JLabel labInfo4;
     private javax.swing.JLabel labTituloEmpleado;
     private javax.swing.JPanel pnlBotonesEmpleado;
     private javax.swing.JPanel pnlBuscarDepartamento;
     private javax.swing.JPanel pnlBuscarUsuario2;
     private javax.swing.JPanel pnlHeadEmpleado;
-    private javax.swing.JPanel pnlTablaEmpleado;
-    private javax.swing.JScrollPane scrlTablaEmpleado;
     public javax.swing.JTable tbEmpleados;
     public javax.swing.JTextField txtBuscarUsuarioEmpleado;
     // End of variables declaration//GEN-END:variables

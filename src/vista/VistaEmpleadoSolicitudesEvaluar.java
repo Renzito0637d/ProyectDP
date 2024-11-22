@@ -11,7 +11,7 @@ package vista;
 public class VistaEmpleadoSolicitudesEvaluar extends javax.swing.JPanel {
 
     /**
-     * Creates new form VistaEmpleadoSolicitudesLista
+     * Creates new form VistaEmpleadoSolicitudesE
      */
     public VistaEmpleadoSolicitudesEvaluar() {
         initComponents();
@@ -26,412 +26,381 @@ public class VistaEmpleadoSolicitudesEvaluar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jpSolicitudes = new javax.swing.JPanel();
-        jpHead = new javax.swing.JPanel();
-        pnlHead = new javax.swing.JPanel();
-        labTitulo = new javax.swing.JLabel();
-        pnlFiltroEstado = new javax.swing.JPanel();
-        labFiltroEstado = new javax.swing.JLabel();
-        filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 32767));
-        cbxFiltrarEstadoSol = new javax.swing.JComboBox<>();
-        filler9 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(100, 0), new java.awt.Dimension(15, 32767));
-        btnActualizarListaSol = new javax.swing.JButton();
-        pnlTablaS = new javax.swing.JPanel();
-        scrlTablaSolicitudes = new javax.swing.JScrollPane();
-        tbSolicitudes = new javax.swing.JTable();
-        labInfo1 = new javax.swing.JLabel();
-        jpBody = new javax.swing.JPanel();
-        labSubTitulo1 = new javax.swing.JLabel();
-        pnlDetalle1 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txaDetalleSolicitud = new javax.swing.JTextArea();
-        jpBottom = new javax.swing.JPanel();
-        labSubTitulo2 = new javax.swing.JLabel();
-        pnlSeguimiento = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        pnlTablaE = new javax.swing.JPanel();
-        scrlTablaEvaluaciones = new javax.swing.JScrollPane();
-        tbEvaluaciones = new javax.swing.JTable();
-        labInfo2 = new javax.swing.JLabel();
-        pnlInfoEval = new javax.swing.JPanel();
-        labSubTitulo3 = new javax.swing.JLabel();
-        pnlInfo = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        cbxFiltrarEstadoSol = new javax.swing.JComboBox<>();
+        btnActualizarListaSol = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txaDetalleEvaluacion = new javax.swing.JTextArea();
-        pnlNuevaEval = new javax.swing.JPanel();
-        labSubTitulo4 = new javax.swing.JLabel();
+        tbSolicitudes = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        pnlCambioEstado = new javax.swing.JPanel();
-        labCambioEstado = new javax.swing.JLabel();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
-        rbtnTramite = new javax.swing.JRadioButton();
-        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 32767));
-        rbtnFinalizado = new javax.swing.JRadioButton();
-        pnlEnvioDepartamento = new javax.swing.JPanel();
-        labEnvioDepartamento = new javax.swing.JLabel();
-        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 0), new java.awt.Dimension(20, 32767));
-        cbxDepartamentoSol = new javax.swing.JComboBox<>();
-        pnlAgregarDescipcion = new javax.swing.JPanel();
-        labAgregarDescripcion = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
+        txaDetalleSolicitud = new javax.swing.JTextArea();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txaDetalleEvaluacion = new javax.swing.JTextArea();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        rbtnTramite = new javax.swing.JRadioButton();
+        rbtnFinalizado = new javax.swing.JRadioButton();
+        jLabel8 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
         txaDescripcionEvaluacion = new javax.swing.JTextArea();
-        pnlBotones = new javax.swing.JPanel();
         btnEvaluarSol = new javax.swing.JButton();
         btnLimpiarSol = new javax.swing.JButton();
-        btnSalirSol = new javax.swing.JButton();
 
-        jScrollPane4.setBorder(null);
+        jScrollPane1.setBorder(null);
 
-        jpSolicitudes.setPreferredSize(new java.awt.Dimension(400, 900));
-        jpSolicitudes.setLayout(new java.awt.BorderLayout(5, 5));
-
-        jpHead.setLayout(new java.awt.BorderLayout(0, 10));
-
-        pnlHead.setPreferredSize(new java.awt.Dimension(193, 75));
-        pnlHead.setLayout(new java.awt.GridLayout(2, 0, 0, 15));
-
-        labTitulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        labTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labTitulo.setText("Listado de Solicitudes");
-        pnlHead.add(labTitulo);
-
-        pnlFiltroEstado.setPreferredSize(new java.awt.Dimension(200, 40));
-        pnlFiltroEstado.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 5));
-
-        labFiltroEstado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labFiltroEstado.setText("Filtrar por Estado: ");
-        pnlFiltroEstado.add(labFiltroEstado);
-        pnlFiltroEstado.add(filler4);
+        jLabel10.setText("Filtrar por Estado: ");
 
         cbxFiltrarEstadoSol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "En Espera", "En Trámite", "Finalizado" }));
-        cbxFiltrarEstadoSol.setMaximumSize(new java.awt.Dimension(100, 80));
-        pnlFiltroEstado.add(cbxFiltrarEstadoSol);
-        pnlFiltroEstado.add(filler9);
 
         btnActualizarListaSol.setText("Actualizar Lista de Solicitudes");
-        pnlFiltroEstado.add(btnActualizarListaSol);
 
-        pnlHead.add(pnlFiltroEstado);
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Solicitudes a evaluar");
 
-        jpHead.add(pnlHead, java.awt.BorderLayout.PAGE_START);
-
-        pnlTablaS.setMaximumSize(new java.awt.Dimension(2147483647, 180));
-        pnlTablaS.setPreferredSize(new java.awt.Dimension(579, 170));
-        pnlTablaS.setRequestFocusEnabled(false);
-        pnlTablaS.setLayout(new java.awt.BorderLayout());
-
-        scrlTablaSolicitudes.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrlTablaSolicitudes.setMaximumSize(new java.awt.Dimension(32767, 200));
-        scrlTablaSolicitudes.setPreferredSize(new java.awt.Dimension(452, 150));
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel10)
+                .addGap(28, 28, 28)
+                .addComponent(cbxFiltrarEstadoSol, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(99, 99, 99)
+                .addComponent(btnActualizarListaSol, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(138, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(cbxFiltrarEstadoSol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizarListaSol))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
 
         tbSolicitudes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"123", "QUEJA", "Luis Gonzales", "12-05-2020", "FINALIZADO", "Gerencia"}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Tipo de Solicitud", "Cliente", "Fecha Ingreso", "Estado actual", "Departamento Evaluador"
+                "ID", "Tipo de solicitud", "Cliente", "Fecha ingreso", "Estado actual", "Departamento evaluador"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
+        ));
+        jScrollPane2.setViewportView(tbSolicitudes);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbSolicitudes.setMaximumSize(new java.awt.Dimension(450, 200));
-        tbSolicitudes.setPreferredSize(new java.awt.Dimension(450, 200));
-        tbSolicitudes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbSolicitudesMouseClicked(evt);
-            }
-        });
-        scrlTablaSolicitudes.setViewportView(tbSolicitudes);
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel1.setText("Seleccione una fila para mostrar la información de la Solicitud correspondiente.");
 
-        pnlTablaS.add(scrlTablaSolicitudes, java.awt.BorderLayout.PAGE_START);
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
+        );
 
-        labInfo1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        labInfo1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labInfo1.setText("Seleccione una fila para mostrar la información de la Solicitud correspondiente.");
-        labInfo1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        labInfo1.setMaximumSize(new java.awt.Dimension(411, 20));
-        labInfo1.setPreferredSize(new java.awt.Dimension(411, 20));
-        pnlTablaS.add(labInfo1, java.awt.BorderLayout.PAGE_END);
-
-        jpHead.add(pnlTablaS, java.awt.BorderLayout.CENTER);
-
-        jpSolicitudes.add(jpHead, java.awt.BorderLayout.PAGE_START);
-
-        jpBody.setMaximumSize(new java.awt.Dimension(800, 100));
-        jpBody.setPreferredSize(new java.awt.Dimension(579, 100));
-        jpBody.setLayout(new java.awt.BorderLayout());
-
-        labSubTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labSubTitulo1.setText("Detalles de la Solicitud seleccionada");
-        labSubTitulo1.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        labSubTitulo1.setMaximumSize(new java.awt.Dimension(198, 20));
-        labSubTitulo1.setMinimumSize(new java.awt.Dimension(198, 20));
-        labSubTitulo1.setPreferredSize(new java.awt.Dimension(198, 20));
-        jpBody.add(labSubTitulo1, java.awt.BorderLayout.PAGE_START);
-
-        pnlDetalle1.setLayout(new java.awt.CardLayout());
-
-        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setText("Detalles de la Solicitud seleccionada");
 
         txaDetalleSolicitud.setColumns(20);
         txaDetalleSolicitud.setRows(5);
-        txaDetalleSolicitud.setFocusable(false);
-        jScrollPane1.setViewportView(txaDetalleSolicitud);
+        jScrollPane3.setViewportView(txaDetalleSolicitud);
 
-        jPanel1.add(jScrollPane1);
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jLabel2)
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
+        );
 
-        pnlDetalle1.add(jPanel1, "card3");
-
-        jpBody.add(pnlDetalle1, java.awt.BorderLayout.CENTER);
-
-        jpSolicitudes.add(jpBody, java.awt.BorderLayout.CENTER);
-
-        jpBottom.setPreferredSize(new java.awt.Dimension(452, 520));
-        jpBottom.setLayout(new java.awt.BorderLayout());
-
-        labSubTitulo2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labSubTitulo2.setText("Seguimiento de la Solicitud seleccionada");
-        jpBottom.add(labSubTitulo2, java.awt.BorderLayout.PAGE_START);
-
-        pnlSeguimiento.setPreferredSize(new java.awt.Dimension(411, 500));
-        pnlSeguimiento.setLayout(new java.awt.CardLayout(3, 5));
-
-        jPanel2.setPreferredSize(new java.awt.Dimension(405, 400));
-        jPanel2.setLayout(new java.awt.BorderLayout());
-
-        pnlTablaE.setMaximumSize(new java.awt.Dimension(2147483647, 130));
-        pnlTablaE.setPreferredSize(new java.awt.Dimension(579, 120));
-        pnlTablaE.setRequestFocusEnabled(false);
-        pnlTablaE.setLayout(new java.awt.BorderLayout());
-
-        scrlTablaEvaluaciones.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrlTablaEvaluaciones.setMaximumSize(new java.awt.Dimension(32767, 100));
-        scrlTablaEvaluaciones.setPreferredSize(new java.awt.Dimension(452, 100));
-
-        tbEvaluaciones.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Número Evaluación", "Fecha", "Hora", "Estado", "Evaluador"
+                "Número evaluación", "Fecha", "Hora", "Estado", "Evaluador"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
+        ));
+        jScrollPane4.setViewportView(jTable1);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbEvaluaciones.setMaximumSize(new java.awt.Dimension(450, 200));
-        tbEvaluaciones.setPreferredSize(new java.awt.Dimension(450, 140));
-        tbEvaluaciones.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbEvaluacionesMouseClicked(evt);
-            }
-        });
-        scrlTablaEvaluaciones.setViewportView(tbEvaluaciones);
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setText("Seguimiento de la Solicitud seleccionada");
 
-        pnlTablaE.add(scrlTablaEvaluaciones, java.awt.BorderLayout.PAGE_START);
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel4.setText("Seleccione una fila para mostrar los detalles y comentarios de la Evaluación correspondiente.");
 
-        labInfo2.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        labInfo2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labInfo2.setText("Seleccione una fila para mostrar los detalles y comentarios de la Evaluación correspondiente.");
-        labInfo2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        labInfo2.setMaximumSize(new java.awt.Dimension(411, 20));
-        labInfo2.setPreferredSize(new java.awt.Dimension(411, 20));
-        pnlTablaE.add(labInfo2, java.awt.BorderLayout.PAGE_END);
-
-        jPanel2.add(pnlTablaE, java.awt.BorderLayout.PAGE_START);
-
-        pnlInfoEval.setPreferredSize(new java.awt.Dimension(411, 80));
-        pnlInfoEval.setLayout(new java.awt.BorderLayout());
-
-        labSubTitulo3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labSubTitulo3.setText("Información");
-        pnlInfoEval.add(labSubTitulo3, java.awt.BorderLayout.PAGE_START);
-
-        pnlInfo.setLayout(new java.awt.CardLayout());
-
-        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addComponent(jLabel3)
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(0, 0, 0))
+        );
 
         txaDetalleEvaluacion.setColumns(20);
         txaDetalleEvaluacion.setRows(5);
-        txaDetalleEvaluacion.setFocusable(false);
-        jScrollPane2.setViewportView(txaDetalleEvaluacion);
+        jScrollPane5.setViewportView(txaDetalleEvaluacion);
 
-        jPanel3.add(jScrollPane2);
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setText("Información");
 
-        pnlInfo.add(jPanel3, "card3");
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addComponent(jLabel5)
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))
+        );
 
-        pnlInfoEval.add(pnlInfo, java.awt.BorderLayout.CENTER);
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setText("Nueva Evaluación");
 
-        jPanel2.add(pnlInfoEval, java.awt.BorderLayout.CENTER);
-
-        pnlNuevaEval.setPreferredSize(new java.awt.Dimension(411, 220));
-        pnlNuevaEval.setLayout(new java.awt.BorderLayout());
-
-        labSubTitulo4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labSubTitulo4.setText("Nueva Evaluación");
-        pnlNuevaEval.add(labSubTitulo4, java.awt.BorderLayout.PAGE_START);
-
-        jPanel4.setLayout(new java.awt.BorderLayout());
-
-        pnlCambioEstado.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 3));
-
-        labCambioEstado.setText("Cambiar Estado a: ");
-        pnlCambioEstado.add(labCambioEstado);
-        pnlCambioEstado.add(filler1);
+        jLabel7.setText("Cambiar Estado a: ");
 
         rbtnTramite.setSelected(true);
         rbtnTramite.setText("EN TRÁMITE");
-        pnlCambioEstado.add(rbtnTramite);
-        pnlCambioEstado.add(filler2);
+        rbtnTramite.setToolTipText("");
 
         rbtnFinalizado.setText("FINALIZADO");
-        pnlCambioEstado.add(rbtnFinalizado);
 
-        jPanel4.add(pnlCambioEstado, java.awt.BorderLayout.PAGE_START);
+        jLabel8.setText("Enviar a Departamento: ");
 
-        pnlEnvioDepartamento.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 3));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Atención al Cliente", "Calidad", "Ventas", "Gerencia", "Contabilidad y Finanzas" }));
 
-        labEnvioDepartamento.setText("Enviar a Departamento: ");
-        pnlEnvioDepartamento.add(labEnvioDepartamento);
-        pnlEnvioDepartamento.add(filler3);
-
-        cbxDepartamentoSol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Atención al Cliente", "Calidad", "Ventas", "Gerencia", "Contabilidad y Finanzas" }));
-        pnlEnvioDepartamento.add(cbxDepartamentoSol);
-
-        jPanel4.add(pnlEnvioDepartamento, java.awt.BorderLayout.CENTER);
-
-        pnlAgregarDescipcion.setLayout(new java.awt.BorderLayout());
-
-        labAgregarDescripcion.setText("Agregar Descripción:");
-        pnlAgregarDescipcion.add(labAgregarDescripcion, java.awt.BorderLayout.PAGE_START);
-
-        jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
+        jLabel9.setText("Agregar Descripción:");
 
         txaDescripcionEvaluacion.setColumns(20);
         txaDescripcionEvaluacion.setRows(5);
-        jScrollPane3.setViewportView(txaDescripcionEvaluacion);
+        jScrollPane6.setViewportView(txaDescripcionEvaluacion);
 
-        jPanel5.add(jScrollPane3);
+        btnEvaluarSol.setText("REALIZAR EVALUACIÓN");
 
-        pnlAgregarDescipcion.add(jPanel5, java.awt.BorderLayout.CENTER);
+        btnLimpiarSol.setText("LIMPIAR");
 
-        jPanel4.add(pnlAgregarDescipcion, java.awt.BorderLayout.PAGE_END);
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel8))
+                                .addGap(44, 44, 44)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addComponent(rbtnTramite)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(rbtnFinalizado))
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel9))
+                        .addGap(0, 292, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnEvaluarSol)
+                        .addGap(45, 45, 45)
+                        .addComponent(btnLimpiarSol, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(rbtnTramite)
+                    .addComponent(rbtnFinalizado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEvaluarSol)
+                    .addComponent(btnLimpiarSol))
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
 
-        pnlNuevaEval.add(jPanel4, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-        btnEvaluarSol.setText("Realizar Evaluacion");
-        pnlBotones.add(btnEvaluarSol);
-
-        btnLimpiarSol.setText("Limpiar");
-        pnlBotones.add(btnLimpiarSol);
-
-        btnSalirSol.setText("Salir");
-        pnlBotones.add(btnSalirSol);
-
-        pnlNuevaEval.add(pnlBotones, java.awt.BorderLayout.PAGE_END);
-
-        jPanel2.add(pnlNuevaEval, java.awt.BorderLayout.PAGE_END);
-
-        pnlSeguimiento.add(jPanel2, "card2");
-
-        jpBottom.add(pnlSeguimiento, java.awt.BorderLayout.PAGE_END);
-
-        jpSolicitudes.add(jpBottom, java.awt.BorderLayout.PAGE_END);
-
-        jScrollPane4.setViewportView(jpSolicitudes);
+        jScrollPane1.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jScrollPane1)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tbSolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSolicitudesMouseClicked
-
-    }//GEN-LAST:event_tbSolicitudesMouseClicked
-
-    private void tbEvaluacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEvaluacionesMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbEvaluacionesMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActualizarListaSol;
     public javax.swing.JButton btnEvaluarSol;
     public javax.swing.JButton btnLimpiarSol;
-    public javax.swing.JButton btnSalirSol;
-    public javax.swing.JComboBox<String> cbxDepartamentoSol;
     public javax.swing.JComboBox<String> cbxFiltrarEstadoSol;
-    private javax.swing.Box.Filler filler1;
-    private javax.swing.Box.Filler filler2;
-    private javax.swing.Box.Filler filler3;
-    private javax.swing.Box.Filler filler4;
-    private javax.swing.Box.Filler filler9;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JPanel jpBody;
-    private javax.swing.JPanel jpBottom;
-    private javax.swing.JPanel jpHead;
-    private javax.swing.JPanel jpSolicitudes;
-    private javax.swing.JLabel labAgregarDescripcion;
-    private javax.swing.JLabel labCambioEstado;
-    private javax.swing.JLabel labEnvioDepartamento;
-    private javax.swing.JLabel labFiltroEstado;
-    private javax.swing.JLabel labInfo1;
-    private javax.swing.JLabel labInfo2;
-    private javax.swing.JLabel labSubTitulo1;
-    private javax.swing.JLabel labSubTitulo2;
-    private javax.swing.JLabel labSubTitulo3;
-    private javax.swing.JLabel labSubTitulo4;
-    private javax.swing.JLabel labTitulo;
-    private javax.swing.JPanel pnlAgregarDescipcion;
-    private javax.swing.JPanel pnlBotones;
-    private javax.swing.JPanel pnlCambioEstado;
-    private javax.swing.JPanel pnlDetalle1;
-    private javax.swing.JPanel pnlEnvioDepartamento;
-    private javax.swing.JPanel pnlFiltroEstado;
-    private javax.swing.JPanel pnlHead;
-    private javax.swing.JPanel pnlInfo;
-    private javax.swing.JPanel pnlInfoEval;
-    private javax.swing.JPanel pnlNuevaEval;
-    private javax.swing.JPanel pnlSeguimiento;
-    private javax.swing.JPanel pnlTablaE;
-    private javax.swing.JPanel pnlTablaS;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTable jTable1;
     public javax.swing.JRadioButton rbtnFinalizado;
     public javax.swing.JRadioButton rbtnTramite;
-    private javax.swing.JScrollPane scrlTablaEvaluaciones;
-    private javax.swing.JScrollPane scrlTablaSolicitudes;
-    public javax.swing.JTable tbEvaluaciones;
     public javax.swing.JTable tbSolicitudes;
     public javax.swing.JTextArea txaDescripcionEvaluacion;
     public javax.swing.JTextArea txaDetalleEvaluacion;

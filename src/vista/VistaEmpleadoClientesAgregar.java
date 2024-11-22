@@ -69,6 +69,8 @@ public class VistaEmpleadoClientesAgregar extends javax.swing.JPanel {
         btnRegistrarRC = new javax.swing.JButton();
         btnLimpiarRC = new javax.swing.JButton();
 
+        jScrollPane1.setBorder(null);
+
         jpRegistroClientes.setMaximumSize(new java.awt.Dimension(2147483647, 400));
         jpRegistroClientes.setLayout(new java.awt.BorderLayout());
 

@@ -158,6 +158,7 @@ public class ControladorClienteSolicitudesVer implements ActionListener, MouseLi
         for (int i = 0; i < lista.size(); i++) {
             fila = lista.get(i).mostrarRegistroTabla();            
             modeloSol.addRow(fila);
+            modeloSol.fireTableDataChanged();
         }        
         vista.tbSolicitudes.setModel(modeloSol);
     }

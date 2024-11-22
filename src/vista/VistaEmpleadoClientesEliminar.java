@@ -36,12 +36,13 @@ public class VistaEmpleadoClientesEliminar extends javax.swing.JPanel {
         txtBuscarUsuarioCliente = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         btnBuscarCliente = new javax.swing.JButton();
-        pnlTablaCliente = new javax.swing.JPanel();
-        scrlTablaCliente = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
         tbClientes = new javax.swing.JTable();
-        jPanel19 = new javax.swing.JPanel();
-        labInfo6 = new javax.swing.JLabel();
-        labInfo5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        jScrollPane1.setBorder(null);
 
         jpListaClientes.setPreferredSize(new java.awt.Dimension(400, 500));
         jpListaClientes.setLayout(new java.awt.BorderLayout(5, 5));
@@ -75,63 +76,53 @@ public class VistaEmpleadoClientesEliminar extends javax.swing.JPanel {
 
         jpListaClientes.add(pnlHeadCliente, java.awt.BorderLayout.PAGE_START);
 
-        pnlTablaCliente.setMaximumSize(new java.awt.Dimension(2147483647, 180));
-        pnlTablaCliente.setPreferredSize(new java.awt.Dimension(579, 400));
-        pnlTablaCliente.setRequestFocusEnabled(false);
-        pnlTablaCliente.setLayout(new java.awt.BorderLayout());
-
-        scrlTablaCliente.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrlTablaCliente.setMaximumSize(new java.awt.Dimension(32767, 370));
-        scrlTablaCliente.setPreferredSize(new java.awt.Dimension(452, 300));
-
         tbClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
                 "Código", "Nombre", "Apellidos", "E-mail", "Teléfono", "Usuario", "Dirección"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
+        ));
+        jScrollPane3.setViewportView(tbClientes);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbClientes.setMaximumSize(new java.awt.Dimension(450, 300));
-        tbClientes.setPreferredSize(new java.awt.Dimension(450, 350));
-        tbClientes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbClientesMouseClicked(evt);
-            }
-        });
-        scrlTablaCliente.setViewportView(tbClientes);
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        jLabel1.setText("Seleccione una fila para eliminar al Cliente correspondiente.");
 
-        pnlTablaCliente.add(scrlTablaCliente, java.awt.BorderLayout.PAGE_START);
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel2.setText("NOTA: No puede eliminar clientes que han realizado alguna solicitud en el sistema");
 
-        jPanel19.setLayout(new java.awt.GridLayout(2, 0));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
 
-        labInfo6.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        labInfo6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labInfo6.setText("NOTA: No puede eliminar clientes que han realizado alguna solicitud en el sistema");
-        labInfo6.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        labInfo6.setMaximumSize(new java.awt.Dimension(411, 20));
-        labInfo6.setPreferredSize(new java.awt.Dimension(411, 20));
-        jPanel19.add(labInfo6);
-
-        pnlTablaCliente.add(jPanel19, java.awt.BorderLayout.PAGE_END);
-
-        labInfo5.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        labInfo5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labInfo5.setText("Seleccione una fila para eliminar al Cliente correspondiente.");
-        labInfo5.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        labInfo5.setMaximumSize(new java.awt.Dimension(411, 20));
-        labInfo5.setPreferredSize(new java.awt.Dimension(411, 20));
-        pnlTablaCliente.add(labInfo5, java.awt.BorderLayout.CENTER);
-
-        jpListaClientes.add(pnlTablaCliente, java.awt.BorderLayout.CENTER);
+        jpListaClientes.add(jPanel1, java.awt.BorderLayout.CENTER);
 
         jScrollPane1.setViewportView(jpListaClientes);
 
@@ -143,30 +134,25 @@ public class VistaEmpleadoClientesEliminar extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tbClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbClientesMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbClientesMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBuscarCliente;
     private javax.swing.Box.Filler filler5;
-    private javax.swing.JPanel jPanel19;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPanel jpListaClientes;
     private javax.swing.JLabel labBuscarUsuario1;
-    private javax.swing.JLabel labInfo5;
-    private javax.swing.JLabel labInfo6;
     private javax.swing.JLabel labTituloCliente;
     private javax.swing.JPanel pnlBuscarUsuario1;
     private javax.swing.JPanel pnlHeadCliente;
-    private javax.swing.JPanel pnlTablaCliente;
-    private javax.swing.JScrollPane scrlTablaCliente;
     public javax.swing.JTable tbClientes;
     public javax.swing.JTextField txtBuscarUsuarioCliente;
     // End of variables declaration//GEN-END:variables

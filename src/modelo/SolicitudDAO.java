@@ -202,7 +202,7 @@ public class SolicitudDAO implements ISolicitudDAO{
                 // Recuperar CompraReclamada
                 bean.setCompra(compraDAO.buscarPorSolicitud(bean.getIdSolicitud()));
                 // Recuperar DepartamentoEvaluador
-                int codigoDepartamento = rs.getInt(5);
+                int codigoDepartamento = rs.getInt(6);
                 bean.setDepartamentoEvaluador(departamentoDAO.buscarPorCodigo(codigoDepartamento));
                 // Agrega el objeto formado a la lista
                 lista.add(bean);

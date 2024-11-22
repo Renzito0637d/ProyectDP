@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import modelo.Empleado;
 import vista.VistaClienteSolicitudes;
@@ -54,6 +55,9 @@ public class ControladorEmpleado implements ActionListener{
     public void iniciar() {
         vista.getRootPane().putClientProperty("JRootPane.titleBarForeground", Color.WHITE);
         vista.getRootPane().putClientProperty("JRootPane.titleBarBackground", new Color(153,0,153));
+         vista.setSize(800, 600);  // Establece un tamaño inicial
+        vista.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);                
+        vista.setExtendedState(JFrame.MAXIMIZED_BOTH);
         vista.setTitle("Tiendas Tambo - Quejas y Reclamos");
         vista.setLocationRelativeTo(null);          
         vista.setVisible(true);

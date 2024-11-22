@@ -40,8 +40,8 @@ public class VistaClientes extends javax.swing.JFrame {
         btnEncuestas = new javax.swing.JButton();
         lbTitle = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        btnLimparPanel = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        btnSalir1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 0, 153));
@@ -130,27 +130,27 @@ public class VistaClientes extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 0, 153));
 
+        btnLimparPanel.setBackground(new java.awt.Color(153, 0, 153));
+        btnLimparPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLimparPanel.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimparPanel.setText("Limpiar Panel");
+        btnLimparPanel.setBorder(null);
+        btnLimparPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLimparPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparPanelActionPerformed(evt);
+            }
+        });
+
         btnSalir.setBackground(new java.awt.Color(153, 0, 153));
         btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Limpiar Panel");
+        btnSalir.setText("SALIR");
         btnSalir.setBorder(null);
         btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
-            }
-        });
-
-        btnSalir1.setBackground(new java.awt.Color(153, 0, 153));
-        btnSalir1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSalir1.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir1.setText("SALIR");
-        btnSalir1.setBorder(null);
-        btnSalir1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSalir1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalir1ActionPerformed(evt);
             }
         });
 
@@ -160,9 +160,9 @@ public class VistaClientes extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSalir1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(btnLimparPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -170,8 +170,8 @@ public class VistaClientes extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalir1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLimparPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -196,13 +196,13 @@ public class VistaClientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnLimparPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparPanelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimparPanelActionPerformed
+
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void btnSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalir1ActionPerformed
     private void SetImageLabel(JLabel labelname, String root){
 	ImageIcon image=new ImageIcon(root);
 	Icon icon =new ImageIcon(
@@ -250,8 +250,8 @@ public class VistaClientes extends javax.swing.JFrame {
     public javax.swing.JPanel PanelCambio;
     public javax.swing.JButton btnCuenta;
     public javax.swing.JButton btnEncuestas;
+    public javax.swing.JButton btnLimparPanel;
     public javax.swing.JButton btnSalir;
-    public javax.swing.JButton btnSalir1;
     public javax.swing.JButton btnSolicitudes;
     public javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

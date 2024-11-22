@@ -36,11 +36,11 @@ public class VistaClienteEncuestasCompletar extends javax.swing.JPanel {
 
         labEncuestas = new javax.swing.JLabel();
         btnActualizarListaEncuestas = new javax.swing.JButton();
-        scrlTablaSolicitudes1 = new javax.swing.JScrollPane();
-        tbEncuestas = new javax.swing.JTable();
         labInfo3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbEncuestas = new javax.swing.JTable();
 
         labEncuestas.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labEncuestas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -53,35 +53,6 @@ public class VistaClienteEncuestasCompletar extends javax.swing.JPanel {
                 btnActualizarListaEncuestasActionPerformed(evt);
             }
         });
-
-        scrlTablaSolicitudes1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrlTablaSolicitudes1.setMaximumSize(new java.awt.Dimension(32767, 200));
-        scrlTablaSolicitudes1.setPreferredSize(new java.awt.Dimension(452, 150));
-
-        tbEncuestas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"123", "QUEJA", "Luis Gonzales", "12-05-2020", "FINALIZADO", "Gerencia"}
-            },
-            new String [] {
-                "ID", "Tipo de Solicitud", "Cliente", "Fecha Ingreso", "Estado actual", "Departamento Evaluador"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbEncuestas.setMaximumSize(new java.awt.Dimension(450, 200));
-        tbEncuestas.setPreferredSize(new java.awt.Dimension(450, 200));
-        tbEncuestas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbEncuestasMouseClicked(evt);
-            }
-        });
-        scrlTablaSolicitudes1.setViewportView(tbEncuestas);
 
         labInfo3.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         labInfo3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -111,6 +82,19 @@ public class VistaClienteEncuestasCompletar extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        tbEncuestas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Tipo de solicitud", "Cliente", "Fecha ingreso", "Estado actual", "Departamento evaluador"
+            }
+        ));
+        jScrollPane1.setViewportView(tbEncuestas);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,8 +108,8 @@ public class VistaClienteEncuestasCompletar extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(labInfo3, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(scrlTablaSolicitudes1, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
-                            .addComponent(btnActualizarListaEncuestas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnActualizarListaEncuestas, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
@@ -140,10 +124,10 @@ public class VistaClienteEncuestasCompletar extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnActualizarListaEncuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(scrlTablaSolicitudes1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
                         .addComponent(labInfo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 104, Short.MAX_VALUE))
+                        .addGap(0, 110, Short.MAX_VALUE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -153,19 +137,15 @@ public class VistaClienteEncuestasCompletar extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnActualizarListaEncuestasActionPerformed
 
-    private void tbEncuestasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEncuestasMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbEncuestasMouseClicked
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActualizarListaEncuestas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labEncuestas;
     private javax.swing.JLabel labInfo3;
-    private javax.swing.JScrollPane scrlTablaSolicitudes1;
     public javax.swing.JTable tbEncuestas;
     // End of variables declaration//GEN-END:variables
 }

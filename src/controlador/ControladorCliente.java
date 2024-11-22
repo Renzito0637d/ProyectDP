@@ -25,7 +25,7 @@ public class ControladorCliente implements ActionListener {
         vista.btnCuenta.addActionListener(this);
         vista.btnSolicitudes.addActionListener(this);
         vista.btnEncuestas.addActionListener(this);
-        vista.btnSalir.addActionListener(this);
+        vista.btnLimparPanel.addActionListener(this);
 
         // Inicializar el gestor de paneles con el primer panel (por ejemplo, PanelSolicitudes)
         PanelInterface panelInicial = new PanelSolicitudes(cliente);  // Panel por defecto
@@ -44,7 +44,7 @@ public class ControladorCliente implements ActionListener {
         javax.swing.JButton[] botones = {
             vista.btnCuenta, 
             vista.btnEncuestas, 
-            vista.btnSalir, 
+            vista.btnLimparPanel, 
             vista.btnSolicitudes
         };
     

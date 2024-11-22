@@ -36,10 +36,11 @@ public class VistaEmpleadoClientesLista extends javax.swing.JPanel {
         txtBuscarUsuarioCliente = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         btnBuscarCliente = new javax.swing.JButton();
-        pnlTablaCliente = new javax.swing.JPanel();
-        scrlTablaCliente = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
         tbClientes = new javax.swing.JTable();
-        jPanel19 = new javax.swing.JPanel();
+
+        jScrollPane1.setBorder(null);
 
         jpListaClientes.setPreferredSize(new java.awt.Dimension(400, 500));
         jpListaClientes.setLayout(new java.awt.BorderLayout(5, 5));
@@ -73,46 +74,39 @@ public class VistaEmpleadoClientesLista extends javax.swing.JPanel {
 
         jpListaClientes.add(pnlHeadCliente, java.awt.BorderLayout.PAGE_START);
 
-        pnlTablaCliente.setMaximumSize(new java.awt.Dimension(2147483647, 180));
-        pnlTablaCliente.setPreferredSize(new java.awt.Dimension(579, 400));
-        pnlTablaCliente.setRequestFocusEnabled(false);
-        pnlTablaCliente.setLayout(new java.awt.BorderLayout());
-
-        scrlTablaCliente.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrlTablaCliente.setMaximumSize(new java.awt.Dimension(32767, 370));
-        scrlTablaCliente.setPreferredSize(new java.awt.Dimension(452, 300));
-
         tbClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Nombre", "Apellidos", "E-mail", "Teléfono", "Usuario", "Dirección"
+                "Código", "Nómbres", "Apellidos", "E-mail", "Teléfono", "Usuario", "Dirreción"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                true, true, false, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        tbClientes.setMaximumSize(new java.awt.Dimension(450, 300));
-        tbClientes.setPreferredSize(new java.awt.Dimension(450, 350));
-        tbClientes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbClientesMouseClicked(evt);
-            }
-        });
-        scrlTablaCliente.setViewportView(tbClientes);
+        jScrollPane2.setViewportView(tbClientes);
 
-        pnlTablaCliente.add(scrlTablaCliente, java.awt.BorderLayout.PAGE_START);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
-        jPanel19.setLayout(new java.awt.GridLayout(2, 0));
-        pnlTablaCliente.add(jPanel19, java.awt.BorderLayout.PAGE_END);
-
-        jpListaClientes.add(pnlTablaCliente, java.awt.BorderLayout.CENTER);
+        jpListaClientes.add(jPanel1, java.awt.BorderLayout.CENTER);
 
         jScrollPane1.setViewportView(jpListaClientes);
 
@@ -124,29 +118,24 @@ public class VistaEmpleadoClientesLista extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tbClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbClientesMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbClientesMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBuscarCliente;
     private javax.swing.Box.Filler filler5;
-    private javax.swing.JPanel jPanel19;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel jpListaClientes;
     private javax.swing.JLabel labBuscarUsuario1;
     private javax.swing.JLabel labTituloCliente;
     private javax.swing.JPanel pnlBuscarUsuario1;
     private javax.swing.JPanel pnlHeadCliente;
-    private javax.swing.JPanel pnlTablaCliente;
-    private javax.swing.JScrollPane scrlTablaCliente;
-    public javax.swing.JTable tbClientes;
+    private javax.swing.JTable tbClientes;
     public javax.swing.JTextField txtBuscarUsuarioCliente;
     // End of variables declaration//GEN-END:variables
 }

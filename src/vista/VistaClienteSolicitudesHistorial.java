@@ -38,9 +38,8 @@ public class VistaClienteSolicitudesHistorial extends javax.swing.JPanel {
         filler6 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(100, 0), new java.awt.Dimension(15, 32767));
         btnActualizarListaSol = new javax.swing.JButton();
         pnlTablaS = new javax.swing.JPanel();
-        scrlTablaSolicitudes = new javax.swing.JScrollPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
         tbSolicitudes = new javax.swing.JTable();
-        labInfo1 = new javax.swing.JLabel();
         jpBody = new javax.swing.JPanel();
         labSubTitulo1 = new javax.swing.JLabel();
         pnlDetalle = new javax.swing.JPanel();
@@ -52,14 +51,13 @@ public class VistaClienteSolicitudesHistorial extends javax.swing.JPanel {
         pnlSeguimiento = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         pnlTablaE = new javax.swing.JPanel();
-        scrlTablaEvaluaciones = new javax.swing.JScrollPane();
-        tbEvaluaciones = new javax.swing.JTable();
         labInfo2 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tbEvaluaciones = new javax.swing.JTable();
         pnlInfoEval = new javax.swing.JPanel();
         labSubTitulo3 = new javax.swing.JLabel();
-        pnlInfo = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
         txaDetalleEvaluacion = new javax.swing.JTextArea();
 
         jScrollPane1.setBorder(null);
@@ -100,46 +98,30 @@ public class VistaClienteSolicitudesHistorial extends javax.swing.JPanel {
         pnlTablaS.setMaximumSize(new java.awt.Dimension(2147483647, 180));
         pnlTablaS.setPreferredSize(new java.awt.Dimension(579, 170));
         pnlTablaS.setRequestFocusEnabled(false);
-        pnlTablaS.setLayout(new java.awt.BorderLayout());
-
-        scrlTablaSolicitudes.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrlTablaSolicitudes.setMaximumSize(new java.awt.Dimension(32767, 200));
-        scrlTablaSolicitudes.setPreferredSize(new java.awt.Dimension(452, 150));
 
         tbSolicitudes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"123", "QUEJA", "Luis Gonzales", "12-05-2020", "FINALIZADO", "Gerencia"}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Tipo de Solicitud", "Cliente", "Fecha Ingreso", "Estado actual", "Departamento Evaluador"
+                "ID", "Tipo de solicitud", "Cliente", "Fecha de ingreso", "Estado actual", "Departamento evaluador"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
+        ));
+        jScrollPane4.setViewportView(tbSolicitudes);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbSolicitudes.setMaximumSize(new java.awt.Dimension(450, 200));
-        tbSolicitudes.setPreferredSize(new java.awt.Dimension(450, 200));
-        tbSolicitudes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbSolicitudesMouseClicked(evt);
-            }
-        });
-        scrlTablaSolicitudes.setViewportView(tbSolicitudes);
-
-        pnlTablaS.add(scrlTablaSolicitudes, java.awt.BorderLayout.PAGE_START);
-
-        labInfo1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        labInfo1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labInfo1.setText("Seleccione una fila para mostrar la información de la Solicitud correspondiente.");
-        labInfo1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        labInfo1.setMaximumSize(new java.awt.Dimension(411, 20));
-        labInfo1.setPreferredSize(new java.awt.Dimension(411, 20));
-        pnlTablaS.add(labInfo1, java.awt.BorderLayout.PAGE_END);
+        javax.swing.GroupLayout pnlTablaSLayout = new javax.swing.GroupLayout(pnlTablaS);
+        pnlTablaS.setLayout(pnlTablaSLayout);
+        pnlTablaSLayout.setHorizontalGroup(
+            pnlTablaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 689, Short.MAX_VALUE)
+        );
+        pnlTablaSLayout.setVerticalGroup(
+            pnlTablaSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+        );
 
         jpHead.add(pnlTablaS, java.awt.BorderLayout.CENTER);
 
@@ -193,37 +175,6 @@ public class VistaClienteSolicitudesHistorial extends javax.swing.JPanel {
         pnlTablaE.setRequestFocusEnabled(false);
         pnlTablaE.setLayout(new java.awt.BorderLayout());
 
-        scrlTablaEvaluaciones.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrlTablaEvaluaciones.setMaximumSize(new java.awt.Dimension(32767, 100));
-        scrlTablaEvaluaciones.setPreferredSize(new java.awt.Dimension(452, 100));
-
-        tbEvaluaciones.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Número Evaluación", "Fecha", "Hora", "Estado", "Evaluador"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbEvaluaciones.setMaximumSize(new java.awt.Dimension(450, 200));
-        tbEvaluaciones.setPreferredSize(new java.awt.Dimension(450, 140));
-        tbEvaluaciones.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbEvaluacionesMouseClicked(evt);
-            }
-        });
-        scrlTablaEvaluaciones.setViewportView(tbEvaluaciones);
-
-        pnlTablaE.add(scrlTablaEvaluaciones, java.awt.BorderLayout.PAGE_START);
-
         labInfo2.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         labInfo2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         labInfo2.setText("Seleccione una fila para mostrar los detalles y comentarios de la Evaluación correspondiente.");
@@ -232,30 +183,59 @@ public class VistaClienteSolicitudesHistorial extends javax.swing.JPanel {
         labInfo2.setPreferredSize(new java.awt.Dimension(411, 20));
         pnlTablaE.add(labInfo2, java.awt.BorderLayout.PAGE_END);
 
+        tbEvaluaciones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Número Evaluación", "Fecha", "Hora", "Estado", "Evaluador"
+            }
+        ));
+        jScrollPane5.setViewportView(tbEvaluaciones);
+
+        pnlTablaE.add(jScrollPane5, java.awt.BorderLayout.CENTER);
+
         jPanel2.add(pnlTablaE, java.awt.BorderLayout.PAGE_START);
 
         pnlInfoEval.setPreferredSize(new java.awt.Dimension(411, 80));
-        pnlInfoEval.setLayout(new java.awt.BorderLayout());
 
         labSubTitulo3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         labSubTitulo3.setText("Información");
-        pnlInfoEval.add(labSubTitulo3, java.awt.BorderLayout.PAGE_START);
 
-        pnlInfo.setLayout(new java.awt.CardLayout());
-
-        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
-
-        txaDetalleEvaluacion.setEditable(false);
         txaDetalleEvaluacion.setColumns(20);
         txaDetalleEvaluacion.setRows(5);
-        txaDetalleEvaluacion.setFocusable(false);
-        jScrollPane3.setViewportView(txaDetalleEvaluacion);
+        jScrollPane6.setViewportView(txaDetalleEvaluacion);
 
-        jPanel3.add(jScrollPane3);
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane6)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+        );
 
-        pnlInfo.add(jPanel3, "card3");
-
-        pnlInfoEval.add(pnlInfo, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout pnlInfoEvalLayout = new javax.swing.GroupLayout(pnlInfoEval);
+        pnlInfoEval.setLayout(pnlInfoEvalLayout);
+        pnlInfoEvalLayout.setHorizontalGroup(
+            pnlInfoEvalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlInfoEvalLayout.createSequentialGroup()
+                .addComponent(labSubTitulo3, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        pnlInfoEvalLayout.setVerticalGroup(
+            pnlInfoEvalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlInfoEvalLayout.createSequentialGroup()
+                .addComponent(labSubTitulo3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         jPanel2.add(pnlInfoEval, java.awt.BorderLayout.CENTER);
 
@@ -281,14 +261,6 @@ public class VistaClienteSolicitudesHistorial extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tbSolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSolicitudesMouseClicked
-
-    }//GEN-LAST:event_tbSolicitudesMouseClicked
-
-    private void tbEvaluacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEvaluacionesMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbEvaluacionesMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActualizarListaSol;
@@ -297,16 +269,17 @@ public class VistaClienteSolicitudesHistorial extends javax.swing.JPanel {
     private javax.swing.Box.Filler filler6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPanel jpBody;
     private javax.swing.JPanel jpBottom;
     private javax.swing.JPanel jpHead;
     private javax.swing.JPanel jpVerSolicitud;
     private javax.swing.JLabel labFiltroEstado;
-    private javax.swing.JLabel labInfo1;
     private javax.swing.JLabel labInfo2;
     private javax.swing.JLabel labSubTitulo1;
     private javax.swing.JLabel labSubTitulo2;
@@ -315,13 +288,10 @@ public class VistaClienteSolicitudesHistorial extends javax.swing.JPanel {
     private javax.swing.JPanel pnlDetalle;
     private javax.swing.JPanel pnlFiltroEstado;
     private javax.swing.JPanel pnlHead;
-    private javax.swing.JPanel pnlInfo;
     private javax.swing.JPanel pnlInfoEval;
     private javax.swing.JPanel pnlSeguimiento;
     private javax.swing.JPanel pnlTablaE;
     private javax.swing.JPanel pnlTablaS;
-    private javax.swing.JScrollPane scrlTablaEvaluaciones;
-    private javax.swing.JScrollPane scrlTablaSolicitudes;
     public javax.swing.JTable tbEvaluaciones;
     public javax.swing.JTable tbSolicitudes;
     public javax.swing.JTextArea txaDetalleEvaluacion;

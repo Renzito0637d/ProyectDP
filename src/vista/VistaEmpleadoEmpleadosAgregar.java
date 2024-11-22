@@ -70,6 +70,8 @@ public class VistaEmpleadoEmpleadosAgregar extends javax.swing.JPanel {
         btnLimpiarRE = new javax.swing.JButton();
         btnSalirRE = new javax.swing.JButton();
 
+        jScrollPane1.setBorder(null);
+
         jpRegistroEmpleados.setMaximumSize(new java.awt.Dimension(2147483647, 400));
         jpRegistroEmpleados.setLayout(new java.awt.BorderLayout());
 
