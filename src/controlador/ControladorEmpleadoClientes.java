@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import modelo.Empleado;
 import vista.VistaEmpleadoClientes;
 import vista.VistaEmpleadoClientesAgregar;
 import vista.VistaEmpleadoClientesEliminar;
@@ -16,12 +17,19 @@ import vista.VistaEmpleadoClientesLista;
  */
 public class ControladorEmpleadoClientes implements ActionListener{
     VistaEmpleadoClientes vista;
+    Empleado empleado;
 
-    public ControladorEmpleadoClientes(VistaEmpleadoClientes vista) {
+    public ControladorEmpleadoClientes(VistaEmpleadoClientes vista,Empleado empleado) {
         this.vista=vista;
+        this.empleado=empleado;
         vista.btnLista.addActionListener(this);
         vista.btnAgregar.addActionListener(this);
         vista.btnEliminar.addActionListener(this);
+        
+        VistaEmpleadoClientesLista lis=new VistaEmpleadoClientesLista();
+        CambiarPanel(lis);
+        new ControladorEmpleadoClientesLista(lis, empleado);
+        setSelectedButton(vista.btnLista);
     }
 
     public void CambiarPanel(JPanel box) {
@@ -49,16 +57,19 @@ public class ControladorEmpleadoClientes implements ActionListener{
         if(e.getSource()==vista.btnLista){
             VistaEmpleadoClientesLista lis=new VistaEmpleadoClientesLista();
             CambiarPanel(lis);
+            new ControladorEmpleadoClientesLista(lis, empleado);
             setSelectedButton(vista.btnLista);
         }
         if(e.getSource()==vista.btnAgregar){
             VistaEmpleadoClientesAgregar agre=new VistaEmpleadoClientesAgregar();
             CambiarPanel(agre);
+            new ControladorEmpleadoClientesAgregar(agre, empleado);
             setSelectedButton(vista.btnAgregar);
         }
         if(e.getSource()==vista.btnEliminar){
             VistaEmpleadoClientesEliminar eli=new VistaEmpleadoClientesEliminar();
             CambiarPanel(eli);
+            new ControladorEmpleadoClientesEliminar(eli, empleado);
             setSelectedButton(vista.btnEliminar);
         }
     }

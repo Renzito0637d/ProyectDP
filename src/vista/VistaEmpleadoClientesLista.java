@@ -135,7 +135,7 @@ public class VistaEmpleadoClientesLista extends javax.swing.JPanel {
     private javax.swing.JLabel labTituloCliente;
     private javax.swing.JPanel pnlBuscarUsuario1;
     private javax.swing.JPanel pnlHeadCliente;
-    private javax.swing.JTable tbClientes;
+    public javax.swing.JTable tbClientes;
     public javax.swing.JTextField txtBuscarUsuarioCliente;
     // End of variables declaration//GEN-END:variables
 }

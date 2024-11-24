@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import modelo.Empleado;
-import vista.VistaClienteSolicitudes;
 import vista.VistaEmpleadoClientes;
 import vista.VistaEmpleadoEmpleados;
 import vista.VistaEmpleadoSolicitudes;
@@ -100,7 +99,7 @@ public class ControladorEmpleado implements ActionListener{
         if(e.getSource()==vista.btnClientes){
             VistaEmpleadoClientes cli=new VistaEmpleadoClientes();
             CambiarPanel(cli);
-            new ControladorEmpleadoClientes(cli);
+            new ControladorEmpleadoClientes(cli, empleado);
             setSelectedButton(vista.btnClientes);
         }
         if(e.getSource()==vista.btnEmpleados){

@@ -12,7 +12,7 @@ import controlador.ControladorRegistroCliente;
  */
 //PATRON COMMAND
 public class CommandLimpiarFormulario implements Command {
-    private final ControladorRegistroCliente controlador;
+    private final ControladorRegistroCliente controlador;    
 
     public CommandLimpiarFormulario(ControladorRegistroCliente controlador) {
         this.controlador = controlador;

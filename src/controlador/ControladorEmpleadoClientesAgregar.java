@@ -1,66 +1,37 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package controlador;
 
-import modelo.ClienteDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.UUID;
 import javax.swing.JOptionPane;
 import modelo.Cliente;
-import vista.Command;
-import vista.*;
-import vista.VistaRegistroCliente;
+import modelo.ClienteDAO;
+import modelo.Empleado;
+import vista.VistaEmpleadoClientesAgregar;
 
-public class ControladorRegistroCliente implements ActionListener {
-    private VistaRegistroCliente vista;
-    private ControladorLogin controladorPrevio;
-    private ClienteDAO clienteDAO;
-    
-    // Comandos
-    private Command registrarClienteCommand;    
-    private Command limpiarFormularioCommand;
-    private Command volverLoginCommand;
+/**
+ *
+ * @author Renzo
+ */
+public class ControladorEmpleadoClientesAgregar implements ActionListener{
+    VistaEmpleadoClientesAgregar vista;
+    Empleado empleado;
+    ClienteDAO clienteDAO;   
 
-    public ControladorRegistroCliente(VistaRegistroCliente vista, ControladorLogin controladorPrevio) {
+
+    public ControladorEmpleadoClientesAgregar(VistaEmpleadoClientesAgregar vista, Empleado empleado) {
         this.vista = vista;
-        this.controladorPrevio = controladorPrevio;
+        this.empleado = empleado;
         
-        // Inicializar los comandos
-        this.registrarClienteCommand = new CommandRegistrarCliente(this);        
-        this.limpiarFormularioCommand = new CommandLimpiarFormulario(this);
-        this.volverLoginCommand = new CommandVolverLogin(this);
-
         this.vista.btnAutoGenerarUsuario.addActionListener(this);
         this.vista.btnRegistrarRC.addActionListener(this);
-        this.vista.btnLimpiarRC.addActionListener(this);
-        this.vista.btnVolverRC.addActionListener(this);
+        this.vista.btnLimpiarRC.addActionListener(this);        
     }
 
-    public void iniciar() {
-        vista.setTitle("Tiendas Tambo - Quejas y Reclamos");
-        vista.setLocationRelativeTo(null);
-        vista.setSize(500, 600);
-        limpiar();
-        vista.setVisible(true);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == vista.btnRegistrarRC) {
-            registrarClienteCommand.execute();
-        }
-        if (e.getSource() == vista.btnAutoGenerarUsuario) {
-            vista.txtUsuarioRC.setText(autoGenerarUsuario());
-        } 
-        if (e.getSource() == vista.btnLimpiarRC) {
-            limpiarFormularioCommand.execute();
-        }        
-        if (e.getSource() == vista.btnVolverRC) {
-            volverLoginCommand.execute();
-        }
-    }
-
-    // MÉTODOS PROPIOS
-    
     public String autoGenerarUsuario() {
         String uuid = UUID.randomUUID().toString().substring(0, 4);
         String nombres = vista.txtNombreRC.getText().replace(" ", "");
@@ -122,12 +93,20 @@ public class ControladorRegistroCliente implements ActionListener {
                 case 1062 -> JOptionPane.showMessageDialog(vista, "El Nombre de Usuario escogido ya existe. Intente con otro nombre.");
                 default -> JOptionPane.showMessageDialog(vista, "Error: No se pudo registrar el cliente.");
             }
-            limpiarFormularioCommand.execute();
+            limpiar();
         }
     }
-
-    public void salir() {
-        controladorPrevio.iniciar();
-        vista.dispose();
-    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == vista.btnRegistrarRC) {
+            registrarCliente();
+        }
+        if (e.getSource() == vista.btnAutoGenerarUsuario) {            
+            vista.txtUsuarioRC.setText(autoGenerarUsuario());
+        } 
+        if (e.getSource() == vista.btnLimpiarRC) {
+            limpiar();
+        }                 
+    }    
+    
 }
