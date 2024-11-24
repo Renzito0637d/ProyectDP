@@ -26,6 +26,7 @@ public class VistaEmpleadoSolicitudesEvaluar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btngrpEstado = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -43,7 +44,7 @@ public class VistaEmpleadoSolicitudesEvaluar extends javax.swing.JPanel {
         txaDetalleSolicitud = new javax.swing.JTextArea();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbEvaluaciones = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -56,7 +57,7 @@ public class VistaEmpleadoSolicitudesEvaluar extends javax.swing.JPanel {
         rbtnTramite = new javax.swing.JRadioButton();
         rbtnFinalizado = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbxDepartamentoSol = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         txaDescripcionEvaluacion = new javax.swing.JTextArea();
@@ -116,6 +117,11 @@ public class VistaEmpleadoSolicitudesEvaluar extends javax.swing.JPanel {
                 "ID", "Tipo de solicitud", "Cliente", "Fecha ingreso", "Estado actual", "Departamento evaluador"
             }
         ));
+        tbSolicitudes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbSolicitudesMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tbSolicitudes);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
@@ -172,7 +178,7 @@ public class VistaEmpleadoSolicitudesEvaluar extends javax.swing.JPanel {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbEvaluaciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -183,7 +189,12 @@ public class VistaEmpleadoSolicitudesEvaluar extends javax.swing.JPanel {
                 "Número evaluación", "Fecha", "Hora", "Estado", "Evaluador"
             }
         ));
-        jScrollPane4.setViewportView(jTable1);
+        tbEvaluaciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbEvaluacionesMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(tbEvaluaciones);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Seguimiento de la Solicitud seleccionada");
@@ -250,15 +261,17 @@ public class VistaEmpleadoSolicitudesEvaluar extends javax.swing.JPanel {
 
         jLabel7.setText("Cambiar Estado a: ");
 
+        btngrpEstado.add(rbtnTramite);
         rbtnTramite.setSelected(true);
         rbtnTramite.setText("EN TRÁMITE");
         rbtnTramite.setToolTipText("");
 
+        btngrpEstado.add(rbtnFinalizado);
         rbtnFinalizado.setText("FINALIZADO");
 
         jLabel8.setText("Enviar a Departamento: ");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Atención al Cliente", "Calidad", "Ventas", "Gerencia", "Contabilidad y Finanzas" }));
+        cbxDepartamentoSol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Atención al Cliente", "Calidad", "Ventas", "Gerencia", "Contabilidad y Finanzas" }));
 
         jLabel9.setText("Agregar Descripción:");
 
@@ -291,7 +304,7 @@ public class VistaEmpleadoSolicitudesEvaluar extends javax.swing.JPanel {
                                         .addComponent(rbtnTramite)
                                         .addGap(18, 18, 18)
                                         .addComponent(rbtnFinalizado))
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(cbxDepartamentoSol, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel9))
                         .addGap(0, 292, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
@@ -314,7 +327,7 @@ public class VistaEmpleadoSolicitudesEvaluar extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxDepartamentoSol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -367,13 +380,22 @@ public class VistaEmpleadoSolicitudesEvaluar extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tbSolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSolicitudesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbSolicitudesMouseClicked
+
+    private void tbEvaluacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEvaluacionesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbEvaluacionesMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActualizarListaSol;
     public javax.swing.JButton btnEvaluarSol;
     public javax.swing.JButton btnLimpiarSol;
+    private javax.swing.ButtonGroup btngrpEstado;
+    public javax.swing.JComboBox<String> cbxDepartamentoSol;
     public javax.swing.JComboBox<String> cbxFiltrarEstadoSol;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -398,9 +420,9 @@ public class VistaEmpleadoSolicitudesEvaluar extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable jTable1;
     public javax.swing.JRadioButton rbtnFinalizado;
     public javax.swing.JRadioButton rbtnTramite;
+    public javax.swing.JTable tbEvaluaciones;
     public javax.swing.JTable tbSolicitudes;
     public javax.swing.JTextArea txaDescripcionEvaluacion;
     public javax.swing.JTextArea txaDetalleEvaluacion;

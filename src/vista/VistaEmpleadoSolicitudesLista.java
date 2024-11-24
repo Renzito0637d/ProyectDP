@@ -35,7 +35,7 @@ public class VistaEmpleadoSolicitudesLista extends javax.swing.JPanel {
         btnActualizarListaSol = new javax.swing.JButton();
         labTitulo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbSolicitudes = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txaDetalleSolicitud = new javax.swing.JTextArea();
@@ -67,7 +67,7 @@ public class VistaEmpleadoSolicitudesLista extends javax.swing.JPanel {
         labTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labTitulo.setText("Listado de Solicitudes");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbSolicitudes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -78,7 +78,12 @@ public class VistaEmpleadoSolicitudesLista extends javax.swing.JPanel {
                 "ID", "Tipo de solicitud", "Cliente", "Fecha ingreso", "Estado actual", "Departamento evaluador"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        tbSolicitudes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbSolicitudesMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tbSolicitudes);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jLabel1.setText("Seleccione una fila para mostrar la información de la Solicitud correspondiente.");
@@ -126,6 +131,10 @@ public class VistaEmpleadoSolicitudesLista extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tbSolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSolicitudesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbSolicitudesMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActualizarListaSol;
@@ -135,11 +144,11 @@ public class VistaEmpleadoSolicitudesLista extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel labFiltroEstado;
     private javax.swing.JLabel labSubTitulo1;
     private javax.swing.JLabel labTitulo;
     private javax.swing.JPanel pnlFiltroEstado;
+    public javax.swing.JTable tbSolicitudes;
     public javax.swing.JTextArea txaDetalleSolicitud;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import modelo.Empleado;
 import vista.VistaEmpleadoEmpleados;
 import vista.VistaEmpleadoEmpleadosAgregar;
 import vista.VistaEmpleadoEmpleadosEliminar;
@@ -17,9 +18,11 @@ import vista.VistaEmpleadoEmpleadosLista;
 public class ControladorEmpleadoEmpleados implements ActionListener{
 
     VistaEmpleadoEmpleados vista;
+    Empleado empleado;
 
-    public ControladorEmpleadoEmpleados(VistaEmpleadoEmpleados vista) {
+    public ControladorEmpleadoEmpleados(VistaEmpleadoEmpleados vista, Empleado empleado) {
         this.vista=vista;
+        this.empleado=empleado;
         vista.btnLista.addActionListener(this);
         vista.btnAgregar.addActionListener(this);
         vista.btnEliminar.addActionListener(this);

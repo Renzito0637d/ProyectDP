@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import modelo.Empleado;
 import vista.VistaEmpleadoSolicitudes;
 import vista.VistaEmpleadoSolicitudesEvaluar;
 import vista.VistaEmpleadoSolicitudesLista;
@@ -16,12 +17,18 @@ import vista.VistaEmpleadoSolicitudesSeguimiento;
  */
 public class ControladorEmpleadoSolicitudes implements ActionListener{
     VistaEmpleadoSolicitudes vista;
-
-    public ControladorEmpleadoSolicitudes(VistaEmpleadoSolicitudes vista) {
+    Empleado empleado;
+    
+    public ControladorEmpleadoSolicitudes(VistaEmpleadoSolicitudes vista,Empleado empleado) {
         this.vista=vista;
+        this.empleado=empleado;
         vista.btnLista.addActionListener(this);
         vista.btnSeguimiento.addActionListener(this);
-        vista.btnEvaluar.addActionListener(this);        
+        vista.btnEvaluar.addActionListener(this);  
+        VistaEmpleadoSolicitudesLista lista=new VistaEmpleadoSolicitudesLista();
+        CambiarPanel(lista);
+        new ControladorEmpleadoSolicitudesLista(lista, empleado);
+        setSelectedButton(vista.btnLista);
     }
     public void CambiarPanel(JPanel box) {
         box.setPreferredSize(new Dimension(1000, 500)); // Tamaño inicial
@@ -48,16 +55,19 @@ public class ControladorEmpleadoSolicitudes implements ActionListener{
         if(e.getSource()==vista.btnLista){
             VistaEmpleadoSolicitudesLista lista=new VistaEmpleadoSolicitudesLista();
             CambiarPanel(lista);
+            new ControladorEmpleadoSolicitudesLista(lista, empleado);
             setSelectedButton(vista.btnLista);
         }
         if(e.getSource()==vista.btnSeguimiento){
             VistaEmpleadoSolicitudesSeguimiento soli=new VistaEmpleadoSolicitudesSeguimiento();
             CambiarPanel(soli);
+            new ControladorEmpleadoSolicitudesSeguimiento(soli, empleado);
             setSelectedButton(vista.btnSeguimiento);
         }
         if(e.getSource()==vista.btnEvaluar){
             VistaEmpleadoSolicitudesEvaluar eva=new VistaEmpleadoSolicitudesEvaluar();
             CambiarPanel(eva);
+            new ControladorEmpleadoSolicitudesEvaluar(eva, empleado);
             setSelectedButton(vista.btnEvaluar);
         }
         

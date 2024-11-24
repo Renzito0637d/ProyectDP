@@ -39,7 +39,7 @@ public class VistaEmpleadoSolicitudesSeguimiento extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbEvaluaciones = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -100,6 +100,11 @@ public class VistaEmpleadoSolicitudesSeguimiento extends javax.swing.JPanel {
                 "ID", "Tipo de solicitud", "Cliente", "Fecha ingreso", "Estado actual", "Departamento evaluador"
             }
         ));
+        tbSolicitudes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbSolicitudesMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tbSolicitudes);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
@@ -127,7 +132,7 @@ public class VistaEmpleadoSolicitudesSeguimiento extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbEvaluaciones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -138,7 +143,12 @@ public class VistaEmpleadoSolicitudesSeguimiento extends javax.swing.JPanel {
                 "Número evaluación", "Fecha", "Hora", "Estado", "Evaluador"
             }
         ));
-        jScrollPane4.setViewportView(jTable1);
+        tbEvaluaciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbEvaluacionesMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(tbEvaluaciones);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Seguimiento de la Solicitud seleccionada");
@@ -236,6 +246,14 @@ public class VistaEmpleadoSolicitudesSeguimiento extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tbEvaluacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEvaluacionesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbEvaluacionesMouseClicked
+
+    private void tbSolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSolicitudesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbSolicitudesMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnActualizarListaSol;
@@ -255,7 +273,7 @@ public class VistaEmpleadoSolicitudesSeguimiento extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable tbEvaluaciones;
     public javax.swing.JTable tbSolicitudes;
     public javax.swing.JTextArea txaDetalleEvaluacion;
     // End of variables declaration//GEN-END:variables
