@@ -18,15 +18,14 @@ import vista.VistaEmpleadoEmpleadosLista;
  * @author Renzo
  */
 public class ControladorEmpleadoEmpleadosLista implements ActionListener{
-    VistaEmpleadoEmpleadosLista vista;
-    Empleado empleado;
+    VistaEmpleadoEmpleadosLista vista;    
     
     EmpleadoDAO empleadoDAO;
     
     DefaultTableModel modeloEmp;
-    public ControladorEmpleadoEmpleadosLista(VistaEmpleadoEmpleadosLista vista, Empleado empleado) {
+    public ControladorEmpleadoEmpleadosLista(VistaEmpleadoEmpleadosLista vista) {
         this.vista = vista;
-        this.empleado = empleado;
+        
         vista.btnBuscarEmpleado.addActionListener(this);
     }
     

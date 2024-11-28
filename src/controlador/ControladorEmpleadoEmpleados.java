@@ -26,7 +26,13 @@ public class ControladorEmpleadoEmpleados implements ActionListener{
         vista.btnLista.addActionListener(this);
         vista.btnAgregar.addActionListener(this);
         vista.btnEliminar.addActionListener(this);
+        
+        VistaEmpleadoEmpleadosLista lis=new VistaEmpleadoEmpleadosLista();
+        CambiarPanel(lis);
+        new ControladorEmpleadoEmpleadosLista(lis);
+        setSelectedButton(vista.btnLista);
     }
+    
     public void CambiarPanel(JPanel box) {
         box.setPreferredSize(new Dimension(1000, 500)); // Tamaño inicial
 
@@ -36,6 +42,7 @@ public class ControladorEmpleadoEmpleados implements ActionListener{
         vista.PanelCambio.revalidate();
         vista.PanelCambio.repaint();
     }
+    
     private void setSelectedButton(javax.swing.JButton selectedButton) {
         javax.swing.JButton[] botones = {
             vista.btnLista, 
@@ -47,23 +54,27 @@ public class ControladorEmpleadoEmpleados implements ActionListener{
             boton.setSelected(boton == selectedButton);
         }
     }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==vista.btnLista){
             VistaEmpleadoEmpleadosLista lis=new VistaEmpleadoEmpleadosLista();
             CambiarPanel(lis);
-            new ControladorEmpleadoEmpleadosLista(lis, empleado);
+            new ControladorEmpleadoEmpleadosLista(lis);
             setSelectedButton(vista.btnLista);
         }
+        
         if(e.getSource()==vista.btnAgregar){
             VistaEmpleadoEmpleadosAgregar agre=new VistaEmpleadoEmpleadosAgregar();
             CambiarPanel(agre);
             new ControladorEmpleadoEmpleadosAgregar(agre);
             setSelectedButton(vista.btnAgregar);
         }
+        
         if(e.getSource()==vista.btnEliminar){
             VistaEmpleadoEmpleadosEliminar eli=new VistaEmpleadoEmpleadosEliminar();
             CambiarPanel(eli);
+            new ControladorEmpleadoEmpleadosEliminar(eli);
             setSelectedButton(vista.btnEliminar);
         }
     }
