@@ -58,6 +58,7 @@ public class ControladorEmpleadoEmpleados implements ActionListener{
         if(e.getSource()==vista.btnAgregar){
             VistaEmpleadoEmpleadosAgregar agre=new VistaEmpleadoEmpleadosAgregar();
             CambiarPanel(agre);
+            new ControladorEmpleadoEmpleadosAgregar(agre);
             setSelectedButton(vista.btnAgregar);
         }
         if(e.getSource()==vista.btnEliminar){
