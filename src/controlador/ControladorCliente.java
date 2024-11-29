@@ -79,7 +79,7 @@ public class ControladorCliente implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vista.btnCuenta) {
             // Cambiar a PanelCuenta
-            PanelInterface nuevoPanel = new PanelCuenta(cliente);
+            PanelInterface nuevoPanel = new PanelCuenta(cliente,this);
             gestorDePaneles.setPanel(nuevoPanel);
             gestorDePaneles.cambiarPanel();
             setSelectedButton(vista.btnCuenta);

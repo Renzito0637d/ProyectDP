@@ -19,11 +19,13 @@ public class ControladorClienteCuenta implements ActionListener{
     VistaClienteCuenta vista;
     VistaClienteCuentaDetalles deta;
     Cliente cliente;
+    ControladorCliente ctlCliente;
     
 
-    public ControladorClienteCuenta(VistaClienteCuenta vista, Cliente cliente) {
+    public ControladorClienteCuenta(VistaClienteCuenta vista, Cliente cliente,ControladorCliente ctlCliente) {
         this.vista=vista;
         this.cliente=cliente;
+        this.ctlCliente=ctlCliente;
         vista.btnDetalles.addActionListener(this);
         vista.btnActualizar.addActionListener(this);
         vista.btnEliminar.addActionListener(this);
@@ -70,6 +72,7 @@ public class ControladorClienteCuenta implements ActionListener{
         if(e.getSource()==vista.btnEliminar){
             VistaClienteCuentaEliminar eli=new VistaClienteCuentaEliminar();
             CambiarPanel(eli);
+            new ControladorClienteCuentaEliminar(eli, cliente,ctlCliente);
             setSelectedButton(vista.btnEliminar);
         }
     }
