@@ -25,6 +25,10 @@ public class ControladorClienteEncuestas implements ActionListener{
         vista.btnLista.addActionListener(this);
         vista.btnCompletar.addActionListener(this);
         vista.btnOtros.addActionListener(this);
+        
+        VistaClienteEncuestasLista lis=new VistaClienteEncuestasLista();
+        CambiarPanel(lis);
+        setSelectedButton(vista.btnLista);
     }
     public void CambiarPanel(JPanel box) {
         box.setPreferredSize(new Dimension(1000, 500)); // Tamaño inicial

@@ -10,4 +10,27 @@ package modelo;
  */
 public class EncuestaDAO {
     
+    public int agregar(Encuesta bean, int idSolicitud) {
+        return idSolicitud;
+    }
+    
+    public int actualizar() {
+        return -1;
+    }
+    
+    public void eliminar(int id) {
+    
+    }
+    
+    public void listarTodos() {
+                
+    }
+    
+    public void listarPorEstado(){
+        
+    }
+    
+    public void listarPorFechayEstado(){
+        
+    }
 }
