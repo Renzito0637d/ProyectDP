@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import modelo.Empleado;
 import vista.VistaEmpleadoClientes;
@@ -53,8 +54,8 @@ public class ControladorEmpleado implements ActionListener{
         vista.PanelCambio.repaint();
     }
     
-    private void ponerTitulo(){
-        vista.lbTitle.setText("Bienvenido, "+empleado.getNombres()+" "+empleado.getApellidos()+". Estás dentro del sistema de solicitudes");        
+    private void ponerTitulo(Empleado emplado, JLabel label){
+        empleado.mostrarBienv(label);
     }
     
     public void iniciar() {
@@ -66,7 +67,7 @@ public class ControladorEmpleado implements ActionListener{
         vista.setTitle("Tiendas Tambo - Quejas y Reclamos");
         vista.setLocationRelativeTo(null);          
         vista.setVisible(true);
-        ponerTitulo();
+        ponerTitulo(empleado,vista.lbTitle);
     }
     private void setSelectedButton(javax.swing.JButton selectedButton) {
         javax.swing.JButton[] botones = {

@@ -1,7 +1,9 @@
 package modelo;
 
-public class Empleado extends Persona
-                      implements Administrador {
+import javax.swing.JLabel;
+import vista.InterfazBienvenida;
+
+public class Empleado extends Persona implements Administrador, InterfazBienvenida {
     // Atributos
     private int codigoEmpleado;
     
@@ -61,6 +63,11 @@ public class Empleado extends Persona
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void mostrarBienv(JLabel label) {
+        label.setText("Bienvenido, "+nombres+" "+apellidos+". Estás dentro del sistema de solicitudes");        
     }
     
 }

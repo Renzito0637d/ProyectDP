@@ -92,7 +92,7 @@ public class VistaEmpleados extends javax.swing.JFrame {
         lbTitle.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         lbTitle.setForeground(new java.awt.Color(235, 207, 34));
         lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitle.setText("presentacion");
+        lbTitle.setText("PROXY");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

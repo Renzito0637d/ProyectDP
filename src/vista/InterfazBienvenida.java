@@ -10,6 +10,6 @@ import javax.swing.JLabel;
  *
  * @author Renzo
  */
-public interface InterfazCliente {
+public interface InterfazBienvenida {
     void mostrarBienv(JLabel label);
 }

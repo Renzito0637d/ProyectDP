@@ -2,8 +2,8 @@ package modelo;
 
 import java.util.ArrayList;
 import javax.swing.JLabel;
-import vista.InterfazCliente;
-public class Cliente extends Persona implements InterfazCliente{
+import vista.InterfazBienvenida;
+public class Cliente extends Persona implements InterfazBienvenida{
     // Atributos
     private int codigoCliente;
     private String direccion;
