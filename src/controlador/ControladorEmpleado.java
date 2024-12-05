@@ -12,7 +12,7 @@ import modelo.Empleado;
 import vista.VistaEmpleadoClientes;
 import vista.VistaEmpleadoEmpleados;
 import vista.VistaEmpleadoSolicitudes;
-import vista.VistaEmpleados;
+import vista.VistaEmpleado;
 
 /**
  *
@@ -20,7 +20,7 @@ import vista.VistaEmpleados;
  */
 public class ControladorEmpleado implements ActionListener{
     // La vista correspondiente a este controlador
-    VistaEmpleados vista;
+    VistaEmpleado vista;
     // El controlador desde donde se ha ingresado a esta vista
     ControladorLogin controladorPrevio;
     // El usuario del empleado que ha accedido a través del login

@@ -15,10 +15,10 @@ public class ControladorCliente implements ActionListener {
 
     private GestorDePaneles gestorDePaneles;  // Usamos de patron BRIGDE para cambiar paneles
     private Cliente cliente;
-    private VistaClientes vista;
+    private VistaCliente vista;
     private ControladorLogin controladorPrevio;
 
-    public ControladorCliente(VistaClientes vista, ControladorLogin controladorPrevio, Cliente cliente) {
+    public ControladorCliente(VistaCliente vista, ControladorLogin controladorPrevio, Cliente cliente) {
         this.vista = vista;
         this.controladorPrevio = controladorPrevio;
         this.cliente = cliente;

@@ -4,21 +4,23 @@
  */
 package vista;
 
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import modelo.Articulo;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
- * @author usuario
+ * @author Renzo
  */
 public class VistaCliente extends javax.swing.JFrame {
 
     /**
-     * Creates new form VistaEmpleado
+     * Creates new form VistaClientes
      */
     public VistaCliente() {
         initComponents();
+        SetImageLabel(jLabel1, "src/Imagenes/Tambo.png");        
     }
 
     /**
@@ -30,585 +32,185 @@ public class VistaCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btngrpCategoriaBien = new javax.swing.ButtonGroup();
-        btngrpTipoSolicitud = new javax.swing.ButtonGroup();
-        jtppVistaCliente = new javax.swing.JTabbedPane();
-        scrlCrearSolicitud = new javax.swing.JScrollPane();
-        jpCrearSolicitud = new javax.swing.JPanel();
-        labTituloCliente = new javax.swing.JLabel();
-        pnlBody = new javax.swing.JPanel();
-        pnlCompra = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        labSubTitulo5 = new javax.swing.JLabel();
-        jPanel13 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        pnlGrid = new javax.swing.JPanel();
-        labFecha = new javax.swing.JLabel();
-        labCanal = new javax.swing.JLabel();
-        txtFechaCompra = new javax.swing.JFormattedTextField();
-        cbxCanalCompra = new javax.swing.JComboBox<>();
-        labMonto = new javax.swing.JLabel();
-        labVacio = new javax.swing.JLabel();
-        txtMontoCompra = new javax.swing.JTextField();
-        labVacio1 = new javax.swing.JLabel();
-        labInformacion = new javax.swing.JLabel();
-        pnlDireccion = new javax.swing.JPanel();
-        labDireccion = new javax.swing.JLabel();
-        txtDireccionCompra = new javax.swing.JTextField();
-        pnlBien = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        labSubTitulo6 = new javax.swing.JLabel();
-        jPanel14 = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
-        pnlCategoria = new javax.swing.JPanel();
-        labCategoriaBien = new javax.swing.JLabel();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 32767));
-        rbtnProducto = new javax.swing.JRadioButton();
-        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 32767));
-        rbtnServicio = new javax.swing.JRadioButton();
-        labSeleccione = new javax.swing.JLabel();
-        pnlNombreBien = new javax.swing.JPanel();
-        cbxNombreServicio = new javax.swing.JComboBox<>();
-        cbxNombreProducto = new javax.swing.JComboBox<>();
-        pnlDetalles = new javax.swing.JPanel();
-        jPanel12 = new javax.swing.JPanel();
-        labSubTitulo10 = new javax.swing.JLabel();
-        jPanel18 = new javax.swing.JPanel();
-        jPanel19 = new javax.swing.JPanel();
-        pnlTipo = new javax.swing.JPanel();
-        labTipoSolicitud = new javax.swing.JLabel();
-        filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 32767));
-        rbtnQueja = new javax.swing.JRadioButton();
-        filler5 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 32767));
-        rbtnReclamo = new javax.swing.JRadioButton();
-        pnlMotivo = new javax.swing.JPanel();
-        labSeleccione1 = new javax.swing.JLabel();
-        cbxMotivoSolicitud = new javax.swing.JComboBox<>();
-        pnlDescripcion = new javax.swing.JPanel();
-        labSubTitulo11 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        txaDescripcionSolicitud = new javax.swing.JTextArea();
-        pnlBotonesSol = new javax.swing.JPanel();
-        btnCrearSolicitud = new javax.swing.JButton();
-        btnLimpiarSolicitud = new javax.swing.JButton();
-        btnSalirCrearSolicitud = new javax.swing.JButton();
-        scrlVerSolicitud = new javax.swing.JScrollPane();
-        jpVerSolicitud = new javax.swing.JPanel();
-        jpHead = new javax.swing.JPanel();
-        pnlHead = new javax.swing.JPanel();
-        labTitulo = new javax.swing.JLabel();
-        pnlFiltroEstado = new javax.swing.JPanel();
-        labFiltroEstado = new javax.swing.JLabel();
-        filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 0), new java.awt.Dimension(15, 32767));
-        cbxFiltrarEstadoSol = new javax.swing.JComboBox<>();
-        filler6 = new javax.swing.Box.Filler(new java.awt.Dimension(15, 0), new java.awt.Dimension(100, 0), new java.awt.Dimension(15, 32767));
-        btnActualizarListaSol = new javax.swing.JButton();
-        pnlTablaS = new javax.swing.JPanel();
-        scrlTablaSolicitudes = new javax.swing.JScrollPane();
-        tbSolicitudes = new javax.swing.JTable();
-        labInfo1 = new javax.swing.JLabel();
-        jpBody = new javax.swing.JPanel();
-        labSubTitulo1 = new javax.swing.JLabel();
-        pnlDetalle = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txaDetalleSolicitud = new javax.swing.JTextArea();
-        jpBottom = new javax.swing.JPanel();
-        labSubTitulo2 = new javax.swing.JLabel();
-        pnlSeguimiento = new javax.swing.JPanel();
+        PanelCambio = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        pnlTablaE = new javax.swing.JPanel();
-        scrlTablaEvaluaciones = new javax.swing.JScrollPane();
-        tbEvaluaciones = new javax.swing.JTable();
-        labInfo2 = new javax.swing.JLabel();
-        pnlInfoEval = new javax.swing.JPanel();
-        labSubTitulo3 = new javax.swing.JLabel();
-        pnlInfo = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txaDetalleEvaluacion = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        btnCuenta = new javax.swing.JButton();
+        btnSolicitudes = new javax.swing.JButton();
+        btnEncuestas = new javax.swing.JButton();
+        lbTitle = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        btnLimparPanel = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 0, 153));
 
-        jtppVistaCliente.setPreferredSize(new java.awt.Dimension(738, 600));
+        PanelCambio.setBackground(new java.awt.Color(255, 255, 255));
 
-        jpCrearSolicitud.setMaximumSize(new java.awt.Dimension(2147483647, 800));
-        jpCrearSolicitud.setMinimumSize(new java.awt.Dimension(736, 100));
-        jpCrearSolicitud.setPreferredSize(new java.awt.Dimension(736, 750));
-        jpCrearSolicitud.setLayout(new java.awt.BorderLayout(0, 15));
+        javax.swing.GroupLayout PanelCambioLayout = new javax.swing.GroupLayout(PanelCambio);
+        PanelCambio.setLayout(PanelCambioLayout);
+        PanelCambioLayout.setHorizontalGroup(
+            PanelCambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        PanelCambioLayout.setVerticalGroup(
+            PanelCambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 348, Short.MAX_VALUE)
+        );
 
-        labTituloCliente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        labTituloCliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labTituloCliente.setText("Solicitud de Queja o Reclamo");
-        labTituloCliente.setPreferredSize(new java.awt.Dimension(168, 30));
-        jpCrearSolicitud.add(labTituloCliente, java.awt.BorderLayout.PAGE_START);
+        jPanel2.setBackground(new java.awt.Color(153, 0, 153));
 
-        pnlBody.setLayout(new java.awt.BorderLayout(0, 20));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        pnlCompra.setLayout(new java.awt.CardLayout());
+        btnCuenta.setBackground(new java.awt.Color(153, 0, 153));
+        btnCuenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCuenta.setForeground(new java.awt.Color(255, 255, 255));
+        btnCuenta.setText("Mi cuenta");
+        btnCuenta.setBorderPainted(false);
+        btnCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jPanel8.setLayout(new java.awt.BorderLayout());
+        btnSolicitudes.setBackground(new java.awt.Color(153, 0, 153));
+        btnSolicitudes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSolicitudes.setForeground(new java.awt.Color(255, 255, 255));
+        btnSolicitudes.setText("Solicitudes");
+        btnSolicitudes.setBorderPainted(false);
+        btnSolicitudes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        labSubTitulo5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labSubTitulo5.setText("Detalles de la Compra");
-        labSubTitulo5.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        labSubTitulo5.setMaximumSize(new java.awt.Dimension(198, 20));
-        labSubTitulo5.setMinimumSize(new java.awt.Dimension(198, 20));
-        labSubTitulo5.setPreferredSize(new java.awt.Dimension(198, 20));
-        jPanel8.add(labSubTitulo5, java.awt.BorderLayout.PAGE_START);
+        btnEncuestas.setBackground(new java.awt.Color(153, 0, 153));
+        btnEncuestas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEncuestas.setForeground(new java.awt.Color(255, 255, 255));
+        btnEncuestas.setText("Encuestas");
+        btnEncuestas.setBorderPainted(false);
+        btnEncuestas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel13.setLayout(new java.awt.CardLayout(5, 5));
+        lbTitle.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        lbTitle.setForeground(new java.awt.Color(235, 207, 34));
+        lbTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbTitle.setText("PROXY");
 
-        jPanel9.setLayout(new java.awt.BorderLayout());
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(btnCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                        .addComponent(btnSolicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                        .addComponent(btnEncuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(104, 104, 104))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(lbTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnSolicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEncuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(5, 5, 5))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))))
+        );
 
-        pnlGrid.setLayout(new java.awt.GridLayout(5, 2, 10, 3));
+        jPanel1.setBackground(new java.awt.Color(153, 0, 153));
 
-        labFecha.setText("Fecha del Incidente (dia/mes/año)");
-        pnlGrid.add(labFecha);
-
-        labCanal.setText("Canal de Compra");
-        pnlGrid.add(labCanal);
-
-        txtFechaCompra.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        pnlGrid.add(txtFechaCompra);
-
-        cbxCanalCompra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Tienda Física", "Tienda Virtual (Delivery)" }));
-        pnlGrid.add(cbxCanalCompra);
-
-        labMonto.setText("Monto reclamado (S/.)");
-        pnlGrid.add(labMonto);
-        pnlGrid.add(labVacio);
-
-        txtMontoCompra.setText("0.00");
-        pnlGrid.add(txtMontoCompra);
-        pnlGrid.add(labVacio1);
-
-        labInformacion.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        labInformacion.setText("(Coloque 0 en este campo si no solicita ningún reembolso monetario)");
-        pnlGrid.add(labInformacion);
-
-        jPanel9.add(pnlGrid, java.awt.BorderLayout.PAGE_START);
-
-        pnlDireccion.setLayout(new java.awt.BorderLayout(0, 5));
-
-        labDireccion.setText("Dirección Física del establecimiento donde hizo la compra");
-        pnlDireccion.add(labDireccion, java.awt.BorderLayout.PAGE_START);
-        pnlDireccion.add(txtDireccionCompra, java.awt.BorderLayout.CENTER);
-
-        jPanel9.add(pnlDireccion, java.awt.BorderLayout.PAGE_END);
-
-        jPanel13.add(jPanel9, "card2");
-
-        jPanel8.add(jPanel13, java.awt.BorderLayout.CENTER);
-
-        pnlCompra.add(jPanel8, "card2");
-
-        pnlBody.add(pnlCompra, java.awt.BorderLayout.PAGE_START);
-
-        pnlBien.setPreferredSize(new java.awt.Dimension(393, 200));
-        pnlBien.setLayout(new java.awt.CardLayout());
-
-        jPanel10.setLayout(new java.awt.BorderLayout());
-
-        labSubTitulo6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labSubTitulo6.setText("Identificación del Bien contratado");
-        labSubTitulo6.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        labSubTitulo6.setMaximumSize(new java.awt.Dimension(198, 20));
-        labSubTitulo6.setMinimumSize(new java.awt.Dimension(198, 20));
-        labSubTitulo6.setPreferredSize(new java.awt.Dimension(198, 20));
-        jPanel10.add(labSubTitulo6, java.awt.BorderLayout.PAGE_START);
-
-        jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel14.setPreferredSize(new java.awt.Dimension(383, 200));
-        jPanel14.setLayout(new java.awt.CardLayout(5, 5));
-
-        jPanel11.setLayout(new java.awt.BorderLayout());
-
-        pnlCategoria.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 5));
-
-        labCategoriaBien.setText("Seleccione la Categoría del Bien: ");
-        pnlCategoria.add(labCategoriaBien);
-        pnlCategoria.add(filler1);
-
-        btngrpCategoriaBien.add(rbtnProducto);
-        rbtnProducto.setText("Producto");
-        rbtnProducto.addActionListener(new java.awt.event.ActionListener() {
+        btnLimparPanel.setBackground(new java.awt.Color(153, 0, 153));
+        btnLimparPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLimparPanel.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimparPanel.setText("Limpiar Panel");
+        btnLimparPanel.setBorder(null);
+        btnLimparPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLimparPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtnProductoActionPerformed(evt);
+                btnLimparPanelActionPerformed(evt);
             }
         });
-        pnlCategoria.add(rbtnProducto);
-        pnlCategoria.add(filler2);
 
-        btngrpCategoriaBien.add(rbtnServicio);
-        rbtnServicio.setSelected(true);
-        rbtnServicio.setText("Servicio");
-        pnlCategoria.add(rbtnServicio);
-
-        jPanel11.add(pnlCategoria, java.awt.BorderLayout.PAGE_START);
-
-        labSeleccione.setText("Escriba o seleccione el nombre del Producto / Servicio:");
-        jPanel11.add(labSeleccione, java.awt.BorderLayout.CENTER);
-
-        pnlNombreBien.setLayout(new javax.swing.BoxLayout(pnlNombreBien, javax.swing.BoxLayout.Y_AXIS));
-
-        cbxNombreServicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Atención al Cliente", "Delivery", "Infraestructura", "Operación en caja", "Pago online" }));
-        pnlNombreBien.add(cbxNombreServicio);
-
-        cbxNombreProducto.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setBackground(new java.awt.Color(153, 0, 153));
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("SALIR");
+        btnSalir.setBorder(null);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxNombreProductoActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
-        pnlNombreBien.add(cbxNombreProducto);
 
-        jPanel11.add(pnlNombreBien, java.awt.BorderLayout.PAGE_END);
-
-        jPanel14.add(jPanel11, "card2");
-
-        jPanel10.add(jPanel14, java.awt.BorderLayout.CENTER);
-
-        pnlBien.add(jPanel10, "card2");
-
-        pnlBody.add(pnlBien, java.awt.BorderLayout.CENTER);
-
-        pnlDetalles.setPreferredSize(new java.awt.Dimension(393, 270));
-        pnlDetalles.setLayout(new java.awt.CardLayout());
-
-        jPanel12.setLayout(new java.awt.BorderLayout());
-
-        labSubTitulo10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labSubTitulo10.setText("Detalles de la Queja / Reclamo");
-        labSubTitulo10.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        labSubTitulo10.setMaximumSize(new java.awt.Dimension(198, 20));
-        labSubTitulo10.setMinimumSize(new java.awt.Dimension(198, 20));
-        labSubTitulo10.setPreferredSize(new java.awt.Dimension(198, 20));
-        jPanel12.add(labSubTitulo10, java.awt.BorderLayout.PAGE_START);
-
-        jPanel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel18.setPreferredSize(new java.awt.Dimension(383, 200));
-        jPanel18.setLayout(new java.awt.CardLayout(5, 5));
-
-        jPanel19.setLayout(new java.awt.BorderLayout());
-
-        pnlTipo.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 5));
-
-        labTipoSolicitud.setText("Seleccione el Tipo de Solicitud: ");
-        pnlTipo.add(labTipoSolicitud);
-        pnlTipo.add(filler3);
-
-        btngrpTipoSolicitud.add(rbtnQueja);
-        rbtnQueja.setText("QUEJA");
-        pnlTipo.add(rbtnQueja);
-        pnlTipo.add(filler5);
-
-        btngrpTipoSolicitud.add(rbtnReclamo);
-        rbtnReclamo.setText("RECLAMO");
-        pnlTipo.add(rbtnReclamo);
-
-        jPanel19.add(pnlTipo, java.awt.BorderLayout.PAGE_START);
-
-        pnlMotivo.setPreferredSize(new java.awt.Dimension(387, 80));
-        pnlMotivo.setLayout(new java.awt.GridLayout(2, 0));
-
-        labSeleccione1.setText("¿Cual de las siguientes opciones describe mejor el motivo de su solicitud?");
-        pnlMotivo.add(labSeleccione1);
-
-        cbxMotivoSolicitud.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Mal servicio", "Problemas en el pago", "Producto en mal estado", "Producto no corresponde al pedido", "Otros" }));
-        pnlMotivo.add(cbxMotivoSolicitud);
-
-        jPanel19.add(pnlMotivo, java.awt.BorderLayout.CENTER);
-
-        pnlDescripcion.setPreferredSize(new java.awt.Dimension(411, 140));
-        pnlDescripcion.setLayout(new java.awt.BorderLayout());
-
-        labSubTitulo11.setText("Describa el motivo de su molestia:");
-        pnlDescripcion.add(labSubTitulo11, java.awt.BorderLayout.PAGE_START);
-
-        jPanel6.setLayout(new java.awt.BorderLayout());
-
-        jPanel7.setLayout(new javax.swing.BoxLayout(jPanel7, javax.swing.BoxLayout.LINE_AXIS));
-
-        txaDescripcionSolicitud.setColumns(20);
-        txaDescripcionSolicitud.setRows(5);
-        jScrollPane4.setViewportView(txaDescripcionSolicitud);
-
-        jPanel7.add(jScrollPane4);
-
-        jPanel6.add(jPanel7, java.awt.BorderLayout.CENTER);
-
-        pnlDescripcion.add(jPanel6, java.awt.BorderLayout.CENTER);
-
-        jPanel19.add(pnlDescripcion, java.awt.BorderLayout.PAGE_END);
-
-        jPanel18.add(jPanel19, "card2");
-
-        jPanel12.add(jPanel18, java.awt.BorderLayout.CENTER);
-
-        pnlDetalles.add(jPanel12, "card2");
-
-        pnlBody.add(pnlDetalles, java.awt.BorderLayout.PAGE_END);
-
-        jpCrearSolicitud.add(pnlBody, java.awt.BorderLayout.CENTER);
-
-        pnlBotonesSol.setPreferredSize(new java.awt.Dimension(82, 40));
-
-        btnCrearSolicitud.setText("Crear Solicitud");
-        pnlBotonesSol.add(btnCrearSolicitud);
-
-        btnLimpiarSolicitud.setText("Limpiar");
-        btnLimpiarSolicitud.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarSolicitudActionPerformed(evt);
-            }
-        });
-        pnlBotonesSol.add(btnLimpiarSolicitud);
-
-        btnSalirCrearSolicitud.setText("Salir");
-        pnlBotonesSol.add(btnSalirCrearSolicitud);
-
-        jpCrearSolicitud.add(pnlBotonesSol, java.awt.BorderLayout.PAGE_END);
-
-        scrlCrearSolicitud.setViewportView(jpCrearSolicitud);
-
-        jtppVistaCliente.addTab("Crear Solicitud", scrlCrearSolicitud);
-
-        scrlVerSolicitud.setPreferredSize(new java.awt.Dimension(500, 400));
-
-        jpVerSolicitud.setPreferredSize(new java.awt.Dimension(400, 900));
-        jpVerSolicitud.setLayout(new java.awt.BorderLayout(5, 5));
-
-        jpHead.setLayout(new java.awt.BorderLayout(0, 10));
-
-        pnlHead.setPreferredSize(new java.awt.Dimension(193, 75));
-        pnlHead.setLayout(new java.awt.GridLayout(2, 0, 0, 15));
-
-        labTitulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        labTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labTitulo.setText("Mis Solicitudes");
-        pnlHead.add(labTitulo);
-
-        pnlFiltroEstado.setPreferredSize(new java.awt.Dimension(200, 40));
-        pnlFiltroEstado.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 5));
-
-        labFiltroEstado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labFiltroEstado.setText("Filtrar por Estado: ");
-        pnlFiltroEstado.add(labFiltroEstado);
-        pnlFiltroEstado.add(filler4);
-
-        cbxFiltrarEstadoSol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "En Espera", "En Trámite", "Finalizado" }));
-        cbxFiltrarEstadoSol.setMaximumSize(new java.awt.Dimension(100, 80));
-        pnlFiltroEstado.add(cbxFiltrarEstadoSol);
-        pnlFiltroEstado.add(filler6);
-
-        btnActualizarListaSol.setText("Actualizar Lista de Mis Solicitudes");
-        pnlFiltroEstado.add(btnActualizarListaSol);
-
-        pnlHead.add(pnlFiltroEstado);
-
-        jpHead.add(pnlHead, java.awt.BorderLayout.PAGE_START);
-
-        pnlTablaS.setMaximumSize(new java.awt.Dimension(2147483647, 180));
-        pnlTablaS.setPreferredSize(new java.awt.Dimension(579, 170));
-        pnlTablaS.setRequestFocusEnabled(false);
-        pnlTablaS.setLayout(new java.awt.BorderLayout());
-
-        scrlTablaSolicitudes.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrlTablaSolicitudes.setMaximumSize(new java.awt.Dimension(32767, 200));
-        scrlTablaSolicitudes.setPreferredSize(new java.awt.Dimension(452, 150));
-
-        tbSolicitudes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"123", "QUEJA", "Luis Gonzales", "12-05-2020", "FINALIZADO", "Gerencia"}
-            },
-            new String [] {
-                "ID", "Tipo de Solicitud", "Cliente", "Fecha Ingreso", "Estado actual", "Departamento Evaluador"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbSolicitudes.setMaximumSize(new java.awt.Dimension(450, 200));
-        tbSolicitudes.setPreferredSize(new java.awt.Dimension(450, 200));
-        tbSolicitudes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbSolicitudesMouseClicked(evt);
-            }
-        });
-        scrlTablaSolicitudes.setViewportView(tbSolicitudes);
-
-        pnlTablaS.add(scrlTablaSolicitudes, java.awt.BorderLayout.PAGE_START);
-
-        labInfo1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        labInfo1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labInfo1.setText("Seleccione una fila para mostrar la información de la Solicitud correspondiente.");
-        labInfo1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        labInfo1.setMaximumSize(new java.awt.Dimension(411, 20));
-        labInfo1.setPreferredSize(new java.awt.Dimension(411, 20));
-        pnlTablaS.add(labInfo1, java.awt.BorderLayout.PAGE_END);
-
-        jpHead.add(pnlTablaS, java.awt.BorderLayout.CENTER);
-
-        jpVerSolicitud.add(jpHead, java.awt.BorderLayout.PAGE_START);
-
-        jpBody.setMaximumSize(new java.awt.Dimension(800, 100));
-        jpBody.setPreferredSize(new java.awt.Dimension(579, 100));
-        jpBody.setLayout(new java.awt.BorderLayout());
-
-        labSubTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labSubTitulo1.setText("Detalles de la Solicitud seleccionada");
-        labSubTitulo1.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        labSubTitulo1.setMaximumSize(new java.awt.Dimension(198, 20));
-        labSubTitulo1.setMinimumSize(new java.awt.Dimension(198, 20));
-        labSubTitulo1.setPreferredSize(new java.awt.Dimension(198, 20));
-        jpBody.add(labSubTitulo1, java.awt.BorderLayout.PAGE_START);
-
-        pnlDetalle.setLayout(new java.awt.CardLayout());
-
-        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.LINE_AXIS));
-
-        txaDetalleSolicitud.setEditable(false);
-        txaDetalleSolicitud.setColumns(20);
-        txaDetalleSolicitud.setRows(5);
-        txaDetalleSolicitud.setFocusable(false);
-        jScrollPane1.setViewportView(txaDetalleSolicitud);
-
-        jPanel1.add(jScrollPane1);
-
-        pnlDetalle.add(jPanel1, "card3");
-
-        jpBody.add(pnlDetalle, java.awt.BorderLayout.CENTER);
-
-        jpVerSolicitud.add(jpBody, java.awt.BorderLayout.CENTER);
-
-        jpBottom.setPreferredSize(new java.awt.Dimension(452, 520));
-        jpBottom.setLayout(new java.awt.BorderLayout());
-
-        labSubTitulo2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labSubTitulo2.setText("Seguimiento de la Solicitud seleccionada");
-        jpBottom.add(labSubTitulo2, java.awt.BorderLayout.PAGE_START);
-
-        pnlSeguimiento.setPreferredSize(new java.awt.Dimension(411, 500));
-        pnlSeguimiento.setLayout(new java.awt.CardLayout(3, 5));
-
-        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.setPreferredSize(new java.awt.Dimension(405, 400));
-        jPanel2.setLayout(new java.awt.BorderLayout());
-
-        pnlTablaE.setMaximumSize(new java.awt.Dimension(2147483647, 130));
-        pnlTablaE.setPreferredSize(new java.awt.Dimension(579, 120));
-        pnlTablaE.setRequestFocusEnabled(false);
-        pnlTablaE.setLayout(new java.awt.BorderLayout());
-
-        scrlTablaEvaluaciones.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrlTablaEvaluaciones.setMaximumSize(new java.awt.Dimension(32767, 100));
-        scrlTablaEvaluaciones.setPreferredSize(new java.awt.Dimension(452, 100));
-
-        tbEvaluaciones.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Número Evaluación", "Fecha", "Hora", "Estado", "Evaluador"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbEvaluaciones.setMaximumSize(new java.awt.Dimension(450, 200));
-        tbEvaluaciones.setPreferredSize(new java.awt.Dimension(450, 140));
-        tbEvaluaciones.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbEvaluacionesMouseClicked(evt);
-            }
-        });
-        scrlTablaEvaluaciones.setViewportView(tbEvaluaciones);
-
-        pnlTablaE.add(scrlTablaEvaluaciones, java.awt.BorderLayout.PAGE_START);
-
-        labInfo2.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        labInfo2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        labInfo2.setText("Seleccione una fila para mostrar los detalles y comentarios de la Evaluación correspondiente.");
-        labInfo2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        labInfo2.setMaximumSize(new java.awt.Dimension(411, 20));
-        labInfo2.setPreferredSize(new java.awt.Dimension(411, 20));
-        pnlTablaE.add(labInfo2, java.awt.BorderLayout.PAGE_END);
-
-        jPanel2.add(pnlTablaE, java.awt.BorderLayout.PAGE_START);
-
-        pnlInfoEval.setPreferredSize(new java.awt.Dimension(411, 80));
-        pnlInfoEval.setLayout(new java.awt.BorderLayout());
-
-        labSubTitulo3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        labSubTitulo3.setText("Información");
-        pnlInfoEval.add(labSubTitulo3, java.awt.BorderLayout.PAGE_START);
-
-        pnlInfo.setLayout(new java.awt.CardLayout());
-
-        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
-
-        txaDetalleEvaluacion.setEditable(false);
-        txaDetalleEvaluacion.setColumns(20);
-        txaDetalleEvaluacion.setRows(5);
-        txaDetalleEvaluacion.setFocusable(false);
-        jScrollPane2.setViewportView(txaDetalleEvaluacion);
-
-        jPanel3.add(jScrollPane2);
-
-        pnlInfo.add(jPanel3, "card3");
-
-        pnlInfoEval.add(pnlInfo, java.awt.BorderLayout.CENTER);
-
-        jPanel2.add(pnlInfoEval, java.awt.BorderLayout.CENTER);
-
-        pnlSeguimiento.add(jPanel2, "card2");
-
-        jpBottom.add(pnlSeguimiento, java.awt.BorderLayout.PAGE_END);
-
-        jpVerSolicitud.add(jpBottom, java.awt.BorderLayout.PAGE_END);
-
-        scrlVerSolicitud.setViewportView(jpVerSolicitud);
-
-        jtppVistaCliente.addTab("Ver Mis Solicitudes", scrlVerSolicitud);
-
-        getContentPane().add(jtppVistaCliente, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(btnLimparPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLimparPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PanelCambio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(PanelCambio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tbSolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSolicitudesMouseClicked
-
-    }//GEN-LAST:event_tbSolicitudesMouseClicked
-
-    private void tbEvaluacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbEvaluacionesMouseClicked
+    private void btnLimparPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparPanelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tbEvaluacionesMouseClicked
+    }//GEN-LAST:event_btnLimparPanelActionPerformed
 
-    private void btnLimpiarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarSolicitudActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLimpiarSolicitudActionPerformed
-
-    private void cbxNombreProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxNombreProductoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxNombreProductoActionPerformed
-
-    private void rbtnProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnProductoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbtnProductoActionPerformed
-
+    }//GEN-LAST:event_btnSalirActionPerformed
+    private void SetImageLabel(JLabel labelname, String root){
+	ImageIcon image=new ImageIcon(root);
+	Icon icon =new ImageIcon(
+		image.getImage().getScaledInstance(labelname.getWidth(),labelname.getHeight(),Image.SCALE_DEFAULT)
+	);
+        labelname.setIcon(icon);
+        this.repaint();
+    }
     /**
      * @param args the command line arguments
      */
@@ -646,104 +248,15 @@ public class VistaCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnActualizarListaSol;
-    public javax.swing.JButton btnCrearSolicitud;
-    public javax.swing.JButton btnLimpiarSolicitud;
-    public javax.swing.JButton btnSalirCrearSolicitud;
-    private javax.swing.ButtonGroup btngrpCategoriaBien;
-    private javax.swing.ButtonGroup btngrpTipoSolicitud;
-    public javax.swing.JComboBox<String> cbxCanalCompra;
-    public javax.swing.JComboBox<String> cbxFiltrarEstadoSol;
-    public javax.swing.JComboBox<String> cbxMotivoSolicitud;
-    public javax.swing.JComboBox<Articulo> cbxNombreProducto;
-    public javax.swing.JComboBox<String> cbxNombreServicio;
-    private javax.swing.Box.Filler filler1;
-    private javax.swing.Box.Filler filler2;
-    private javax.swing.Box.Filler filler3;
-    private javax.swing.Box.Filler filler4;
-    private javax.swing.Box.Filler filler5;
-    private javax.swing.Box.Filler filler6;
+    public javax.swing.JPanel PanelCambio;
+    public javax.swing.JButton btnCuenta;
+    public javax.swing.JButton btnEncuestas;
+    public javax.swing.JButton btnLimparPanel;
+    public javax.swing.JButton btnSalir;
+    public javax.swing.JButton btnSolicitudes;
+    public javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JPanel jpBody;
-    private javax.swing.JPanel jpBottom;
-    private javax.swing.JPanel jpCrearSolicitud;
-    private javax.swing.JPanel jpHead;
-    private javax.swing.JPanel jpVerSolicitud;
-    private javax.swing.JTabbedPane jtppVistaCliente;
-    private javax.swing.JLabel labCanal;
-    private javax.swing.JLabel labCategoriaBien;
-    private javax.swing.JLabel labDireccion;
-    private javax.swing.JLabel labFecha;
-    private javax.swing.JLabel labFiltroEstado;
-    private javax.swing.JLabel labInfo1;
-    private javax.swing.JLabel labInfo2;
-    private javax.swing.JLabel labInformacion;
-    private javax.swing.JLabel labMonto;
-    private javax.swing.JLabel labSeleccione;
-    private javax.swing.JLabel labSeleccione1;
-    private javax.swing.JLabel labSubTitulo1;
-    private javax.swing.JLabel labSubTitulo10;
-    private javax.swing.JLabel labSubTitulo11;
-    private javax.swing.JLabel labSubTitulo2;
-    private javax.swing.JLabel labSubTitulo3;
-    private javax.swing.JLabel labSubTitulo5;
-    private javax.swing.JLabel labSubTitulo6;
-    private javax.swing.JLabel labTipoSolicitud;
-    private javax.swing.JLabel labTitulo;
-    private javax.swing.JLabel labTituloCliente;
-    private javax.swing.JLabel labVacio;
-    private javax.swing.JLabel labVacio1;
-    private javax.swing.JPanel pnlBien;
-    private javax.swing.JPanel pnlBody;
-    private javax.swing.JPanel pnlBotonesSol;
-    private javax.swing.JPanel pnlCategoria;
-    private javax.swing.JPanel pnlCompra;
-    private javax.swing.JPanel pnlDescripcion;
-    private javax.swing.JPanel pnlDetalle;
-    private javax.swing.JPanel pnlDetalles;
-    private javax.swing.JPanel pnlDireccion;
-    private javax.swing.JPanel pnlFiltroEstado;
-    private javax.swing.JPanel pnlGrid;
-    private javax.swing.JPanel pnlHead;
-    private javax.swing.JPanel pnlInfo;
-    private javax.swing.JPanel pnlInfoEval;
-    private javax.swing.JPanel pnlMotivo;
-    private javax.swing.JPanel pnlNombreBien;
-    private javax.swing.JPanel pnlSeguimiento;
-    private javax.swing.JPanel pnlTablaE;
-    private javax.swing.JPanel pnlTablaS;
-    private javax.swing.JPanel pnlTipo;
-    public javax.swing.JRadioButton rbtnProducto;
-    public javax.swing.JRadioButton rbtnQueja;
-    public javax.swing.JRadioButton rbtnReclamo;
-    public javax.swing.JRadioButton rbtnServicio;
-    private javax.swing.JScrollPane scrlCrearSolicitud;
-    private javax.swing.JScrollPane scrlTablaEvaluaciones;
-    private javax.swing.JScrollPane scrlTablaSolicitudes;
-    private javax.swing.JScrollPane scrlVerSolicitud;
-    public javax.swing.JTable tbEvaluaciones;
-    public javax.swing.JTable tbSolicitudes;
-    public javax.swing.JTextArea txaDescripcionSolicitud;
-    public javax.swing.JTextArea txaDetalleEvaluacion;
-    public javax.swing.JTextArea txaDetalleSolicitud;
-    public javax.swing.JTextField txtDireccionCompra;
-    public javax.swing.JFormattedTextField txtFechaCompra;
-    public javax.swing.JTextField txtMontoCompra;
+    public javax.swing.JLabel lbTitle;
     // End of variables declaration//GEN-END:variables
 }

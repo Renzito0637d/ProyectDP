@@ -11,9 +11,9 @@ import modelo.Cliente;
 import modelo.Empleado;
 import modelo.Persona;
 import vista.VistaCliente;
-import vista.VistaClientes;
+import vista.VistaCliente;
 import vista.VistaEmpleado;
-import vista.VistaEmpleados;
+import vista.VistaEmpleado;
 import vista.VistaLogin;
 import vista.VistaRegistroCliente;
 
@@ -74,7 +74,7 @@ public class ControladorLogin implements ActionListener {
                 // Evaluar que la busqueda haya sido exitosa
                 if (persona instanceof Cliente cliente && cliente.getCodigoCliente() != -1) {
                     // Abrir la ventana Cliente, pasando el objeto cliente como argumento
-                    VistaClientes vistaC = new VistaClientes();
+                    VistaCliente vistaC = new VistaCliente();
                     ControladorCliente ctrl=new ControladorCliente(vistaC, this, cliente);
                     
                     ctrl.iniciar();

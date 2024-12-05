@@ -1,11 +1,11 @@
 package controlador;
 
 import modelo.Empleado;
-import vista.VistaEmpleados;
+import vista.VistaEmpleado;
 public class EmpleadoFactory {
     
-    public static VistaEmpleados crearVistaEmpleado(Empleado empleado) {
-        VistaEmpleados vistaEmpleado = new VistaEmpleados();
+    public static VistaEmpleado crearVistaEmpleado(Empleado empleado) {
+        VistaEmpleado vistaEmpleado = new VistaEmpleado();
         
         // Mostrar u ocultar pestañas según los permisos del empleado
         if (!empleado.verTabListaClientes()) {
