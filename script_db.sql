@@ -1,9 +1,8 @@
 -- DDL
 -- DROP DATABASE ProyectoTambo;
 -- Crear la base de datos
-CREATE DATABASE ProyectoTamboaaa;
-USE ProyectoTamboaaa;
-
+CREATE DATABASE proyectotamboaaa;
+USE proyectotamboaaa;
 -- --------------------------------------------------------------
 -- Crear tabla Cliente
 CREATE TABLE Cliente(
@@ -148,8 +147,25 @@ FOREIGN KEY (codigo_empleado) REFERENCES Empleado(codigo_empleado);
 
 
 -- --------------------------------------------------------------
-
-
+-- Crear tabla Encuesta
+CREATE TABLE Encuesta(
+	id_encuesta int primary key AUTO_INCREMENT,
+	fecha_hora_llenado datetime null,
+	estado int not null,
+	respuesta1 int not null,
+	respuesta2 int not null,
+	respuesta3 int not null,
+	id_solicitud int not null              -- FK, unique
+);
+-- Llave foránea
+ALTER TABLE Encuesta
+ADD CONSTRAINT fk_encuesta_solicitud
+FOREIGN KEY (id_solicitud) REFERENCES Solicitud(id_solicitud);
+-- Relacion de uno a uno
+ALTER TABLE Encuesta
+ADD CONSTRAINT uniq_solicitud_encuesta
+UNIQUE (id_solicitud);
+-- --------------------------------------------------------------
 
 
 
@@ -269,6 +285,15 @@ VALUES
 ('2024-05-07 14:19:00', 1, 'Enviado por el cliente', 9, null),
 ('2024-05-08 11:00:00', 2, 'Solicitud aceptada. Enviada al área de Calidad', 9, 1),
 ('2024-05-14 13:32:00', 1, 'Enviado por el cliente', 10, null);
+
+
+-- Inserciones Tabla Encuesta
+INSERT INTO Encuesta (fecha_hora_llenado, estado, respuesta1, respuesta2, respuesta3, id_solicitud)
+VALUES
+('2024-04-02 10:38:00', 3, 2, 4, 3, 1),
+('2024-04-30 20:12:00', 3, 3, 2, 4, 2),
+('2024-05-02 21:00:00', 3, 3, 1, 5, 3);
+
 
 ------------------------------------------------------------------------------
 -- PROCEDIMIENTOS ALMECENADOS
@@ -1203,4 +1228,149 @@ BEGIN
 END //
 
 DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE listarSolicitudesPorEncuestayCliente(
+    IN p_estado INT,
+    IN p_codigo_cliente INT
+)
+BEGIN
+    SELECT s.*, m.categoria AS categoria_motivo, m.descripcion AS descripcion_motivo, 
+           e.estado AS estado_encuesta, e.fecha_hora_llenado AS fecha_encuesta, 
+           s.codigo_departamento_evaluador
+    FROM solicitud s
+    INNER JOIN motivo m ON s.id_solicitud = m.id_solicitud
+    INNER JOIN encuesta e ON s.id_solicitud = e.id_solicitud
+    WHERE e.estado = p_estado AND s.codigo_cliente = p_codigo_cliente;
+END//
+
+DELIMITER ;
+
 -- FIN PROC ALM - DAOSolicitud
+
+
+-- PROCEDIMIENTOS ALMACENADO - DAOencuestas
+
+DELIMITER //
+
+CREATE PROCEDURE agregarEncuesta(
+    IN p_fecha_hora_llenado DATETIME,
+    IN p_estado INT,
+    IN p_respuesta1 INT,
+    IN p_respuesta2 INT,
+    IN p_respuesta3 INT,
+    IN p_id_solicitud INT
+)
+BEGIN
+    -- Intentar insertar la encuesta
+    INSERT INTO encuesta (fecha_hora_llenado, estado, respuesta1, respuesta2, respuesta3, id_solicitud) 
+    VALUES (
+        p_fecha_hora_llenado, 
+        p_estado, 
+        p_respuesta1, 
+        p_respuesta2, 
+        p_respuesta3, 
+        p_id_solicitud
+    );
+END//
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE actualizarEncuesta(
+    IN p_fecha_hora_llenado DATETIME,
+    IN p_estado INT,
+    IN p_respuesta1 INT,
+    IN p_respuesta2 INT,
+    IN p_respuesta3 INT,
+    IN p_id_encuesta INT
+)
+BEGIN
+    -- Intentar actualizar la encuesta
+    UPDATE encuesta 
+    SET 
+        fecha_hora_llenado = p_fecha_hora_llenado,
+        estado = p_estado,
+        respuesta1 = p_respuesta1,
+        respuesta2 = p_respuesta2,
+        respuesta3 = p_respuesta3
+    WHERE id_encuesta = p_id_encuesta;
+
+END//
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE eliminarEncuesta(
+    IN p_id_encuesta INT
+)
+BEGIN
+    DELETE FROM encuesta WHERE id_encuesta = p_id_encuesta;
+END//
+
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarEncuestas()
+BEGIN
+    SELECT * FROM encuesta;
+END//
+
+DELIMITER ;
+
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarEncuestasPorEstado(
+    IN p_estado INT
+)
+BEGIN
+    SELECT * FROM encuesta WHERE estado = p_estado;
+END//
+
+DELIMITER ;
+
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE buscarEncuestaPorSolicitud(
+    IN p_id_solicitud INT
+)
+BEGIN
+    SELECT * FROM encuesta WHERE id_solicitud = p_id_solicitud;
+END//
+
+DELIMITER ;
+
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE listarEncuestasPorFechayEstado(
+    IN p_estado INT,
+    IN p_fecha_inicio DATETIME,
+    IN p_fecha_fin DATETIME
+)
+BEGIN
+    SELECT * 
+    FROM encuesta 
+    WHERE estado = p_estado 
+      AND fecha_hora_llenado BETWEEN p_fecha_inicio AND p_fecha_fin;
+END//
+
+DELIMITER ;

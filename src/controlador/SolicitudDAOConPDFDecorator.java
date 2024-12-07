@@ -18,50 +18,52 @@ import modelo.ClienteDAO;
 import modelo.ISolicitudDAO;
 
 public class SolicitudDAOConPDFDecorator implements ISolicitudDAO {
-    
-    private final SolicitudDAO solicitudDAO;
-    private ClienteDAO clienteDAO;
-    
-    public SolicitudDAOConPDFDecorator(SolicitudDAO solicitudDAO) {
-        this.solicitudDAO = solicitudDAO;
-        this.clienteDAO= new ClienteDAO();
-    }
-    
+
+    private final ISolicitudDAO solicitudDAO;
+    private final ClienteDAO clienteDAO;
+
+    public SolicitudDAOConPDFDecorator(ISolicitudDAO solicitudDAO) {
+    this.solicitudDAO = solicitudDAO;
+    this.clienteDAO = new ClienteDAO();
+    System.out.println("Decorador de SolicitudDAO inicializado.");
+}
+
     @Override
     public int agregar(Solicitud solicitud, int codigoCliente) {
         // Llamar al método original para agregar la solicitud en la BD
         int result = solicitudDAO.agregar(solicitud, codigoCliente);
-        
-        if (result == 1) {
+
+        if (result != 1) {
             // Generar PDF si la solicitud fue registrada con éxito
-            generarPDF(solicitud,codigoCliente);
+            boolean pdfGenerated = generarPDF(solicitud, codigoCliente);
+            if (!pdfGenerated) {
+                System.err.println("El PDF no pudo ser generado.");
+            }
         }
-        
+
         return result;
     }
-    
-   private void generarPDF(Solicitud solicitud, int codigoCliente) {
+
+    private boolean generarPDF(Solicitud solicitud, int codigoCliente) {
         Document document = new Document();
         try {
-            // Ruta y nombre del archivo PDF
-// Generar un número aleatorio entre 0 y 999999
-        int randomNumber = (int) (Math.random() * 1000000);
-        
-        // Crear el nombre del archivo con el número aleatorio
-        String fileName = "Solicitud_" + randomNumber + ".pdf";
- 
-            PdfWriter.getInstance(document, new FileOutputStream(fileName));
-            
+            // Generar un nombre de archivo único
+            int randomNumber = (int) (Math.random() * 1000000);
+            String filePath = System.getProperty("user.home") + "/Documents/Solicitud_" + randomNumber + ".pdf";
+
+            System.out.println("Generando PDF en la ruta: " + filePath);
+            PdfWriter.getInstance(document, new FileOutputStream(filePath));
+
             // Abrir el documento
             document.open();
-            
-            // Añadir contenido al PDF
-            document.add(new Paragraph("Solicitud de " + solicitud.getTipoSolicitud()));
-            document.add(new Paragraph("Fecha de Ingreso: " + solicitud.getFechaIngreso().toString()));           
 
-            // Obtener el cliente utilizando el ClienteDAO
+            // Añadir contenido al PDF
+            document.add(new Paragraph("Solicitud de " + (solicitud.getTipoSolicitud() != null ? solicitud.getTipoSolicitud() : "N/A")));
+            document.add(new Paragraph("Fecha de Ingreso: " + (solicitud.getFechaIngreso() != null ? solicitud.getFechaIngreso().toString() : "N/A")));
+
+            // Obtener y añadir los datos del cliente
             Cliente cliente = clienteDAO.buscarPorCodigo(codigoCliente);
-            if (cliente.getCodigoCliente() != -1) { // Verificar que el cliente se encontró
+            if (cliente != null && cliente.getCodigoCliente() != -1) {
                 document.add(new Paragraph("Cliente: " + cliente.getNombres() + " " + cliente.getApellidos()));
                 document.add(new Paragraph("Email: " + cliente.getEmail()));
                 document.add(new Paragraph("Teléfono: " + cliente.getTelefono()));
@@ -70,42 +72,45 @@ public class SolicitudDAOConPDFDecorator implements ISolicitudDAO {
                 document.add(new Paragraph("Cliente no encontrado."));
             }
 
-            document.add(new Paragraph("Estado Actual: En espera"));
-            document.add(new Paragraph("Descripción: " + solicitud.getDescripcion()));
-            
-            // Detalles de la compra
-            document.add(new Paragraph("Detalles de la Compra:"));
-            document.add(new Paragraph("Fecha de la compra: " + solicitud.getCompra().getFecha()));
-            document.add(new Paragraph("Monto reclamado: " + solicitud.getCompra().getMontoReclamado()));
-            document.add(new Paragraph("Canal de Compra: " + solicitud.getCompra().getCanalCompra()));
-            
+            // Añadir detalles de la compra
+            if (solicitud.getCompra() != null) {
+                document.add(new Paragraph("Detalles de la Compra:"));
+                document.add(new Paragraph("Fecha de la compra: " + (solicitud.getCompra().getFecha() != null ? solicitud.getCompra().getFecha() : "N/A")));
+                document.add(new Paragraph("Monto reclamado: " + solicitud.getCompra().getMontoReclamado()));
+                document.add(new Paragraph("Canal de Compra: " + (solicitud.getCompra().getCanalCompra() != null ? solicitud.getCompra().getCanalCompra() : "N/A")));
+            } else {
+                document.add(new Paragraph("No se registraron detalles de la compra."));
+            }
+
             // Cerrar el documento
             document.close();
-            
-            System.out.println("PDF generado exitosamente: " + fileName);
-            
+            System.out.println("PDF generado exitosamente en: " + filePath);
+            return true;
+
         } catch (DocumentException | IOException e) {
+            System.err.println("Error al generar el PDF: " + e.getMessage());
             e.printStackTrace();
+            return false;
         }
     }
 
     @Override
     public int actualizar(Solicitud bean) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return solicitudDAO.actualizar(bean);
     }
 
     @Override
     public void eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        solicitudDAO.eliminar(id);
     }
 
     @Override
     public List<Solicitud> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return solicitudDAO.listarTodos();
     }
 
     @Override
     public List<Solicitud> listarPorCliente(int codigoCliente) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return solicitudDAO.listarPorCliente(codigoCliente);
     }
 }

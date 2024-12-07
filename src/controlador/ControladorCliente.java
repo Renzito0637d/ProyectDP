@@ -93,7 +93,7 @@ public class ControladorCliente implements ActionListener {
         }
         if (e.getSource() == vista.btnEncuestas) {
             // Cambiar a PanelEncuestas
-            PanelInterface nuevoPanel = new PanelEncuestas();
+            PanelInterface nuevoPanel = new PanelEncuestas(cliente);
             gestorDePaneles.setPanel(nuevoPanel);
             gestorDePaneles.cambiarPanel();
             setSelectedButton(vista.btnEncuestas);

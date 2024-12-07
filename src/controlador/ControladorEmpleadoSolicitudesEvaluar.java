@@ -15,6 +15,8 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Departamento;
 import modelo.DepartamentoDAO;
 import modelo.Empleado;
+import modelo.Encuesta;
+import modelo.EncuestaDAO;
 import modelo.Evaluacion;
 import modelo.EvaluacionDAO;
 import modelo.Solicitud;
@@ -32,6 +34,7 @@ public class ControladorEmpleadoSolicitudesEvaluar implements ActionListener,Mou
     SolicitudDAO solicitudDAO;
     EvaluacionDAO evaluacionDAO;
     DepartamentoDAO departamentoDAO;
+    EncuestaDAO encuestaDAO;
     
     // Table models
     DefaultTableModel modeloSol;
@@ -255,6 +258,18 @@ public class ControladorEmpleadoSolicitudesEvaluar implements ActionListener,Mou
                 sol.setEstadoActual(estado);
                 solicitudDAO.actualizar(sol);
 
+                // Si el estado de la evaluación cambia a FINALIZADO, el proceso ha terminado y
+                // debe activarse la Encuesta de la solicitud para el cliente
+                if (estado == Evaluacion.FINALIZADO) {
+                    // Recuperar la encuesta
+                    encuestaDAO = new EncuestaDAO();
+                    Encuesta encuesta = encuestaDAO.buscarPorSolicitud(idSolicitud);
+                    // Activar la encuesta, en caso aún esté inactiva
+                    if (encuesta.getEstado() == Encuesta.INACTIVA) {
+                        encuesta.activarEncuesta();
+                        encuestaDAO.actualizar(encuesta);
+                    }
+                }
             }
             
             limpiarTodo();            

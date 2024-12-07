@@ -13,12 +13,13 @@ public class Solicitud implements EstadoVariante{
     private int estadoActual;
     // Relaciones
     private CompraReclamada compra;                  // Composicion
+    private Encuesta encuesta;                       // Composicion
     private Departamento departamentoEvaluador;      // Asociacion
     public ArrayList<Evaluacion> listaEvaluaciones; // Agregacion
     
     // Constructor    
     public Solicitud() {    }
-    public Solicitud(int idSolicitud, String tipoSolicitud, String categoriaMotivo, String descripcion, LocalDate fechaIngreso, int estadoActual, CompraReclamada compra, Departamento departamentoEvaluador) {
+    public Solicitud(int idSolicitud, String tipoSolicitud, String categoriaMotivo, String descripcion, LocalDate fechaIngreso, int estadoActual, CompraReclamada compra, Encuesta encuesta, Departamento departamentoEvaluador) {
         this.idSolicitud = idSolicitud;
         this.tipoSolicitud = tipoSolicitud;
         this.categoriaMotivo = categoriaMotivo;
@@ -26,8 +27,9 @@ public class Solicitud implements EstadoVariante{
         this.fechaIngreso = fechaIngreso;
         this.estadoActual = estadoActual;
         this.compra = compra;
+        this.encuesta = encuesta;
         this.departamentoEvaluador = departamentoEvaluador;
-    }    
+    }       
     
     // Encapsulamiento
     public int getIdSolicitud() {        return idSolicitud;    }
@@ -44,6 +46,8 @@ public class Solicitud implements EstadoVariante{
     public void setEstadoActual(int estadoActual) {        this.estadoActual = estadoActual;    }
     public CompraReclamada getCompra() {        return compra;    }
     public void setCompra(CompraReclamada compra) {        this.compra = compra;    }
+    public Encuesta getEncuesta() {        return encuesta;    }
+    public void setEncuesta(Encuesta encuesta) {        this.encuesta = encuesta;    }
     public Departamento getDepartamentoEvaluador() {        return departamentoEvaluador;    }
     public void setDepartamentoEvaluador(Departamento departamentoEvaluador) {        this.departamentoEvaluador = departamentoEvaluador;    }    
     

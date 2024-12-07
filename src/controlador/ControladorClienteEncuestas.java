@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import modelo.Cliente;
 import vista.VistaClienteEncuestas;
 import vista.VistaClienteEncuestasCompletar;
 import vista.VistaClienteEncuestasLista;
@@ -19,9 +20,11 @@ import vista.VistaClienteEncuestasLista;
  */
 public class ControladorClienteEncuestas implements ActionListener{
     VistaClienteEncuestas vista;
+    Cliente cliente;
 
-    public ControladorClienteEncuestas(VistaClienteEncuestas vista) {
+    public ControladorClienteEncuestas(VistaClienteEncuestas vista,Cliente cliente) {
         this.vista=vista;
+        this.cliente=cliente;
         vista.btnLista.addActionListener(this);
         vista.btnCompletar.addActionListener(this);
         vista.btnOtros.addActionListener(this);
@@ -56,6 +59,7 @@ public class ControladorClienteEncuestas implements ActionListener{
         if(e.getSource()==vista.btnLista){
             VistaClienteEncuestasLista lis=new VistaClienteEncuestasLista();
             CambiarPanel(lis);
+            new ControladorClienteEncuestasLista(lis, cliente);
             setSelectedButton(vista.btnLista);
         }
         if(e.getSource()==vista.btnCompletar){

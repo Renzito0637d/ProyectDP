@@ -20,6 +20,7 @@ public class SolicitudDAO implements ISolicitudDAO{
     ResultSet rs;
     
     CompraDAO compraDAO;
+    EncuestaDAO encuestaDAO;
     DepartamentoDAO departamentoDAO;
     EvaluacionDAO evaluacionDAO;
     DateTimeFormatter fmtSQL = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -30,50 +31,66 @@ public class SolicitudDAO implements ISolicitudDAO{
     String sql = "{CALL agregarSolicitud(?, ?, ?, ?, ?, ?)}";
 
     try {
-        // Conectar
+        // Conectar a la base de datos
         con = conectar.obtenerConexion();
-        // Se prepara la sentencia como CallableStatement
-        CallableStatement cs = (CallableStatement) con.prepareCall(sql);
-        
-        // Establecer parámetros de entrada
+
+        // Preparar el CallableStatement
+        CallableStatement cs = (CallableStatement)con.prepareCall(sql);
+
+        // Establecer los parámetros de entrada
         cs.setString(1, bean.getTipoSolicitud());
         cs.setString(2, bean.getFechaIngreso().format(fmtSQL));
         cs.setInt(3, bean.getEstadoActual());
         cs.setInt(4, codigoCliente);
         cs.setInt(5, 1); // Código de departamento por defecto
 
-        // Registrar parámetro de salida
+        // Registrar el parámetro de salida
         cs.registerOutParameter(6, java.sql.Types.INTEGER);
 
-        // Ejecutar el procedimiento
+        // Ejecutar el procedimiento almacenado
         cs.execute();
 
-        // Recuperar la clave primaria generada
+        // Obtener el ID generado para la solicitud
         int idSolicitud = cs.getInt(6);
 
-        // Insertar fila en la tabla Motivo
-        agregarMotivo(bean, idSolicitud);
-        
-        // Insertar fila en la tabla CompraReclamada
-        compraDAO = new CompraDAO();
-        int resCompra = compraDAO.agregar(bean.getCompra(), idSolicitud);
-        
-        // Insertar 1 fila en la tabla Evaluacion
-        Evaluacion eval = new Evaluacion();
-        eval.setFechaHoraActual();
-        eval.setEstado(Evaluacion.EN_ESPERA);
-        eval.setDescripcion("Enviado por el cliente");
-        eval.setEmpleado(null);
-        evaluacionDAO = new EvaluacionDAO();
-        int resEvaluacion = evaluacionDAO.agregar(eval, idSolicitud);
+        // Validar que se haya generado el ID
+        if (idSolicitud > 0) {
+            // Insertar en la tabla Motivo
+            agregarMotivo(bean, idSolicitud);
 
-        // Retornar la suma de las inserciones (si lo deseas)
-        return 1; // O cualquier otra lógica que necesites
+            // Insertar en la tabla CompraReclamada
+            compraDAO = new CompraDAO();
+            compraDAO.agregar(bean.getCompra(), idSolicitud);
 
+            // Insertar en la tabla Encuesta
+            Encuesta encuesta = new Encuesta();
+            encuesta.setFechaHoraLlenado(null); // Fecha vacía
+            encuesta.setEstado(Encuesta.INACTIVA); // Estado inicial
+            encuesta.setRespuesta1(1);
+            encuesta.setRespuesta2(1);
+            encuesta.setRespuesta3(1);
+            encuestaDAO = new EncuestaDAO();
+            encuestaDAO.agregar(encuesta, idSolicitud);
+
+            // Insertar en la tabla Evaluación
+            Evaluacion eval = new Evaluacion();
+            eval.setFechaHoraActual(); // Fecha actual
+            eval.setEstado(Evaluacion.EN_ESPERA); // Estado inicial
+            eval.setDescripcion("Enviado por el cliente");
+            eval.setEmpleado(null); // Sin empleado asignado
+            evaluacionDAO = new EvaluacionDAO();
+            evaluacionDAO.agregar(eval, idSolicitud);
+        }
+
+        // Retornar el ID de la solicitud generada
+        return idSolicitud;
     } catch (SQLException e) {
-        return e.getErrorCode();
+        System.err.println(e.getMessage());
+        return e.getErrorCode(); // Retornar el código de error en caso de fallo
     }
 }
+
+
 
 
     
@@ -397,6 +414,48 @@ public class SolicitudDAO implements ISolicitudDAO{
                 bean.setCompra(compraDAO.buscarPorSolicitud(bean.getIdSolicitud()));
                 // Recuperar DepartamentoEvaluador
                 codigoDepartamento = rs.getInt(6);
+                bean.setDepartamentoEvaluador(departamentoDAO.buscarPorCodigo(codigoDepartamento));
+                // Agrega el objeto formado a la lista
+                lista.add(bean);
+            }
+            con.close();
+        }
+        catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }        
+        return lista;
+    }
+    
+    public List listarPorEncuestayCliente(int estado, int codigoCliente) {
+        List<Solicitud> lista = new ArrayList<>();
+        String sql = "{ CALL listarSolicitudesPorEncuestayCliente(?, ?) }";
+        
+        try {
+            // Conecta y prepara la consulta
+            con = conectar.obtenerConexion();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, estado);
+            ps.setInt(2, codigoCliente);
+            // Ejecuta la consulta
+            rs = ps.executeQuery();
+            compraDAO = new CompraDAO();
+            encuestaDAO = new EncuestaDAO();
+            departamentoDAO = new DepartamentoDAO();
+            while (rs.next()) { 
+                // Convierte el resultado de la consulta en un objeto
+                Solicitud bean = new Solicitud();
+                bean.setIdSolicitud(rs.getInt(1));
+                bean.setTipoSolicitud(rs.getString(2));
+                bean.setFechaIngreso(LocalDate.parse(rs.getString(3), fmtSQL));
+                bean.setEstadoActual(rs.getInt(4));
+                bean.setCategoriaMotivo(rs.getString(8));
+                bean.setDescripcion(rs.getString(9));                
+                // Recuperar CompraReclamada
+                bean.setCompra(compraDAO.buscarPorSolicitud(bean.getIdSolicitud()));
+                // Recuperar Encuesta
+                bean.setEncuesta(encuestaDAO.buscarPorSolicitud(bean.getIdSolicitud()));
+                // Recuperar DepartamentoEvaluador
+                int codigoDepartamento = rs.getInt(6);
                 bean.setDepartamentoEvaluador(departamentoDAO.buscarPorCodigo(codigoDepartamento));
                 // Agrega el objeto formado a la lista
                 lista.add(bean);

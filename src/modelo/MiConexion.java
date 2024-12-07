@@ -20,7 +20,7 @@ public class MiConexion {
     Connection con;   
     
     public Connection obtenerConexion(){
-        String bd = "ProyectoTamboaaa";
+        String bd = "proyectotamboaaa";
         String url = "jdbc:mysql://localhost/"+bd;
         String user = "root";
         String password = "";

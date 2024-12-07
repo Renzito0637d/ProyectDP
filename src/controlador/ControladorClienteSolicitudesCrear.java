@@ -89,29 +89,34 @@ public class ControladorClienteSolicitudesCrear implements ActionListener {
     }
 
     private void crearSolicitud() {
-        if (!validarFormulario()) return;
-
-        CompraReclamada compra = vista.rbtnServicio.isSelected()
-                ? crearCompraServicio()
-                : crearCompraProducto();
-
-        Solicitud solicitud = new Solicitud();
-        solicitud.setTipoSolicitud(vista.rbtnQueja.isSelected() ? "QUEJA" : "RECLAMO");
-        solicitud.setCategoriaMotivo(vista.cbxMotivoSolicitud.getSelectedItem().toString());
-        solicitud.setDescripcion(vista.txaDescripcionSolicitud.getText());
-        solicitud.setFechaIngresoActual();
-        solicitud.setEstadoActual(Solicitud.EN_ESPERA);
-        solicitud.setCompra(compra);
-
-        ISolicitudDAO solicitudDAO = new SolicitudDAOConPDFDecorator(new SolicitudDAO());
-        int res = solicitudDAO.agregar(solicitud, cliente.getCodigoCliente());        
-        if (res == 1) {
-            mostrarMensaje("Solicitud registrada exitosamente y PDF generado.");
-        } else {
-            mostrarMensaje("Error al registrar la solicitud. Código: " + res);
-        }
-        limpiarFormularioCrearSolicitud();
+    System.out.println("Iniciando creación de solicitud...");
+    if (!validarFormulario()) {
+        System.out.println("Formulario inválido. Cancelando solicitud.");
+        return;
     }
+
+    CompraReclamada compra = vista.rbtnServicio.isSelected()
+            ? crearCompraServicio()
+            : crearCompraProducto();
+
+    Solicitud solicitud = new Solicitud();
+    solicitud.setTipoSolicitud(vista.rbtnQueja.isSelected() ? "QUEJA" : "RECLAMO");
+    solicitud.setCategoriaMotivo(vista.cbxMotivoSolicitud.getSelectedItem().toString());
+    solicitud.setDescripcion(vista.txaDescripcionSolicitud.getText());
+    solicitud.setFechaIngresoActual();
+    solicitud.setEstadoActual(Solicitud.EN_ESPERA);
+    solicitud.setCompra(compra);
+
+    ISolicitudDAO solicitudDAO = new SolicitudDAOConPDFDecorator(new SolicitudDAO());
+    int res = solicitudDAO.agregar(solicitud, cliente.getCodigoCliente());
+    if (res != 1) {
+        mostrarMensaje("Solicitud registrada exitosamente y PDF generado.");
+    } else {
+        mostrarMensaje("Error al registrar la solicitud. Código: " + res);
+    }
+    limpiarFormularioCrearSolicitud();
+}
+
 
     // Métodos de validacion
     private boolean validarFormulario() {
