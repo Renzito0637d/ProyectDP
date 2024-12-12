@@ -67,6 +67,7 @@ public class ControladorClienteCuenta implements ActionListener{
         if(e.getSource()==vista.btnActualizar){
             VistaClienteCuentaActualizar actu=new VistaClienteCuentaActualizar();
             CambiarPanel(actu);
+            new ControladorClienteCuentaActualizar(actu, cliente, ctlCliente);
             setSelectedButton(vista.btnActualizar);
         }
         if(e.getSource()==vista.btnEliminar){

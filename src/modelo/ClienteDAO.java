@@ -42,29 +42,29 @@ public class ClienteDAO {
     
     // Update
     public int actualizar(Cliente bean) {
-        String sql = "{CALL ActualizarCliente(?, ?, ?, ?, ?, ?, ?, ?)}";
-        
-        try {
-            // Conectar
-            con = conectar.obtenerConexion();
-            // Convierte el objeto en una sentencia SQL de update
-            ps = con.prepareStatement(sql);            
-            ps.setString(1, bean.getNombres());
-            ps.setString(2, bean.getApellidos());
-            ps.setString(3, bean.getEmail());
-            ps.setString(4, bean.getTelefono());
-            ps.setString(5, bean.getUsuario());
-            ps.setString(6, bean.getClave());
-            ps.setString(7, bean.getDireccion());            
-            ps.setInt(8, bean.getCodigoCliente());
+    String sql = "{CALL ActualizarCliente(?, ?, ?, ?, ?, ?, ?, ?)}";
+    try (Connection con = conectar.obtenerConexion();
+         PreparedStatement ps = con.prepareCall(sql)) {
 
-            // Ejecuta el update y devuelve el número de filas alteradas (debería ser 1) 
-            return ps.executeUpdate(); // 1
-        }
-        catch (SQLException e) {
-            return -1;
-        }
+        ps.setString(2, bean.getNombres());
+        ps.setString(3, bean.getApellidos());
+        ps.setString(4, bean.getEmail());
+        ps.setString(5, bean.getTelefono());
+        ps.setString(6, bean.getUsuario());
+        ps.setString(7, bean.getClave());
+        ps.setString(8, bean.getDireccion());
+        ps.setInt(1, bean.getCodigoCliente());
+
+        int rowsAffected = ps.executeUpdate(); // Devuelve las filas afectadas
+        System.out.println("Filas afectadas: " + rowsAffected);
+        return rowsAffected;
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return e.getErrorCode(); // Devuelve el código de error SQL
     }
+}
+
     
     // Delete
     public int eliminar(int id) {

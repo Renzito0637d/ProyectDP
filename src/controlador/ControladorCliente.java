@@ -25,6 +25,7 @@ public class ControladorCliente implements ActionListener {
         vista.btnCuenta.addActionListener(this);
         vista.btnSolicitudes.addActionListener(this);
         vista.btnEncuestas.addActionListener(this);
+        vista.btnSalir.addActionListener(this);
         vista.btnLimparPanel.addActionListener(this);
 
         // Inicializar el gestor de paneles con el primer panel (por ejemplo, PanelSolicitudes)
@@ -100,6 +101,10 @@ public class ControladorCliente implements ActionListener {
         }
         if (e.getSource() == vista.btnSalir) {
             salir();
+        }
+        if(e.getSource()==vista.btnLimparPanel){
+            VistaLimpia limp=new VistaLimpia();
+            CambiarPanel(limp);
         }
     }
 }

@@ -41,7 +41,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         lbTitle = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnSalir = new javax.swing.JButton();
-        btnSalir1 = new javax.swing.JButton();
+        btnLimpiarPanel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 0, 153));
@@ -56,7 +56,7 @@ public class VistaEmpleado extends javax.swing.JFrame {
         );
         PanelCambioLayout.setVerticalGroup(
             PanelCambioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 348, Short.MAX_VALUE)
+            .addGap(0, 330, Short.MAX_VALUE)
         );
 
         jPanel2.setBackground(new java.awt.Color(153, 0, 153));
@@ -147,15 +147,15 @@ public class VistaEmpleado extends javax.swing.JFrame {
             }
         });
 
-        btnSalir1.setBackground(new java.awt.Color(153, 0, 153));
-        btnSalir1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSalir1.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir1.setText("Limpiar Panel");
-        btnSalir1.setBorder(null);
-        btnSalir1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSalir1.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpiarPanel.setBackground(new java.awt.Color(153, 0, 153));
+        btnLimpiarPanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLimpiarPanel.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiarPanel.setText("Limpiar Panel");
+        btnLimpiarPanel.setBorder(null);
+        btnLimpiarPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLimpiarPanel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalir1ActionPerformed(evt);
+                btnLimpiarPanelActionPerformed(evt);
             }
         });
 
@@ -166,17 +166,17 @@ public class VistaEmpleado extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(btnSalir1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
+                .addComponent(btnLimpiarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalir1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                    .addComponent(btnLimpiarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -195,7 +195,8 @@ public class VistaEmpleado extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addComponent(PanelCambio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -209,9 +210,9 @@ public class VistaEmpleado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEmpleadosActionPerformed
 
-    private void btnSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir1ActionPerformed
+    private void btnLimpiarPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarPanelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalir1ActionPerformed
+    }//GEN-LAST:event_btnLimpiarPanelActionPerformed
     private void SetImageLabel(JLabel labelname, String root){
 	ImageIcon image=new ImageIcon(root);
 	Icon icon =new ImageIcon(
@@ -262,8 +263,8 @@ public class VistaEmpleado extends javax.swing.JFrame {
     public javax.swing.JPanel PanelCambio;
     public javax.swing.JButton btnClientes;
     public javax.swing.JButton btnEmpleados;
+    public javax.swing.JButton btnLimpiarPanel;
     public javax.swing.JButton btnSalir;
-    public javax.swing.JButton btnSalir1;
     public javax.swing.JButton btnSolicitudes;
     public javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

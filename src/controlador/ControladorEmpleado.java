@@ -13,6 +13,7 @@ import vista.VistaEmpleadoClientes;
 import vista.VistaEmpleadoEmpleados;
 import vista.VistaEmpleadoSolicitudes;
 import vista.VistaEmpleado;
+import vista.VistaLimpia;
 
 /**
  *
@@ -37,6 +38,7 @@ public class ControladorEmpleado implements ActionListener{
         vista.btnClientes.addActionListener(this);
         vista.btnEmpleados.addActionListener(this);
         vista.btnSalir.addActionListener(this);
+        vista.btnLimpiarPanel.addActionListener(this);
         
         VistaEmpleadoSolicitudes soli=new VistaEmpleadoSolicitudes();
         CambiarPanel(soli);    
@@ -112,6 +114,10 @@ public class ControladorEmpleado implements ActionListener{
         if(e.getSource()==vista.btnSalir){
             salir();
             setSelectedButton(vista.btnSalir);
+        }
+        if(e.getSource()==vista.btnLimpiarPanel){
+            VistaLimpia limp=new VistaLimpia();
+            CambiarPanel(limp);
         }
     }
 }
