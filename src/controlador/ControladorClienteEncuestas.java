@@ -31,6 +31,7 @@ public class ControladorClienteEncuestas implements ActionListener{
         
         VistaClienteEncuestasLista lis=new VistaClienteEncuestasLista();
         CambiarPanel(lis);
+        new ControladorClienteEncuestasLista(lis, cliente);
         setSelectedButton(vista.btnLista);
     }
     public void CambiarPanel(JPanel box) {
@@ -65,6 +66,7 @@ public class ControladorClienteEncuestas implements ActionListener{
         if(e.getSource()==vista.btnCompletar){
             VistaClienteEncuestasCompletar com=new VistaClienteEncuestasCompletar();
             CambiarPanel(com);
+            new ControladorClienteEncuestasCompletar(com, cliente);
             setSelectedButton(vista.btnCompletar);
         }
         if(e.getSource()==vista.btnOtros){

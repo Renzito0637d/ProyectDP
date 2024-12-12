@@ -49,7 +49,7 @@ public class SolicitudDAOConPDFDecorator implements ISolicitudDAO {
         try {
             // Generar un nombre de archivo único
             int randomNumber = (int) (Math.random() * 1000000);
-            String filePath = System.getProperty("user.home") + "/Documents/Solicitud_" + randomNumber + ".pdf";
+            String filePath = System.getProperty("user.home") + "/Downloads/Solicitud_" + randomNumber + ".pdf";
 
             System.out.println("Generando PDF en la ruta: " + filePath);
             PdfWriter.getInstance(document, new FileOutputStream(filePath));

@@ -27,8 +27,7 @@ public class ControladorClienteEncuestasLista implements ActionListener{
     Cliente cliente;
     
     // DAO
-    SolicitudDAO solicitudDAO;        
-    EncuestaDAO encuestaDAO;
+    SolicitudDAO solicitudDAO;            
     
     // Table models
     DefaultTableModel modeloEnc;
